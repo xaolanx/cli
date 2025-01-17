@@ -39,6 +39,7 @@ function handle-window -a address workspace
 end
 
 if set -q _flag_d
+    log 'Daemon started'
     socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read line
         switch $line
             case 'openwindow*'

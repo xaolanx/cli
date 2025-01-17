@@ -5,15 +5,17 @@ cd (dirname (realpath (status filename))) || exit
 . ./util.fish
 
 if test "$argv[1]" = shell
-    if contains 'caelestia' (astal -l)
-        if test -n "$argv[2..]"
+    # Start shell if no args
+    if test -z "$argv[2..]"
+        set -q CAELESTIA_SHELL_DIR && set shell_dir $CAELESTIA_SHELL_DIR || set shell_dir ~/.config/caelestia/shell
+        $shell_dir/run.fish
+    else
+        if contains 'caelestia' (astal -l)
             log "Sent command '$argv[2..]' to shell"
             astal -i caelestia $argv[2..]
         else
-            warn 'No args given, ignoring'
+            warn 'Shell unavailable'
         end
-    else
-        warn 'Shell unavailable'
     end
     exit
 end
@@ -45,7 +47,7 @@ echo
 echo 'COMMAND := help | shell | workspace-action | change-wallpaper'
 echo
 echo '  help: show this help message'
-echo '  shell: send a message to the shell'
+echo '  shell: start the shell or message it'
 echo '  screenshot: take a screenshot'
 echo '  workspace-action: execute a Hyprland workspace dispatcher in the current group'
 echo '  change-wallpaper: change the wallpaper'
