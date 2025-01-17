@@ -18,6 +18,12 @@ if test "$argv[1]" = shell
     exit
 end
 
+if test "$argv[1]" = toggle
+    set -l valid_toggles communication music sysmon specialws
+    contains "$argv[2]" $valid_toggles && ./toggles/$argv[2].fish || error "Invalid toggle: $argv[2]"
+    exit
+end
+
 if test "$argv[1]" = screenshot
     ./screenshot.fish $argv[2..]
     exit
