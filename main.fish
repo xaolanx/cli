@@ -18,6 +18,11 @@ if test "$argv[1]" = shell
     exit
 end
 
+if test "$argv[1]" = screenshot
+    ./screenshot.fish $argv[2..]
+    exit
+end
+
 if test "$argv[1]" = workspace-action
     ./workspace-action.sh $argv[2..]
     exit

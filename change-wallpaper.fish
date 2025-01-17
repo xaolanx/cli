@@ -31,7 +31,7 @@ if set -q _flag_h
     echo '    -F, --no-filter               Do not filter by size'
     echo '    -t, --threshold <threshold>   The minimum percentage of the size the image must be greater than to be selected (default '$threshold')'
 else
-    set -q XDG_CACHE_HOME && set cache_dir $XDG_CACHE_HOME/caelestia/wallpaper || set cache_dir ~/.cache/caelestia/wallpaper
+    set cache_dir $CACHE/wallpaper
 
     # The path to the last chosen wallpaper
     set last_wallpaper_path "$cache_dir/last.txt"
