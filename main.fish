@@ -33,6 +33,11 @@ if test "$argv[1]" = change-wallpaper
     exit
 end
 
+if test "$argv[1]" = pip
+    ./pip.fish $argv[2..]
+    exit
+end
+
 test "$argv[1]" != help && error "Unknown command: $argv[1]"
 
 echo 'Usage: caelestia COMMAND'
