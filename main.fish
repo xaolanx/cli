@@ -40,11 +40,13 @@ end
 
 test "$argv[1]" != help && error "Unknown command: $argv[1]"
 
-echo 'Usage: caelestia COMMAND'
+echo 'Usage: caelestia COMMAND [ ...args ]'
 echo
 echo 'COMMAND := help | shell | workspace-action | change-wallpaper'
 echo
 echo '  help: show this help message'
 echo '  shell: send a message to the shell'
+echo '  screenshot: take a screenshot'
 echo '  workspace-action: execute a Hyprland workspace dispatcher in the current group'
 echo '  change-wallpaper: change the wallpaper'
+echo '  pip: move the focused window into picture in picture mode or start the pip daemon'
