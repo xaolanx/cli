@@ -90,7 +90,7 @@ else
     # Change the wallpaper and output change if success
     hyprctl hyprpaper preload $chosen_wallpaper > /dev/null
     for monitor in (hyprctl -j monitors | jq -r '.[].name')
-        hyprctl hyprpaper wallpaper "$monitor,$chosen_wallpaper" && log "Changed wallpaper on $monitor to $chosen_wallpaper" > /dev/null
+        hyprctl hyprpaper wallpaper "$monitor,$chosen_wallpaper" > /dev/null && log "Changed wallpaper on $monitor to $chosen_wallpaper"
     end
 
     # Unload unused wallpapers to preserve memory
