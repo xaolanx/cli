@@ -1,20 +1,18 @@
-function log -a text
-    set_color cyan
+function _out -a colour -a level -a text
+    set_color $colour
     # Pass arguments other than text to echo
-    echo $argv[2..] -- ":: $text"
+    echo $argv[4..] -- ":: [$level] $text"
     set_color normal
+end
+
+function log -a text
+    _out cyan LOG $text $argv[2..]
 end
 
 function warn -a text
-    set_color yellow
-    # Pass arguments other than text to echo
-    echo $argv[2..] -- ":: $text"
-    set_color normal
+    _out yellow WARN $text $argv[2..]
 end
 
 function error -a text
-    set_color red
-    # Pass arguments other than text to echo
-    echo $argv[2..] -- ":: $text"
-    set_color normal
+    _out red ERROR $text $argv[2..]
 end
