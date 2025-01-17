@@ -15,6 +15,7 @@ end
 
 function error -a text
     _out red ERROR $text $argv[2..]
+    return 1
 end
 
 set -q XDG_CACHE_HOME && set CACHE $XDG_CACHE_HOME/caelestia || set CACHE $HOME/.cache/caelestia
