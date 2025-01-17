@@ -24,23 +24,17 @@ if test "$argv[1]" = toggle
     exit
 end
 
-if test "$argv[1]" = screenshot
-    ./screenshot.fish $argv[2..]
-    exit
-end
-
 if test "$argv[1]" = workspace-action
     ./workspace-action.sh $argv[2..]
     exit
 end
 
-if test "$argv[1]" = change-wallpaper
-    ./change-wallpaper.fish $argv[2..]
-    exit
-end
+set valid_subcommands screenshot workspace-action \
+    clipboard clipboard-delete emoji-picker \
+    change-wallpaper pip
 
-if test "$argv[1]" = pip
-    ./pip.fish $argv[2..]
+if contains "$argv[1]" $valid_subcommands
+    ./$argv[1].fish $argv[2..]
     exit
 end
 
