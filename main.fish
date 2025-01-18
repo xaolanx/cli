@@ -31,6 +31,12 @@ if test "$argv[1]" = workspace-action
     exit
 end
 
+if test "$argv[1]" = scheme
+    set -l valid_schemes mocha macchiato frappe latte
+    contains "$argv[2]" $valid_schemes && echo -n $argv[2] > $CACHE/scheme/current.txt || error "Invalid scheme: $argv[2]"
+    exit
+end
+
 set valid_subcommands screenshot workspace-action \
     clipboard clipboard-delete emoji-picker \
     wallpaper pip
@@ -52,3 +58,7 @@ echo '  screenshot: take a screenshot'
 echo '  workspace-action: execute a Hyprland workspace dispatcher in the current group'
 echo '  change-wallpaper: change the wallpaper'
 echo '  pip: move the focused window into picture in picture mode or start the pip daemon'
+
+# Set exit status
+test "$argv[1]" = help
+exit
