@@ -7,7 +7,7 @@ set tmp_file "$CACHE/screenshots/$(date +'%Y%m%d%H%M%S')"
 grim $argv $tmp_file; and wl-copy < $tmp_file; or exit 1
 
 set action (notify-send -i 'image-x-generic-symbolic' -h "STRING:image-path:$tmp_file" \
-    -a (basename (status current-filename)) --action='open=Open' --action='save=Save' \
+    -a 'caelestia-screenshot' --action='open=Open' --action='save=Save' \
         'Screenshot taken' "Screenshot stored in $tmp_file and copied to clipboard")
 switch $action
     case 'open'

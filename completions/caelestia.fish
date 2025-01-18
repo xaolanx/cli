@@ -1,6 +1,6 @@
 set -l seen '__fish_seen_subcommand_from'
 set -l has_opt '__fish_contains_opt'
-set -l commands help shell toggle workspace-action scheme screenshot clipboard clipboard-delete emoji-picker wallpaper pip
+set -l commands help shell toggle workspace-action scheme screenshot record clipboard clipboard-delete emoji-picker wallpaper pip
 set -l not_seen "not $seen $commands"
 
 # Disable file completions
@@ -13,6 +13,7 @@ complete -c caelestia -n $not_seen -a 'toggle' -d 'Toggle a special workspace'
 complete -c caelestia -n $not_seen -a 'workspace-action' -d 'Exec a dispatcher in the current group'
 complete -c caelestia -n $not_seen -a 'scheme' -d 'Switch the current colour scheme'
 complete -c caelestia -n $not_seen -a 'screenshot' -d 'Take a screenshot'
+complete -c caelestia -n $not_seen -a 'record' -d 'Take a screen recording'
 complete -c caelestia -n $not_seen -a 'clipboard' -d 'Open clipboard history'
 complete -c caelestia -n $not_seen -a 'clipboard-delete' -d 'Delete from clipboard history'
 complete -c caelestia -n $not_seen -a 'emoji-picker' -d 'Open the emoji picker'
@@ -46,6 +47,15 @@ complete -c caelestia -n "$seen workspace-action && not $seen $commands" -a "$co
 # Scheme
 set -l commands mocha macchiato frappe latte
 complete -c caelestia -n "$seen scheme && not $seen $commands" -a "$commands"
+
+# Record
+set -l not_seen "$seen record && not $has_opt -s h help"
+complete -c caelestia -n "$not_seen && not $has_opt -s s sound && not $has_opt -s r region && not $has_opt -s c compression && not $has_opt -s H hwaccel" \
+    -s 'h' -l 'help' -d 'Show help'
+complete -c caelestia -n "$not_seen && not $has_opt -s s sound" -s 's' -l 'sound' -d 'Capture sound'
+complete -c caelestia -n "$not_seen && not $has_opt -s r region" -s 'r' -l 'region' -d 'Capture region'
+complete -c caelestia -n "$not_seen && not $has_opt -s c compression" -s 'c' -l 'compression' -d 'Compression level of file' -r
+complete -c caelestia -n "$not_seen && not $has_opt -s H hwaccel" -s 'H' -l 'hwaccel' -d 'Use hardware acceleration'
 
 # Wallpaper
 set -l not_seen "$seen wallpaper && not $has_opt -s h help && not $has_opt -s f file && not $has_opt -s d directory"

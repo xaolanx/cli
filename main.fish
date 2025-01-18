@@ -37,7 +37,7 @@ if test "$argv[1]" = scheme
     exit
 end
 
-set valid_subcommands screenshot clipboard clipboard-delete emoji-picker wallpaper pip
+set valid_subcommands screenshot record clipboard clipboard-delete emoji-picker wallpaper pip
 
 if contains "$argv[1]" $valid_subcommands
     ./$argv[1].fish $argv[2..]
@@ -48,7 +48,7 @@ test "$argv[1]" != help && error "Unknown command: $argv[1]"
 
 echo 'Usage: caelestia COMMAND [ ...args ]'
 echo
-echo 'COMMAND := help | shell | toggle | workspace-action | scheme | screenshot | clipboard | clipboard-delete | emoji-picker | wallpaper | pip'
+echo 'COMMAND := help | shell | toggle | workspace-action | scheme | screenshot | record | clipboard | clipboard-delete | emoji-picker | wallpaper | pip'
 echo
 echo '  help: show this help message'
 echo '  shell: start the shell or message it'
@@ -56,6 +56,7 @@ echo '  toggle: toggle a special workspace'
 echo '  workspace-action: execute a Hyprland workspace dispatcher in the current group'
 echo '  scheme: change the current colour scheme'
 echo '  screenshot: take a screenshot'
+echo '  record: take a screen recording'
 echo '  clipboard: open clipboard history'
 echo '  clipboard-delete: delete an item from clipboard history'
 echo '  emoji-picker: open the emoji picker'
