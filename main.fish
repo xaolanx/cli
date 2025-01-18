@@ -33,7 +33,7 @@ end
 
 set valid_subcommands screenshot workspace-action \
     clipboard clipboard-delete emoji-picker \
-    change-wallpaper pip
+    wallpaper pip
 
 if contains "$argv[1]" $valid_subcommands
     ./$argv[1].fish $argv[2..]
