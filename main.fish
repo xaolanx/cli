@@ -37,9 +37,7 @@ if test "$argv[1]" = scheme
     exit
 end
 
-set valid_subcommands screenshot workspace-action \
-    clipboard clipboard-delete emoji-picker \
-    wallpaper pip
+set valid_subcommands screenshot clipboard clipboard-delete emoji-picker wallpaper pip
 
 if contains "$argv[1]" $valid_subcommands
     ./$argv[1].fish $argv[2..]
