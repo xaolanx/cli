@@ -48,13 +48,18 @@ test "$argv[1]" != help && error "Unknown command: $argv[1]"
 
 echo 'Usage: caelestia COMMAND [ ...args ]'
 echo
-echo 'COMMAND := help | shell | workspace-action | change-wallpaper'
+echo 'COMMAND := help | shell | toggle | workspace-action | scheme | screenshot | clipboard | clipboard-delete | emoji-picker | wallpaper | pip'
 echo
 echo '  help: show this help message'
 echo '  shell: start the shell or message it'
-echo '  screenshot: take a screenshot'
+echo '  toggle: toggle a special workspace'
 echo '  workspace-action: execute a Hyprland workspace dispatcher in the current group'
-echo '  change-wallpaper: change the wallpaper'
+echo '  scheme: change the current colour scheme'
+echo '  screenshot: take a screenshot'
+echo '  clipboard: open clipboard history'
+echo '  clipboard-delete: delete an item from clipboard history'
+echo '  emoji-picker: open the emoji picker'
+echo '  wallpaper: change the wallpaper'
 echo '  pip: move the focused window into picture in picture mode or start the pip daemon'
 
 # Set exit status
