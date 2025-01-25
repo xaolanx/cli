@@ -32,7 +32,7 @@ if test "$argv[1]" = workspace-action
 end
 
 if test "$argv[1]" = scheme
-    set -l valid_schemes mocha macchiato frappe latte
+    set -l valid_schemes dynamic mocha macchiato frappe latte
     contains "$argv[2]" $valid_schemes && echo -n $argv[2] > $CACHE/scheme/current.txt || error "Invalid scheme: $argv[2]"
     exit
 end

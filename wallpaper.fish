@@ -38,7 +38,7 @@ else
 
     # Use wallpaper given as argument else choose random
     if set -q _flag_f
-        set chosen_wallpaper "$(cd $(dirname $_flag_f) && pwd)/$(basename $_flag_f)"
+        set chosen_wallpaper (realpath $_flag_f)
 
         # Set last wallpaper if not same as given
         if [ -f "$last_wallpaper_path" ]
@@ -95,6 +95,10 @@ else
 
     # Unload unused wallpapers to preserve memory
     hyprctl hyprpaper unload unused > /dev/null
+
+    # Generate colour scheme for wallpaper
+    set -l src (dirname (status filename))
+    $src/scheme/apply-scheme.fish $chosen_wallpaper
 
     # Store the wallpaper chosen
     mkdir -p $cache_dir
