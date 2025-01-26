@@ -1,8 +1,8 @@
 #!/bin/fish
 
-cd (dirname (realpath (status filename))) || exit
+set -l src (dirname (realpath (status filename)))
 
-. ./util.fish
+. $src/util.fish
 
 if test "$argv[1]" = shell
     # Start shell if no args
@@ -22,12 +22,12 @@ end
 
 if test "$argv[1]" = toggle
     set -l valid_toggles communication music sysmon specialws
-    contains "$argv[2]" $valid_toggles && ./toggles/$argv[2].fish || error "Invalid toggle: $argv[2]"
+    contains "$argv[2]" $valid_toggles && $src/toggles/$argv[2].fish || error "Invalid toggle: $argv[2]"
     exit
 end
 
 if test "$argv[1]" = workspace-action
-    ./workspace-action.sh $argv[2..]
+    $src/workspace-action.sh $argv[2..]
     exit
 end
 
@@ -43,7 +43,7 @@ end
 set valid_subcommands screenshot record clipboard clipboard-delete emoji-picker wallpaper pip
 
 if contains "$argv[1]" $valid_subcommands
-    ./$argv[1].fish $argv[2..]
+    $src/$argv[1].fish $argv[2..]
     exit
 end
 

@@ -7,8 +7,8 @@ set threshold 80
 # Max 0 non-option args | h, f and d are exclusive | F and t are also exclusive
 argparse -n 'caelestia-wallpaper' -X 0 -x 'h,f,d' -x 'F,t' \
     'h/help' \
-    'f/file=!test -f "$_flag_value"' \
-    'd/directory=!test -d "$_flag_value"' \
+    'f/file=' \
+    'd/directory=' \
     'F/no-filter' \
     't/threshold=!_validate_int --min 0' \
     -- $argv
@@ -40,6 +40,11 @@ else
     if set -q _flag_f
         set chosen_wallpaper (realpath $_flag_f)
 
+        if ! test -f $chosen_wallpaper
+            echo "$chosen_wallpaper does not exist"
+            exit 1
+        end
+
         # Set last wallpaper if not same as given
         if [ -f "$last_wallpaper_path" ]
             set last_wallpaper (cat $last_wallpaper_path)
@@ -47,7 +52,12 @@ else
         end
     else
         # The path to the directory containing the selection of wallpapers
-        set -q _flag_d && set wallpapers_dir $_flag_d
+        set -q _flag_d && set wallpapers_dir (realpath $_flag_d)
+
+        if ! test -d $wallpapers_dir
+            echo "$wallpapers_dir does not exist"
+            exit 1
+        end
 
         # Get all files in $wallpapers_dir and exclude the last wallpaper (if it exists)
         if [ -f "$last_wallpaper_path" ]
