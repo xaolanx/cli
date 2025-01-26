@@ -31,27 +31,35 @@ function gen-ini -a program
     end
 end
 
+function gen-gtk
+    cp (dirname (status filename))/../data/gtk.template $CONFIG/gtk/schemes/dynamic.css
+    for colour in $argv
+        set -l split (string split ' ' $colour)
+        sed -i "s/\$$split[1]/#$split[2]/g" $CONFIG/gtk/schemes/dynamic.css
+    end
+end
+
 . (dirname (status filename))/../util.fish
 
 set -l src (dirname (status filename))
 set -l colours ($src/gen-scheme.fish $argv[1])
 
-if test -d $CONFIG/hypr/scheme
+if test -d $CONFIG/hypr
     log 'Generating hypr scheme'
     gen-hypr $colours > $CONFIG/hypr/scheme/dynamic.conf
 end
 
-if test -d $CONFIG/shell/scss/scheme
+if test -d $CONFIG/shell
     log 'Generating shell scheme'
     gen-scss $colours > $CONFIG/shell/scss/scheme/_dynamic.scss
 end
 
-if test -d $CONFIG/safeeyes/scheme
+if test -d $CONFIG/safeeyes
     log 'Generating SafeEyes scheme'
     gen-scss $colours > $CONFIG/safeeyes/scheme/_dynamic.scss
 end
 
-if test -d $CONFIG/discord/dynamic && test -d $CONFIG/discord/themes
+if test -d $CONFIG/discord
     log 'Generating discord scheme'
     gen-scss $colours > $CONFIG/discord/dynamic/_variables.scss
     gen-scss-palette $colours >> $CONFIG/discord/dynamic/_variables.scss
@@ -66,6 +74,12 @@ end
 if test -d $CONFIG/../fuzzel/schemes
     log 'Generating fuzzel scheme'
     gen-ini fuzzel $colours
+end
+
+if test -d $CONFIG/gtk
+    log 'Generating GTK+ schemes'
+    gen-gtk $colours
+    $CONFIG/gtk/update-scheme.fish
 end
 
 # Reload programs if dynamic scheme
