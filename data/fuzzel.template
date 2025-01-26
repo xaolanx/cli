@@ -1,0 +1,12 @@
+[colors]
+background=$baseff
+text=$textff
+prompt=$subtext1ff
+placeholder=$overlay1ff
+input=$textff
+match=$lavenderff
+selection=$surface2ff
+selection-text=$textff
+selection-match=$lavenderff
+counter=$overlay1ff
+border=$lavenderff

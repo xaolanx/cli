@@ -23,11 +23,11 @@ function gen-scss-palette
     echo ');'
 end
 
-function gen-foot
-    cp (dirname (status filename))/../data/foot.template $CONFIG/../foot/schemes/dynamic.ini
-    for colour in $argv
+function gen-ini -a program
+    cp (dirname (status filename))/../data/$program.template $CONFIG/../$program/schemes/dynamic.ini
+    for colour in $argv[2..]
         set -l split (string split ' ' $colour)
-        sed -i "s/\$$split[1]/$split[2]/g" $CONFIG/../foot/schemes/dynamic.ini
+        sed -i "s/\$$split[1]/$split[2]/g" $CONFIG/../$program/schemes/dynamic.ini
     end
 end
 
@@ -60,7 +60,12 @@ end
 
 if test -d $CONFIG/../foot/schemes
     log 'Generating foot scheme'
-    gen-foot $colours
+    gen-ini foot $colours
+end
+
+if test -d $CONFIG/../fuzzel/schemes
+    log 'Generating fuzzel scheme'
+    gen-ini fuzzel $colours
 end
 
 # Reload programs if dynamic scheme

@@ -45,7 +45,7 @@ set -l commands workspace workspacegroup movetoworkspace movetoworkspacegroup
 complete -c caelestia -n "$seen workspace-action && not $seen $commands" -a "$commands"
 
 # Scheme
-set -l commands mocha macchiato frappe latte
+set -l commands dynamic mocha macchiato frappe latte
 complete -c caelestia -n "$seen scheme && not $seen $commands" -a "$commands"
 
 # Record
