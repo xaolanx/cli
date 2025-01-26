@@ -14,6 +14,15 @@ function gen-scss
     end
 end
 
+function gen-scss-palette
+    echo '$palette: ('
+    for colour in $argv
+        set -l split (string split ' ' $colour)
+        echo "    \"$split[1]\": #$split[2],"
+    end
+    echo ');'
+end
+
 function gen-foot
     cp (dirname (status filename))/../data/foot.template $CONFIG/../foot/schemes/dynamic.ini
     for colour in $argv
@@ -40,6 +49,13 @@ end
 if test -d $CONFIG/safeeyes/scheme
     log 'Generating SafeEyes scheme'
     gen-scss $colours > $CONFIG/safeeyes/scheme/_dynamic.scss
+end
+
+if test -d $CONFIG/discord/dynamic && test -d $CONFIG/discord/themes
+    log 'Generating discord scheme'
+    gen-scss $colours > $CONFIG/discord/dynamic/_variables.scss
+    gen-scss-palette $colours >> $CONFIG/discord/dynamic/_variables.scss
+    sass -q --no-charset --no-source-map $CONFIG/discord/dynamic/dynamic.scss $CONFIG/discord/themes/dynamic.theme.css
 end
 
 if test -d $CONFIG/../foot/schemes
