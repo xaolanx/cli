@@ -2,7 +2,7 @@
 
 . (dirname (status filename))/util.fish
 
-spawn-or-move '.class == "vesktop"' communication ~/.config/vesktop/run.sh vesktop --enable-features=WebRTCPipeWireCapturer
+spawn-or-move '.class == "vesktop"' communication vesktop --enable-features=WebRTCPipeWireCapturer
 
 # Has whatsapp firefox profile
 if grep -q 'Name=whatsapp' ~/.mozilla/firefox/profiles.ini
