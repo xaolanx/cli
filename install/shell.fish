@@ -10,4 +10,7 @@ set -l shell $CONFIG/shell
 confirm-overwrite $shell
 git clone 'https://github.com/caelestia-dots/shell.git' $shell
 
+cd $shell || exit
+npm install
+
 log 'Done.'
