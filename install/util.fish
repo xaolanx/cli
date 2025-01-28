@@ -57,9 +57,10 @@ end
 
 function install-optional-deps
     for dep in $argv
-        if ! pacman -Q $dep &> /dev/null
+        set -l dep_name (string split -f 1 ' ' $dep)
+        if ! pacman -Q $dep_name &> /dev/null
             read -l -p "input 'Install $dep? [Y/n] ' -n" confirm
-            test "$confirm" != 'n' -a "$confirm" != 'N' && install-deps (string split -f 1 ' ' $dep)
+            test "$confirm" != 'n' -a "$confirm" != 'N' && install-deps $dep_name
         end
     end
 end
