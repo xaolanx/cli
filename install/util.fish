@@ -18,8 +18,8 @@ function install-deps
     pacman -Q $argv &> /dev/null && return
 
     # Get AUR helper or install if none
-    which yay > /dev/null && set -l helper yay || set -l helper paru
-    if ! which paru > /dev/null
+    which yay &> /dev/null && set -l helper yay || set -l helper paru
+    if ! which $helper &> /dev/null
         warn 'No AUR helper found'
         read -l -p "input 'Install yay? [Y/n] ' -n" confirm
         if test "$confirm" = 'n' -o "$confirm" = 'N'
