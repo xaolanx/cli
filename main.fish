@@ -34,8 +34,11 @@ end
 if test "$argv[1]" = scheme
     set -l valid_schemes dynamic mocha macchiato frappe latte
     if contains -- "$argv[2]" $valid_schemes
-        echo -n $argv[2] > $CACHE/scheme/current.txt || error "Invalid scheme: $argv[2]"
+        mkdir -p $CACHE/scheme
+        echo -n $argv[2] > $CACHE/scheme/current.txt
         test -f $CONFIG/gtk/update-scheme.fish && $CONFIG/gtk/update-scheme.fish
+    else
+        error "Invalid scheme: $argv[2]"
     end
     exit
 end
