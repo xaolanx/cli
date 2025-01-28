@@ -11,6 +11,7 @@ set -l hypr $CONFIG/../hypr
 confirm-overwrite $hypr dummy
 git clone 'https://github.com/caelestia-dots/hypr.git' /tmp/caelestia-hypr
 rm -rf $hypr && mv /tmp/caelestia-hypr $hypr
+hyprctl reload
 
 pacman -Q ydotool &> /dev/null || sudo pacman -S --needed --noconfirm ydotool
 systemctl --user enable --now ydotool.service
