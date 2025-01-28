@@ -5,7 +5,7 @@ function confirm-overwrite -a path
         read -l -p "input '$(realpath $path) already exists. Overwrite? [y/N] ' -n" confirm
         if test "$confirm" = 'y' -o "$confirm" = 'Y'
             log 'Continuing.'
-            rm -rf $path
+            set -q $argv[2] || rm -rf $path  # If a second arg is provided, don't delete
         else
             log 'Exiting.'
             exit
