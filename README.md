@@ -4,7 +4,9 @@ A collection of scripts for my caelestia dotfiles.
 
 ## Installation
 
-Run the `install.fish` script in the base of the repo.
+Clone this repo.
+
+Run `install/scripts.fish`.
 `~/.local/bin` must be in your path.
 
 ## Usage

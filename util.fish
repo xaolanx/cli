@@ -18,5 +18,9 @@ function error -a text
     return 1
 end
 
+function input -a text
+    _out blue INPUT $text $argv[2..]
+end
+
 set -q XDG_CONFIG_HOME && set CONFIG $XDG_CONFIG_HOME/caelestia || set CONFIG $HOME/.config/caelestia
 set -q XDG_CACHE_HOME && set CACHE $XDG_CACHE_HOME/caelestia || set CACHE $HOME/.cache/caelestia

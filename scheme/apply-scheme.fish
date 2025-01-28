@@ -44,9 +44,9 @@ end
 set -l src (dirname (status filename))
 set -l colours ($src/gen-scheme.fish $argv[1])
 
-if test -d $CONFIG/hypr
+if test -d $CONFIG/../hypr/scheme
     log 'Generating hypr scheme'
-    gen-hypr $colours > $CONFIG/hypr/scheme/dynamic.conf
+    gen-hypr $colours > $CONFIG/../hypr/scheme/dynamic.conf
 end
 
 if test -d $CONFIG/shell

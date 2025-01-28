@@ -1,6 +1,6 @@
 set -l seen '__fish_seen_subcommand_from'
 set -l has_opt '__fish_contains_opt'
-set -l commands help shell toggle workspace-action scheme screenshot record clipboard clipboard-delete emoji-picker wallpaper pip
+set -l commands help install shell toggle workspace-action scheme screenshot record clipboard clipboard-delete emoji-picker wallpaper pip
 set -l not_seen "not $seen $commands"
 
 # Disable file completions
@@ -8,6 +8,7 @@ complete -c caelestia -f
 
 # Subcommands
 complete -c caelestia -n $not_seen -a 'help' -d 'Show help'
+complete -c caelestia -n $not_seen -a 'install' -d 'Install a module'
 complete -c caelestia -n $not_seen -a 'shell' -d 'Start the shell or message it'
 complete -c caelestia -n $not_seen -a 'toggle' -d 'Toggle a special workspace'
 complete -c caelestia -n $not_seen -a 'workspace-action' -d 'Exec a dispatcher in the current group'
@@ -19,6 +20,10 @@ complete -c caelestia -n $not_seen -a 'clipboard-delete' -d 'Delete from clipboa
 complete -c caelestia -n $not_seen -a 'emoji-picker' -d 'Open the emoji picker'
 complete -c caelestia -n $not_seen -a 'wallpaper' -d 'Change the wallpaper'
 complete -c caelestia -n $not_seen -a 'pip' -d 'Picture in picture utilities'
+
+# Install
+set -l commands discord foot fuzzel hypr safeeyes scripts shell
+complete -c caelestia -n "$seen install && not $seen $commands" -a "$commands"
 
 # Shell
 set -l commands quit reload-css show brightness media
