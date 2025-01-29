@@ -31,6 +31,15 @@ function gen-ini -a program
     end
 end
 
+function gen-json
+    set -e jq_args
+    for colour in $argv
+        set -l split (string split ' ' $colour)
+        set -a jq_args --arg $split[1] "#$split[2]"
+    end
+    jq -n $jq_args '$ARGS.named'
+end
+
 function gen-gtk
     cp (dirname (status filename))/../data/gtk.template $CONFIG/gtk/schemes/dynamic.css
     for colour in $argv
@@ -74,6 +83,11 @@ end
 if test -d $CONFIG/../fuzzel/schemes
     log 'Generating fuzzel scheme'
     gen-ini fuzzel $colours
+end
+
+if test -d $CONFIG/vscode
+    log 'Generating VSCode scheme'
+    gen-json $colours > $CONFIG/vscode/schemes/dynamic.json
 end
 
 if test -d $CONFIG/gtk
