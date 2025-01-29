@@ -17,7 +17,15 @@ set -l layer_names text subtext1 subtext0 overlay2 overlay1 overlay0 surface2 su
 test -f "$argv[1]" && set -l img "$argv[1]" || set -l img $CACHE/wallpaper/current
 set -l img ($src/resizeimg.py $img)
 
-$src/islight.py $img && set -l light_vals 40,6,8,10,45,50,55,60,65,70,75,80,85,90 || set -l light_vals 70,90,75,65,40,35,30,25,20,15,10,8,6
+if $src/islight.py $img
+    set light_vals 40,6,8,10,45,50,55,60,65,70,75,80,85,90
+    set colour_scheme light
+else
+    set light_vals 70,90,75,65,40,35,30,25,20,15,10,8,6
+    set colour_scheme dark
+end
+
+test "$(cat $CACHE/scheme/current.txt)" = dynamic && gsettings set org.gnome.desktop.interface color-scheme \'prefer-$colour_scheme\'
 
 set -l colours_raw (okolors (realpath $img) -k 15 -w 0 -l $light_vals)
 set -l colours (string split ' ' $colours_raw[2])[2..]
