@@ -114,5 +114,5 @@ else
     mkdir -p $cache_dir
     echo $chosen_wallpaper > $last_wallpaper_path
     ln -sf $chosen_wallpaper "$cache_dir/current"
-    magick $chosen_wallpaper -fill black -colorize 10% -blur 0x10 "$cache_dir/blur"
+    magick $chosen_wallpaper -fill black -colorize 10% -blur 0x10 "$cache_dir/blur" &
 end

@@ -79,7 +79,6 @@ end
 if test -d $CONFIG/gtk
     log 'Generating GTK+ schemes'
     gen-gtk $colours
-    $CONFIG/gtk/update-scheme.fish
 end
 
 # Reload programs if dynamic scheme
