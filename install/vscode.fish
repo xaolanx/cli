@@ -20,7 +20,7 @@ git clone 'https://github.com/caelestia-dots/vscode.git' $dist
 
 # Install settings
 for prog in 'Code' 'Code - OSS' 'VSCodium'
-    set -l $conf $CONFIG/../$prog
+    set -l conf $CONFIG/../$prog
     if test -d $conf
         confirm-copy $dist/settings.json $conf/User/settings.json
         confirm-copy $dist/keybindings.json $conf/User/keybindings.json
