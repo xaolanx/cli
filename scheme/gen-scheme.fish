@@ -15,9 +15,11 @@ set -l colour_names rosewater flamingo pink mauve red maroon peach yellow green 
 set -l layer_names text subtext1 subtext0 overlay2 overlay1 overlay0 surface2 surface1 surface0 base mantle crust
 
 test -f "$argv[1]" && set -l img "$argv[1]" || set -l img $CACHE/wallpaper/current
-set -l img ($src/resizeimg.py $img)
+set -l img (realpath $img)
 
-if $src/islight.py $img
+# Light theme if background lighter than foreground
+set -l bg_fg ($src/getlightness.py (okolors $img -k 2 | string split ' '))
+if test "$bg_fg[1]" -gt "$bg_fg[2]"
     set light_vals 40,6,8,10,45,50,55,60,65,70,75,80,85,90
     set colour_scheme light
 else
@@ -27,7 +29,7 @@ end
 
 test "$(cat $CACHE/scheme/current.txt)" = dynamic && gsettings set org.gnome.desktop.interface color-scheme \'prefer-$colour_scheme\'
 
-set -l colours_raw (okolors (realpath $img) -k 15 -w 0 -l $light_vals)
+set -l colours_raw (okolors $img -k 15 -w 0 -l $light_vals)
 set -l colours (string split ' ' $colours_raw[2])[2..]
 set -l layers (nl-echo $colours_raw | cut -f 1 -d ' ')[3..]
 

@@ -2,7 +2,7 @@
 
 . (dirname (status filename))/util.fish
 
-install-deps git hyprland-git hyprpaper-git okolors-git imagemagick wl-clipboard fuzzel-git socat foot jq python python-pillow python-materialyoucolor-git
+install-deps git hyprland-git hyprpaper-git okolors-git imagemagick wl-clipboard fuzzel-git socat foot jq python
 install-optional-deps 'vesktop-bin (discord client)' 'btop (system monitor)' 'wf-recorder (screen recorder)' 'grim (screenshot tool)' 'firefox (web browser)' 'spotify-adblock (music player)'
 
 set -l dist $CONFIG/scripts
