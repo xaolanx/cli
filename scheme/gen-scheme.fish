@@ -11,9 +11,6 @@ set -l src (dirname (status filename))
 
 . $src/../util.fish
 
-set -l colour_names rosewater flamingo pink mauve red maroon peach yellow green teal sky sapphire blue lavender
-set -l layer_names text subtext1 subtext0 overlay2 overlay1 overlay0 surface2 surface1 surface0 base mantle crust
-
 test -f "$argv[1]" && set -l img "$argv[1]" || set -l img $CACHE/wallpaper/current
 set -l img (realpath $img)
 
@@ -29,14 +26,11 @@ end
 
 test "$(cat $CACHE/scheme/current.txt)" = dynamic && gsettings set org.gnome.desktop.interface color-scheme \'prefer-$colour_scheme\'
 
-set -l colours_raw (okolors $img -k 15 -w 0 -l $light_vals)
-set -l colours (string split ' ' $colours_raw[2])[2..]
-set -l layers (nl-echo $colours_raw | cut -f 1 -d ' ')[3..]
+# 2nd line except first element is the palette
+# The first element in lines 3+ are the layers
+set -l names rosewater flamingo pink mauve red maroon peach yellow green teal sky sapphire blue lavender text subtext1 subtext0 overlay2 overlay1 overlay0 surface2 surface1 surface0 base mantle crust
+set -l colours ($src/autoadjust.py $colour_scheme (okolors $img -k 15 -w 0 -l $light_vals))
 
-for i in (seq 1 (count $colour_names))
-    echo "$colour_names[$i] $colours[$i]"
-end
-
-for i in (seq 1 (count $layer_names))
-    echo "$layer_names[$i] $layers[$i]"
+for i in (seq 1 (count $colours))
+    echo "$names[$i] $colours[$i]"
 end
