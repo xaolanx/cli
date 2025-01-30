@@ -20,10 +20,10 @@ set -l img (realpath $img)
 # Light theme if background lighter than foreground
 set -l bg_fg ($src/getlightness.py (okolors $img -k 2 | string split ' '))
 if test "$bg_fg[1]" -gt "$bg_fg[2]"
-    set light_vals 40,6,8,10,45,50,55,60,65,70,75,80,85,90
+    set light_vals 40,10,16,22,34,46,59,69,78,85,97,94,90
     set colour_scheme light
 else
-    set light_vals 70,90,75,65,40,35,30,25,20,15,10,8,6
+    set light_vals 70,90,75,63,52,42,32,26,20,16,12,9,6
     set colour_scheme dark
 end
 
