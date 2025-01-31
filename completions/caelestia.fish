@@ -42,7 +42,7 @@ complete -c caelestia -n $not_seen -a 'previous' -d 'Go to previous song'
 complete -c caelestia -n $not_seen -a 'stop' -d 'Stop media'
 
 # Toggles
-set -l commands communication music specialws sysmon
+set -l commands communication music specialws sysmon todo
 complete -c caelestia -n "$seen toggle && not $seen $commands" -a "$commands"
 
 # Workspace action

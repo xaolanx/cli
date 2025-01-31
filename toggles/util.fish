@@ -13,7 +13,7 @@ function spawn-client -a selector
     if test $stat != 0
         uwsm app -- $argv[2..] & disown
     end
-    return $stat
+    test $stat != 0  # Exit 1 if already exists
 end
 
 function spawn-or-move -a selector -a workspace

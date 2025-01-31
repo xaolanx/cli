@@ -21,7 +21,7 @@ if test "$argv[1]" = shell
 end
 
 if test "$argv[1]" = toggle
-    set -l valid_toggles communication music sysmon specialws
+    set -l valid_toggles communication music sysmon specialws todo
     contains -- "$argv[2]" $valid_toggles && $src/toggles/$argv[2].fish || error "Invalid toggle: $argv[2]"
     exit
 end
