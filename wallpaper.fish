@@ -1,7 +1,11 @@
 #!/bin/fish
 
+function get-valid-wallpapers
+    identify -ping -format '%i\n' $wallpapers_dir/** 2> /dev/null
+end
+
 set script_name (basename (status filename))
-set wallpapers_dir (xdg-user-dir PICTURES)/Wallpapers/
+set wallpapers_dir (xdg-user-dir PICTURES)/Wallpapers
 set threshold 80
 
 # Max 0 non-option args | h, f and d are exclusive | F and t are also exclusive
@@ -40,8 +44,8 @@ else
     if set -q _flag_f
         set chosen_wallpaper (realpath $_flag_f)
 
-        if ! test -f $chosen_wallpaper
-            echo "$chosen_wallpaper does not exist"
+        if ! identify -ping $chosen_wallpaper &> /dev/null
+            error "$chosen_wallpaper is not a valid image"
             exit 1
         end
 
@@ -55,16 +59,16 @@ else
         set -q _flag_d && set wallpapers_dir (realpath $_flag_d)
 
         if ! test -d $wallpapers_dir
-            echo "$wallpapers_dir does not exist"
+            error "$wallpapers_dir does not exist"
             exit 1
         end
 
         # Get all files in $wallpapers_dir and exclude the last wallpaper (if it exists)
         if [ -f "$last_wallpaper_path" ]
             set last_wallpaper (cat $last_wallpaper_path)
-            [ -n "$last_wallpaper" ] && set unfiltered_wallpapers (find $wallpapers_dir -type f | grep -v $last_wallpaper)
+            [ -n "$last_wallpaper" ] && set unfiltered_wallpapers (get-valid-wallpapers | grep -v $last_wallpaper)
         end
-        set -q unfiltered_wallpapers || set unfiltered_wallpapers (find $wallpapers_dir -type f)
+        set -q unfiltered_wallpapers || set unfiltered_wallpapers (get-valid-wallpapers)
 
         # Filter by resolution if no filter option is not given
         if set -q _flag_F
@@ -89,7 +93,7 @@ else
 
         # Check if the $wallpapers list is unset or empty
         if ! set -q wallpapers || [ -z "$wallpapers" ]
-            echo "No eligible files found in $wallpapers_dir"
+            error "No valid images found in $wallpapers_dir"
             exit 1
         end
 
