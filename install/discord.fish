@@ -24,12 +24,12 @@ if test -d $systemd
 
     echo "[Service]
 Type=oneshot
-ExecStart=$discord/monitor/update.fish" > $systemd/$discord-monitor-scheme.service
-    cp $discord/monitor/discord-monitor-scheme.path $systemd/$discord-monitor-scheme.path
+ExecStart=$discord/monitor/update.fish" > $systemd/discord-monitor-scheme.service
+    cp $discord/monitor/discord-monitor-scheme.path $systemd/discord-monitor-scheme.path
 
     systemctl --user daemon-reload
-    systemctl --user enable --now $discord-monitor-scheme.path
-    systemctl --user start $discord-monitor-scheme.service
+    systemctl --user enable --now discord-monitor-scheme.path
+    systemctl --user start discord-monitor-scheme.service
 end
 
 # Link themes to client config
