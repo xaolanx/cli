@@ -14,15 +14,6 @@ function gen-scss
     end
 end
 
-function gen-scss-palette
-    echo '$palette: ('
-    for colour in $argv
-        set -l split (string split ' ' $colour)
-        echo "    \"$split[1]\": #$split[2],"
-    end
-    echo ');'
-end
-
 function gen-ini -a program
     cp (dirname (status filename))/../data/$program.template $CONFIG/../$program/schemes/dynamic.ini
     for colour in $argv[2..]
@@ -70,9 +61,8 @@ end
 
 if test -d $CONFIG/discord
     log 'Generating discord scheme'
-    gen-scss $colours > $CONFIG/discord/dynamic/_variables.scss
-    gen-scss-palette $colours >> $CONFIG/discord/dynamic/_variables.scss
-    sass -q --no-charset --no-source-map $CONFIG/discord/dynamic/dynamic.scss $CONFIG/discord/themes/dynamic.theme.css
+    gen-scss $colours > /tmp/_colours.scss
+    sass --no-charset --no-source-map -I /tmp $src/../data/discord.template $CONFIG/discord/themes/dynamic.theme.css
 end
 
 if test -d $CONFIG/../foot/schemes
