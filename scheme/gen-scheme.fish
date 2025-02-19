@@ -31,8 +31,9 @@ test "$(cat $CACHE/scheme/current.txt)" = dynamic && gsettings set org.gnome.des
 set -l names rosewater flamingo pink mauve red maroon peach yellow green teal sky sapphire blue lavender text subtext1 subtext0 overlay2 overlay1 overlay0 surface2 surface1 surface0 base mantle crust
 set -l colours ($src/autoadjust.py $colour_scheme (okolors $img -k 15 -w 0 -l $light_vals))
 
-set -l last (count $colours)
-for i in (seq 1 (math $last - 1))
+for i in (seq 1 (count $colours))
     echo "$names[$i] $colours[$i]"
 end
-echo -n "$names[$last] $colours[$last]"
+
+set -l accent (okolors $img -k 4 | cut -d ' ' -f 4)
+echo -n "accent $accent"
