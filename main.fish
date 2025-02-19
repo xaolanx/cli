@@ -32,11 +32,11 @@ if test "$argv[1]" = workspace-action
 end
 
 if test "$argv[1]" = scheme
-    set -l valid_schemes dynamic mocha macchiato frappe latte
+    set -l valid_schemes (path change-extension '' $src/data/schemes/* | sed 's!.*/!!')
     if contains -- "$argv[2]" $valid_schemes
         mkdir -p $CACHE/scheme
-        echo -n $argv[2] > $CACHE/scheme/current.txt
-        test -f $CONFIG/gtk/update-scheme.fish && $CONFIG/gtk/update-scheme.fish
+        cp $src/data/schemes/$argv[2].txt $CACHE/scheme/current.txt
+        echo -n $argv[2] > $CACHE/scheme/current-name.txt
     else
         error "Invalid scheme: $argv[2]"
     end

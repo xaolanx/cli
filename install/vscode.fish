@@ -32,7 +32,7 @@ for prog in code code-insiders codium
     if which $prog &> /dev/null
         log "Installing extensions for '$prog'"
         $prog --install-extension catppuccin.catppuccin-vsc
-        $prog --install-extension $dist/caelestia-vscode-integration/caelestia-vscode-integration-0.0.1.vsix
+        $prog --install-extension $dist/caelestia-vscode-integration/caelestia-vscode-integration-*.vsix
     end
 end
 

@@ -112,7 +112,10 @@ else
 
     # Generate colour scheme for wallpaper
     set -l src (dirname (status filename))
-    $src/scheme/apply-scheme.fish $chosen_wallpaper
+    $src/scheme/gen-scheme.fish $chosen_wallpaper > $src/data/schemes/dynamic.txt
+    if test -f $CACHE/scheme/current.txt -a "$(cat $CACHE/scheme/current-name.txt)" = 'dynamic'
+        cp $src/data/schemes/dynamic.txt $CACHE/scheme/current.txt
+    end
 
     # Store the wallpaper chosen
     mkdir -p $cache_dir
