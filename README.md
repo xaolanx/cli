@@ -15,9 +15,10 @@ Run `install/scripts.fish`.
 > caelestia help
 Usage: caelestia COMMAND [ ...args ]
 
-COMMAND := help | shell | toggle | workspace-action | scheme | screenshot | record | clipboard | clipboard-delete | emoji-picker | wallpaper | pip
+COMMAND := help | install | shell | toggle | workspace-action | scheme | screenshot | record | clipboard | clipboard-delete | emoji-picker | wallpaper | pip
 
   help: show this help message
+  install: install a module
   shell: start the shell or message it
   toggle: toggle a special workspace
   workspace-action: execute a Hyprland workspace dispatcher in the current group
