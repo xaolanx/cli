@@ -45,7 +45,13 @@ end
 
 if test "$argv[1]" = install
     set -l valid_modules discord foot fuzzel hypr safeeyes scripts shell gtk vscode
-    contains -- "$argv[2]" $valid_modules && $src/install/$argv[2].fish $argv[3..] || error "Invalid module: $argv[2]"
+    if test "$argv[2]" = all
+        for module in $valid_modules
+            $src/install/$module.fish $argv[3..]
+        end
+    else
+        contains -- "$argv[2]" $valid_modules && $src/install/$argv[2].fish $argv[3..] || error "Invalid module: $argv[2]"
+    end
     exit
 end
 
