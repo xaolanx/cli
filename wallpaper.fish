@@ -35,10 +35,10 @@ if set -q _flag_h
     echo '    -F, --no-filter               Do not filter by size'
     echo '    -t, --threshold <threshold>   The minimum percentage of the size the image must be greater than to be selected (default '$threshold')'
 else
-    set cache_dir $CACHE/wallpaper
+    set state_dir $C_STATE/wallpaper
 
     # The path to the last chosen wallpaper
-    set last_wallpaper_path "$cache_dir/last.txt"
+    set last_wallpaper_path "$state_dir/last.txt"
 
     # Use wallpaper given as argument else choose random
     if set -q _flag_f
@@ -113,13 +113,13 @@ else
     # Generate colour scheme for wallpaper
     set -l src (dirname (status filename))
     $src/scheme/gen-scheme.fish $chosen_wallpaper > $src/data/schemes/dynamic.txt
-    if test -f $CACHE/scheme/current.txt -a "$(cat $CACHE/scheme/current-name.txt)" = 'dynamic'
-        cp $src/data/schemes/dynamic.txt $CACHE/scheme/current.txt
+    if test -f $C_STATE/scheme/current.txt -a "$(cat $C_STATE/scheme/current-name.txt)" = 'dynamic'
+        cp $src/data/schemes/dynamic.txt $C_STATE/scheme/current.txt
     end
 
     # Store the wallpaper chosen
-    mkdir -p $cache_dir
+    mkdir -p $state_dir
     echo $chosen_wallpaper > $last_wallpaper_path
-    ln -sf $chosen_wallpaper "$cache_dir/current"
-    magick $chosen_wallpaper -fill black -colorize 10% -blur 0x10 "$cache_dir/blur" &
+    ln -sf $chosen_wallpaper "$state_dir/current"
+    magick $chosen_wallpaper -fill black -colorize 10% -blur 0x10 "$state_dir/blur" &
 end

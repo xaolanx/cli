@@ -64,3 +64,47 @@ function install-optional-deps
         end
     end
 end
+
+function update-repo -a module dir
+    set -l remote https://github.com/caelestia-dots/$module.git
+    if test -d $dir
+        cd $dir || exit
+        if test "$(git config --get remote.origin.url)" != $remote
+            cd .. || exit
+            confirm-overwrite $dir
+            git clone $remote $dir
+        else
+            git pull
+        end
+    else
+        git clone $remote $dir
+    end
+end
+
+function setup-systemd-monitor -a module dir
+    set -l systemd $CONFIG/systemd/user
+    if which systemctl &> /dev/null
+        log 'Installing systemd service...'
+
+        mkdir -p $systemd
+        echo "[Unit]
+Description=Sync $module and caelestia schemes
+
+[Service]
+Type=oneshot
+ExecStart=$dir/monitor/update.fish" > $systemd/$module-monitor-scheme.service
+        echo "[Unit]
+Description=Sync $module and caelestia schemes (monitor)
+
+[Path]
+PathModified=%S/caelestia/scheme/current.txt
+Unit=$module-monitor-scheme.service
+
+[Install]
+WantedBy=default.target" > $systemd/$module-monitor-scheme.path
+
+        systemctl --user daemon-reload
+        systemctl --user enable --now $module-monitor-scheme.path
+        systemctl --user start $module-monitor-scheme.service
+    end
+end

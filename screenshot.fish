@@ -2,8 +2,8 @@
 
 . (dirname (status filename))/util.fish
 
-mkdir -p "$CACHE/screenshots"
-set -l tmp_file "$CACHE/screenshots/$(date +'%Y%m%d%H%M%S')"
+mkdir -p "$C_CACHE/screenshots"
+set -l tmp_file "$C_CACHE/screenshots/$(date +'%Y%m%d%H%M%S')"
 grim $argv $tmp_file; and wl-copy < $tmp_file; or exit 1
 
 set -l action (notify-send -i 'image-x-generic-symbolic' -h "STRING:image-path:$tmp_file" \

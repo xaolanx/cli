@@ -4,10 +4,9 @@
 
 install-deps git foot inotify-tools
 
-set -l foot $CONFIG/../foot
+set -l dist $CONFIG/foot
 
-confirm-overwrite $foot
-git clone 'https://github.com/caelestia-dots/foot.git' $foot
-sed -i 's|$SRC|'$foot'|g' $foot/foot.ini
+update-repo foot $dist
+sed -i 's|$SRC|'$dist'|g' $dist/foot.ini
 
 log 'Done.'

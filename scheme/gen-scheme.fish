@@ -11,7 +11,7 @@ set -l src (dirname (status filename))
 
 . $src/../util.fish
 
-test -f "$argv[1]" && set -l img "$argv[1]" || set -l img $CACHE/wallpaper/current
+test -f "$argv[1]" && set -l img "$argv[1]" || set -l img $C_STATE/wallpaper/current
 set -l img (realpath $img)
 
 # Light theme if background lighter than foreground
@@ -24,7 +24,7 @@ else
     set colour_scheme dark
 end
 
-test "$(cat $CACHE/scheme/current.txt)" = dynamic && gsettings set org.gnome.desktop.interface color-scheme \'prefer-$colour_scheme\'
+test "$(cat $C_STATE/scheme/current.txt)" = dynamic && gsettings set org.gnome.desktop.interface color-scheme \'prefer-$colour_scheme\'
 
 # 2nd line except first element is the palette
 # The first element in lines 3+ are the layers

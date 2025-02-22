@@ -12,15 +12,14 @@ end
 
 install-deps git
 
-set -l dist $CONFIG/vscode
+set -l dist $C_DATA/vscode
 
-# Clone repo
-confirm-overwrite $dist
-git clone 'https://github.com/caelestia-dots/vscode.git' $dist
+# Update/Clone repo
+update-repo vscode $dist
 
 # Install settings
 for prog in 'Code' 'Code - OSS' 'VSCodium'
-    set -l conf $CONFIG/../$prog
+    set -l conf $CONFIG/$prog
     if test -d $conf
         confirm-copy $dist/settings.json $conf/User/settings.json
         confirm-copy $dist/keybindings.json $conf/User/keybindings.json

@@ -1,4 +1,4 @@
-function _out -a colour -a level -a text
+function _out -a colour level text
     set_color $colour
     # Pass arguments other than text to echo
     echo $argv[4..] -- ":: [$level] $text"
@@ -22,5 +22,7 @@ function input -a text
     _out blue INPUT $text $argv[2..]
 end
 
-set -q XDG_CONFIG_HOME && set CONFIG $XDG_CONFIG_HOME/caelestia || set CONFIG $HOME/.config/caelestia
-set -q XDG_CACHE_HOME && set CACHE $XDG_CACHE_HOME/caelestia || set CACHE $HOME/.cache/caelestia
+set -q XDG_DATA_HOME && set -l C_DATA $XDG_DATA_HOME/caelestia || set -l C_DATA $HOME/.local/share/caelestia
+set -q XDG_STATE_HOME && set -l C_STATE $XDG_STATE_HOME/caelestia || set -l C_STATE $HOME/.local/state/caelestia
+set -q XDG_CACHE_HOME && set -l C_CACHE $XDG_CACHE_HOME/caelestia || set -l C_CACHE $HOME/.cache/caelestia
+set -q XDG_CONFIG_HOME && set -l CONFIG $XDG_CONFIG_HOME || set -l CONFIG $HOME/.config

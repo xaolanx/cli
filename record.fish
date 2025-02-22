@@ -47,14 +47,14 @@ end
 . (dirname (status filename))/util.fish
 
 set storage_dir (xdg-user-dir VIDEOS)/Recordings
-set cache_dir $CACHE/record
+set state_dir $C_STATE/record
 
 mkdir -p $storage_dir
-mkdir -p $cache_dir
+mkdir -p $state_dir
 
 set file_ext 'mp4'
-set recording_path "$cache_dir/recording.$file_ext"
-set notif_id_path "$cache_dir/notifid.txt"
+set recording_path "$state_dir/recording.$file_ext"
+set notif_id_path "$state_dir/notifid.txt"
 
 if pgrep wf-recorder > /dev/null
     pkill wf-recorder
