@@ -22,14 +22,15 @@ complete -c caelestia -n $not_seen -a 'wallpaper' -d 'Change the wallpaper'
 complete -c caelestia -n $not_seen -a 'pip' -d 'Picture in picture utilities'
 
 # Install
-set -l commands all discord foot fuzzel hypr safeeyes scripts shell gtk vscode
+set -l commands all discord fish foot fuzzel hypr safeeyes scripts shell gtk vscode
 complete -c caelestia -n "$seen install && not $seen $commands" -a "$commands"
 
 # Shell
-set -l commands quit reload-css show brightness media
+set -l commands quit reload-css reload-config show brightness media
 set -l not_seen "$seen shell && not $seen $commands"
 complete -c caelestia -n $not_seen -a 'quit' -d 'Quit the shell'
 complete -c caelestia -n $not_seen -a 'reload-css' -d 'Reload shell styles'
+complete -c caelestia -n $not_seen -a 'reload-config' -d 'Reload shell config'
 complete -c caelestia -n $not_seen -a 'show' -d 'Show a window'
 complete -c caelestia -n $not_seen -a 'media' -d 'Media commands'
 complete -c caelestia -n $not_seen -a 'brightness' -d 'Change brightness'
