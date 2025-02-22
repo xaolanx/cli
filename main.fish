@@ -7,8 +7,7 @@ set -l src (dirname (realpath (status filename)))
 if test "$argv[1]" = shell
     # Start shell if no args
     if test -z "$argv[2..]"
-        set -q CAELESTIA_SHELL_DIR && set -l shell_dir $CAELESTIA_SHELL_DIR || set -l shell_dir $CONFIG/shell
-        $shell_dir/run.fish
+        $C_DATA/shell/run.fish
     else
         if contains -- 'caelestia' (astal -l)
             log "Sent command '$argv[2..]' to shell"
