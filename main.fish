@@ -37,6 +37,7 @@ if test "$argv[1]" = scheme
         mkdir -p $C_STATE/scheme
         cp $src/data/schemes/$argv[2].txt $C_STATE/scheme/current.txt
         echo -n $argv[2] > $C_STATE/scheme/current-name.txt
+        log "Changed scheme to $argv[2]"
     else
         error "Invalid scheme: $argv[2]"
     end
