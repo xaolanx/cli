@@ -117,7 +117,7 @@ else
     set -q _flag_T && set -l theme --theme $_flag_T
     $src/scheme/gen-scheme.fish $theme $chosen_wallpaper > $src/data/schemes/dynamic.txt
     if test -f $C_STATE/scheme/current.txt -a "$(cat $C_STATE/scheme/current-name.txt)" = 'dynamic'
-        caelestia scheme dynamic
+        caelestia scheme dynamic > /dev/null
     end
 
     # Store the wallpaper chosen
