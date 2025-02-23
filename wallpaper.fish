@@ -50,9 +50,9 @@ else
         end
 
         # Set last wallpaper if not same as given
-        if [ -f "$last_wallpaper_path" ]
+        if test -f "$last_wallpaper_path"
             set last_wallpaper (cat $last_wallpaper_path)
-            [ -z "$last_wallpaper" -o "$last_wallpaper" = "$chosen_wallpaper" ] && set -e last_wallpaper
+            test -z "$last_wallpaper" -o "$last_wallpaper" = "$chosen_wallpaper" && set -e last_wallpaper
         end
     else
         # The path to the directory containing the selection of wallpapers
@@ -64,9 +64,9 @@ else
         end
 
         # Get all files in $wallpapers_dir and exclude the last wallpaper (if it exists)
-        if [ -f "$last_wallpaper_path" ]
+        if test -f "$last_wallpaper_path"
             set last_wallpaper (cat $last_wallpaper_path)
-            [ -n "$last_wallpaper" ] && set unfiltered_wallpapers (get-valid-wallpapers | grep -v $last_wallpaper)
+            test -n "$last_wallpaper" && set unfiltered_wallpapers (get-valid-wallpapers | grep -v $last_wallpaper)
         end
         set -q unfiltered_wallpapers || set unfiltered_wallpapers (get-valid-wallpapers)
 
@@ -85,14 +85,14 @@ else
             # Add wallpapers that are larger than the screen size * threshold to list to choose from ($wallpapers)
             for i in (seq 1 (count $wall_sizes))
                 set -l wall_size (string split ' ' $wall_sizes[$i])
-                if [ $wall_size[1] -ge $screen_size[1] -a $wall_size[2] -ge $screen_size[2] ]
+                if test $wall_size[1] -ge $screen_size[1] -a $wall_size[2] -ge $screen_size[2]
                     set -a wallpapers $unfiltered_wallpapers[$i]
                 end
             end
         end
 
         # Check if the $wallpapers list is unset or empty
-        if ! set -q wallpapers || [ -z "$wallpapers" ]
+        if ! set -q wallpapers || test -z "$wallpapers"
             error "No valid images found in $wallpapers_dir"
             exit 1
         end
