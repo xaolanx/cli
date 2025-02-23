@@ -114,7 +114,7 @@ else
     set -l src (dirname (status filename))
     $src/scheme/gen-scheme.fish $chosen_wallpaper > $src/data/schemes/dynamic.txt
     if test -f $C_STATE/scheme/current.txt -a "$(cat $C_STATE/scheme/current-name.txt)" = 'dynamic'
-        cp $src/data/schemes/dynamic.txt $C_STATE/scheme/current.txt
+        caelestia scheme dynamic
     end
 
     # Store the wallpaper chosen

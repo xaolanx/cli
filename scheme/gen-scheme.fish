@@ -24,7 +24,7 @@ else
     set colour_scheme dark
 end
 
-test "$(cat $C_STATE/scheme/current-name.txt)" = dynamic && gsettings set org.gnome.desktop.interface color-scheme \'prefer-$colour_scheme\'
+echo -n $colour_scheme > $C_STATE/scheme/dynamic-mode.txt
 
 # 2nd line except first element is the palette
 # The first element in lines 3+ are the layers
