@@ -7,21 +7,35 @@ function nl-echo
     end
 end
 
+function light-theme
+    set -g light_vals 40,10,16,22,34,46,59,69,78,85,97,94,90
+    set -g colour_scheme light
+end
+
+function dark-theme
+    set -g light_vals 70,90,75,63,52,42,32,26,20,16,12,9,6
+    set -g colour_scheme dark
+end
+
 set -l src (dirname (status filename))
 
 . $src/../util.fish
 
+if test "$argv[1]" = --theme
+    set theme $argv[2]
+    set -e argv[1]
+    set -e argv[2]
+end
+
 test -f "$argv[1]" && set -l img "$argv[1]" || set -l img $C_STATE/wallpaper/current
 set -l img (realpath $img)
 
-# Light theme if background lighter than foreground
-set -l bg_fg ($src/getlightness.py (okolors $img -k 2 | string split ' '))
-if test "$bg_fg[1]" -gt "$bg_fg[2]"
-    set light_vals 40,10,16,22,34,46,59,69,78,85,97,94,90
-    set colour_scheme light
+if set -q theme
+    test "$theme" = light && light-theme || dark-theme
 else
-    set light_vals 70,90,75,63,52,42,32,26,20,16,12,9,6
-    set colour_scheme dark
+    # Light theme if background lighter than foreground
+    set -l bg_fg ($src/getlightness.py (okolors $img -k 2 | string split ' '))
+    test "$bg_fg[1]" -gt "$bg_fg[2]" && light-theme || dark-theme
 end
 
 echo -n $colour_scheme > $C_STATE/scheme/dynamic-mode.txt

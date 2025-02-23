@@ -15,6 +15,7 @@ argparse -n 'caelestia-wallpaper' -X 0 -x 'h,f,d' -x 'F,t' \
     'd/directory=' \
     'F/no-filter' \
     't/threshold=!_validate_int --min 0' \
+    'T/theme=!test $_flag_value = light -o $_flag_value = dark' \
     -- $argv
 or exit
 
@@ -24,16 +25,17 @@ if set -q _flag_h
     echo 'Usage:'
     echo '    caelestia wallpaper'
     echo '    caelestia wallpaper [ -h | --help ]'
-    echo '    caelestia wallpaper [ -f | --file ]'
-    echo '    caelestia wallpaper [ -d | --directory ] [ -F | --no-filter ]'
-    echo '    caelestia wallpaper [ -d | --directory ] [ -t | --threshold ]'
+    echo '    caelestia wallpaper [ -f | --file ] [ -T | --theme ]'
+    echo '    caelestia wallpaper [ -d | --directory ] [ -F | --no-filter ] [ -T | --theme ]'
+    echo '    caelestia wallpaper [ -d | --directory ] [ -t | --threshold ] [ -T | --theme ]'
     echo
     echo 'Options:'
-    echo '    -h, --help                    Print this help message and exit'
-    echo '    -f, --file <file>             The file to change wallpaper to'
-    echo '    -d, --directory <directory>   The folder to select a random wallpaper from (default '$wallpapers_dir')'
-    echo '    -F, --no-filter               Do not filter by size'
-    echo '    -t, --threshold <threshold>   The minimum percentage of the size the image must be greater than to be selected (default '$threshold')'
+    echo '    -h, --help                        Print this help message and exit'
+    echo '    -f, --file <file>                 The file to change wallpaper to'
+    echo '    -d, --directory <directory>       The folder to select a random wallpaper from (default '$wallpapers_dir')'
+    echo '    -F, --no-filter                   Do not filter by size'
+    echo '    -t, --threshold <threshold>       The minimum percentage of the size the image must be greater than to be selected (default '$threshold')'
+    echo '    -T, --theme <"light" | "dark">    Set light/dark theme for dynamic scheme'
 else
     set state_dir $C_STATE/wallpaper
 
@@ -112,7 +114,8 @@ else
 
     # Generate colour scheme for wallpaper
     set -l src (dirname (status filename))
-    $src/scheme/gen-scheme.fish $chosen_wallpaper > $src/data/schemes/dynamic.txt
+    set -q _flag_T && set -l theme --theme $_flag_T
+    $src/scheme/gen-scheme.fish $theme $chosen_wallpaper > $src/data/schemes/dynamic.txt
     if test -f $C_STATE/scheme/current.txt -a "$(cat $C_STATE/scheme/current-name.txt)" = 'dynamic'
         caelestia scheme dynamic
     end
