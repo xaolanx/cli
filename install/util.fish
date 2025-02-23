@@ -108,3 +108,10 @@ WantedBy=default.target" > $systemd/$module-monitor-scheme.path
         systemctl --user start $module-monitor-scheme.service
     end
 end
+
+function install-link -a from to
+    if ! test -L $to -a (realpath $to) = (realpath $from)
+        confirm-overwrite $to
+        ln -s $from $to
+    end
+end

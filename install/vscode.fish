@@ -3,6 +3,7 @@
 . (dirname (status filename))/util.fish
 
 function confirm-copy -a from to
+    test -L $to -a (realpath $to) = (realpath $from) && return
     if test -e $to
         read -l -p "input '$(realpath $to) already exists. Overwrite? [y/N] ' -n" confirm
         test "$confirm" = 'y' -o "$confirm" = 'Y' && log 'Continuing.' || return

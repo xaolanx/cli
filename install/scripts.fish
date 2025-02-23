@@ -12,9 +12,10 @@ update-repo scripts $dist
 
 # Install to path
 mkdir -p ~/.local/bin
-ln -sf $dist/main.fish ~/.local/bin/caelestia
+install-link $dist/main.fish ~/.local/bin/caelestia
 
 # Install completions
+test -e $CONFIG/fish/completions/caelestia.fish && rm $CONFIG/fish/completions/caelestia.fish
 mkdir -p $CONFIG/fish/completions
 cp $dist/completions/caelestia.fish $CONFIG/fish/completions/caelestia.fish
 

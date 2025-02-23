@@ -20,7 +20,6 @@ update-repo discord $dist
 setup-systemd-monitor discord $dist
 
 # Link themes to client config
-confirm-overwrite $client/themes
-ln -s $dist/themes $client/themes
+install-link $dist/themes $client/themes
 
 log 'Done.'

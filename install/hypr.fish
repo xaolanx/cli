@@ -25,8 +25,7 @@ else
 end
 
 # Install uwsm envs
-confirm-overwrite $uwsm
-ln -s $hypr/uwsm $uwsm
+install-link $hypr/uwsm $uwsm
 
 # Enable ydotool if installed
 pacman -Q ydotool &> /dev/null && systemctl --user enable --now ydotool.service
