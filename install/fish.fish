@@ -13,7 +13,6 @@ update-repo fish $dist
 install-link $dist/config.fish $CONFIG/fish/config.fish
 
 # Install fish greeting
-mkdir -p $CONFIG/fish/functions
 install-link $dist/fish_greeting.fish $CONFIG/fish/functions/fish_greeting.fish
 
 # Install starship config

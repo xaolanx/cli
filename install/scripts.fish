@@ -11,7 +11,6 @@ set -l dist $C_DATA/scripts
 update-repo scripts $dist
 
 # Install to path
-mkdir -p ~/.local/bin
 install-link $dist/main.fish ~/.local/bin/caelestia
 
 # Install completions

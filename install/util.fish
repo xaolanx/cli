@@ -110,7 +110,8 @@ WantedBy=default.target" > $systemd/$module-monitor-scheme.path
 end
 
 function install-link -a from to
-    if ! test -L $to -a (realpath $to) = (realpath $from)
+    if ! test -L $to -a "$(realpath $to 2> /dev/null)" = $from
+        mkdir -p (dirname $to)
         confirm-overwrite $to
         ln -s $from $to
     end
