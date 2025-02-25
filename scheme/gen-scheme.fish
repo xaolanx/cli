@@ -41,7 +41,7 @@ echo -n $colour_scheme > $C_STATE/scheme/dynamic-mode.txt
 
 # 2nd line except first element is the palette
 # The first element in lines 3+ are the layers
-set -l names rosewater flamingo pink mauve red maroon peach yellow green teal sky sapphire blue lavender text subtext1 subtext0 overlay2 overlay1 overlay0 surface2 surface1 surface0 base mantle crust
+set -l names rosewater flamingo pink mauve red maroon peach yellow green teal sky sapphire blue lavender text subtext1 subtext0 overlay2 overlay1 overlay0 surface2 surface1 surface0 base mantle crust success error
 set -l colours ($src/autoadjust.py $colour_scheme (okolors $img -k 15 -w 0 -l $light_vals))
 
 for i in (seq 1 (count $colours))

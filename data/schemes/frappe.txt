@@ -24,4 +24,6 @@ surface0 414559
 base 303446
 mantle 292c3c
 crust 232634
+success a6d189
+error e78284
 accent 99d1db

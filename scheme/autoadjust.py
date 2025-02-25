@@ -106,10 +106,14 @@ if __name__ == "__main__":
 
     colours = smart_sort(colours, base)  # TODO: optional smart sort
 
-    mix_colours(colours, base, 0.5)  # TODO: customize mixing from config
+    mix_colours(colours, base, 0)  # TODO: customize mixing from config
 
     for colour in colours:
         print(colour)
 
     for layer in sys.argv[4:]:
         print(layer.split(" ")[0])
+
+    # Success and error colours # TODO: customize mixing
+    print(mix(colours[8], base[8], 0.9))  # Success (green)
+    print(mix(colours[4], base[4], 0.9))  # Error (red)

@@ -24,4 +24,6 @@ surface0 ccd0da
 base eff1f5
 mantle e6e9ef
 crust dce0e8
+success 40a02b
+error d20f39
 accent 1e66f5
