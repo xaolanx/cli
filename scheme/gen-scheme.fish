@@ -23,8 +23,7 @@ set -l src (dirname (status filename))
 
 if test "$argv[1]" = --theme
     set theme $argv[2]
-    set -e argv[1]
-    set -e argv[2]
+    set -e argv[1..2]
 end
 
 test -f "$argv[1]" && set -l img "$argv[1]" || set -l img $C_STATE/wallpaper/current
