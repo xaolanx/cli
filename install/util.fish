@@ -1,8 +1,8 @@
 . (dirname (status filename))/../util.fish
 
 function confirm-overwrite -a path
-    if test -e $path
-        read -l -p "input '$(realpath $path) already exists. Overwrite? [y/N] ' -n" confirm
+    if test -e $path -o -L $path
+        read -l -p "input '$(realpath $path 2> /dev/null || echo $path) already exists. Overwrite? [y/N] ' -n" confirm
         if test "$confirm" = 'y' -o "$confirm" = 'Y'
             log 'Continuing.'
             test -z "$argv[2]" && rm -rf $path  # If a second arg is provided, don't delete
