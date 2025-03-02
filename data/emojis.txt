@@ -4275,1481 +4275,176 @@
   nf-fa-lyft
   nf-fa-poo
   nf-fa-magento
-  nf-fa-location_dot
-  nf-fa-medapps
-  nf-fa-medrt
-  nf-fa-microphone_lines
-  nf-fa-microsoft
-  nf-fa-mix
-  nf-fa-mizuni
-  nf-fa-mobile_button
-  nf-fa-mobile
-  nf-fa-mobile_screen
-  nf-fa-monero
-  nf-fa-money_bill_1
-  nf-fa-napster
-  nf-fa-node_js
-  nf-fa-npm
-  nf-fa-ns8
-  nf-fa-nutritionix
-  nf-fa-page4
-  nf-fa-palfed
-  nf-fa-patreon
-  nf-fa-periscope
-  nf-fa-phabricator
-  nf-fa-phoenix_framework
-  nf-fa-phone_slash
-  nf-fa-playstation
-  nf-fa-image_portrait
-  nf-fa-pushed
-  nf-fa-python
-  nf-fa-red_river
-  nf-fa-wpressr
-  nf-fa-replyd
-  nf-fa-resolving
-  nf-fa-rocketchat
-  nf-fa-rockrms
-  nf-fa-schlix
-  nf-fa-searchengin
-  nf-fa-servicestack
-  nf-fa-shield_halved
-  nf-fa-sistrix
-  nf-fa-speakap
-  nf-fa-staylinked
-  nf-fa-steam_symbol
-  nf-fa-sticker_mule
-  nf-fa-studiovinari
-  nf-fa-supple
-  nf-fa-tablet_button
-  nf-fa-tablet
-  nf-fa-gauge_high
-  nf-fa-ticket_simple
-  nf-fa-uber
-  nf-fa-uikit
-  nf-fa-uniregistry
-  nf-fa-untappd
-  nf-fa-user_large
-  nf-fa-ussunnah
-  nf-fa-vaadin
-  nf-fa-viber
-  nf-fa-vimeo
-  nf-fa-vnv
-  nf-fa-square_whatsapp
-  nf-fa-whmcs
-  nf-fa-wordpress_simple
-  nf-fa-xbox
-  nf-fa-yandex
-  nf-fa-yandex_international
-  nf-fa-apple_pay
-  nf-fa-cc_apple_pay
-  nf-fa-fly
-  nf-fa-node
-  nf-fa-osi
-  nf-fa-react
-  nf-fa-autoprefixer
-  nf-fa-less
-  nf-fa-sass
-  nf-fa-vuejs
-  nf-fa-angular
-  nf-fa-aviato
-  nf-fa-down_left_and_up_right_to_center
-  nf-fa-ember
-  nf-fa-up_right_and_down_left_from_center
-  nf-fa-gitter
-  nf-fa-hooli
-  nf-fa-strava
-  nf-fa-stripe
-  nf-fa-stripe_s
-  nf-fa-typo3
-  nf-fa-amazon_pay
-  nf-fa-cc_amazon_pay
-  nf-fa-ethereum
-  nf-fa-korvue
-  nf-fa-elementor
-  nf-fa-baseball_bat_ball
-  nf-fa-baseball
-  nf-fa-basketball
-  nf-fa-bowling_ball
-  nf-fa-chess
-  nf-fa-chess_bishop
-  nf-fa-chess_board
-  nf-fa-chess_king
-  nf-fa-chess_knight
-  nf-fa-chess_pawn
-  nf-fa-chess_queen
-  nf-fa-chess_rook
-  nf-fa-dumbbell
-  nf-fa-flipboard
-  nf-fa-football
-  nf-fa-golf_ball_tee
-  nf-fa-hips
-  nf-fa-hockey_puck
-  nf-fa-php
-  nf-fa-broom_ball
-  nf-fa-quinscape
-  nf-fa-square_full
-  nf-fa-table_tennis_paddle_ball
-  nf-fa-volleyball
-  nf-fa-hand_dots
-  nf-fa-bandage
-  nf-fa-box
-  nf-fa-boxes_stacked
-  nf-fa-briefcase_medical
-  nf-fa-fire_flame_simple
-  nf-fa-capsules
-  nf-fa-clipboard_check
-  nf-fa-clipboard_list
-  nf-fa-person_dots_from_line
-  nf-fa-dna
-  nf-fa-dolly
-  nf-fa-cart_flatbed
-  nf-fa-file_medical
-  nf-fa-file_waveform
-  nf-fa-kit_medical
-  nf-fa-circle_h
-  nf-fa-id_card_clip
-  nf-fa-notes_medical
-  nf-fa-pallet
-  nf-fa-pills
-  nf-fa-prescription_bottle
-  nf-fa-prescription_bottle_medical
-  nf-fa-bed_pulse
-  nf-fa-truck_fast
-  nf-fa-smoking
-  nf-fa-syringe
-  nf-fa-tablets
-  nf-fa-thermometer_alt
-  nf-fa-vial
-  nf-fa-vials
-  nf-fa-warehouse
-  nf-fa-weight_scale
-  nf-fa-x_ray
-  nf-fa-box_open
-  nf-fa-comment_slash
-  nf-fa-couch
-  nf-fa-circle_dollar_to_slot
-  nf-fa-dove
-  nf-fa-hand_holding
-  nf-fa-hand_holding_heart
-  nf-fa-hand_holding_dollar
-  nf-fa-hand_holding_droplet
-  nf-fa-hands_holding
-  nf-fa-handshake_angle
-  nf-fa-handshake_simple
-  nf-fa-parachute_box
-  nf-fa-people_carry_box
-  nf-fa-piggy_bank
-  nf-fa-readme
-  nf-fa-ribbon
-  nf-fa-route
-  nf-fa-seedling
-  nf-fa-sign_hanging
-  nf-fa-face_smile_wink
-  nf-fa-tape
-  nf-fa-truck_ramp_box
-  nf-fa-truck_moving
-  nf-fa-video_slash
-  nf-fa-wine_glass
-  nf-fa-java
-  nf-fa-pied_piper_hat
-  nf-fa-creative_commons_by
-  nf-fa-creative_commons_nc
-  nf-fa-creative_commons_nc_eu
-  nf-fa-creative_commons_nc_jp
-  nf-fa-creative_commons_nd
-  nf-fa-creative_commons_pd
-  nf-fa-creative_commons_pd_alt
-  nf-fa-creative_commons_remix
-  nf-fa-creative_commons_sa
-  nf-fa-creative_commons_sampling
-  nf-fa-creative_commons_sampling_plus
-  nf-fa-creative_commons_share
-  nf-fa-creative_commons_zero
-  nf-fa-ebay
-  nf-fa-keybase
-  nf-fa-mastodon
-  nf-fa-r_project
-  nf-fa-researchgate
-  nf-fa-teamspeak
-  nf-fa-user_large_slash
-  nf-fa-user_astronaut
-  nf-fa-user_check
-  nf-fa-user_clock
-  nf-fa-user_gear
-  nf-fa-user_pen
-  nf-fa-user_group
-  nf-fa-user_graduate
-  nf-fa-user_lock
-  nf-fa-user_minus
-  nf-fa-user_ninja
-  nf-fa-user_shield
-  nf-fa-user_slash
-  nf-fa-user_tag
-  nf-fa-user_tie
-  nf-fa-users_gear
-  nf-fa-first_order_alt
-  nf-fa-fulcrum
-  nf-fa-galactic_republic
-  nf-fa-galactic_senate
-  nf-fa-jedi_order
-  nf-fa-mandalorian
-  nf-fa-old_republic
-  nf-fa-phoenix_squadron
-  nf-fa-sith
-  nf-fa-trade_federation
-  nf-fa-wolf_pack_battalion
-  nf-fa-scale_unbalanced
-  nf-fa-scale_unbalanced_flip
-  nf-fa-blender
-  nf-fa-book_open
-  nf-fa-tower_broadcast
-  nf-fa-broom
-  nf-fa-chalkboard
-  nf-fa-chalkboard_user
-  nf-fa-church
-  nf-fa-coins
-  nf-fa-compact_disc
-  nf-fa-crow
-  nf-fa-crown
-  nf-fa-dice
-  nf-fa-dice_five
-  nf-fa-dice_four
-  nf-fa-dice_one
-  nf-fa-dice_six
-  nf-fa-dice_three
-  nf-fa-dice_two
-  nf-fa-divide
-  nf-fa-door_closed
-  nf-fa-door_open
-  nf-fa-equals
-  nf-fa-feather
-  nf-fa-frog
-  nf-fa-gas_pump
-  nf-fa-glasses
-  nf-fa-greater_than
-  nf-fa-greater_than_equal
-  nf-fa-helicopter
-  nf-fa-infinity
-  nf-fa-kiwi_bird
-  nf-fa-receipt
-  nf-fa-robot
-  nf-fa-ruler
-  nf-fa-ruler_combined
-  nf-fa-ruler_horizontal
-  nf-fa-ruler_vertical
-  nf-fa-school
-  nf-fa-screwdriver
-  nf-fa-shoe_prints
-  nf-fa-skull
-  nf-fa-ban_smoking
-  nf-fa-store
-  nf-fa-shop
-  nf-fa-bars_staggered
-  nf-fa-stroopwafel
-  nf-fa-toolbox
-  nf-fa-shirt
-  nf-fa-person_walking
-  nf-fa-wallet
-  nf-fa-face_angry
-  nf-fa-archway
-  nf-fa-book_atlas
-  nf-fa-award
-  nf-fa-delete_left
-  nf-fa-bezier_curve
-  nf-fa-bong
-  nf-fa-brush
-  nf-fa-bus_simple
-  nf-fa-cannabis
-  nf-fa-check_double
-  nf-fa-martini_glass_citrus
-  nf-fa-bell_concierge
-  nf-fa-cookie
-  nf-fa-cookie_bite
-  nf-fa-crop_simple
-  nf-fa-tachograph_digital
-  nf-fa-face_dizzy
-  nf-fa-compass_drafting
-  nf-fa-drum
-  nf-fa-drum_steelpan
-  nf-fa-feather_pointed
-  nf-fa-file_contract
-  nf-fa-file_arrow_down
-  nf-fa-file_export
-  nf-fa-file_import
-  nf-fa-file_invoice
-  nf-fa-file_invoice_dollar
-  nf-fa-file_prescription
-  nf-fa-file_signature
-  nf-fa-file_arrow_up
-  nf-fa-fill
-  nf-fa-fill_drip
-  nf-fa-fingerprint
-  nf-fa-fish
-  nf-fa-face_flushed
-  nf-fa-face_frown_open
-  nf-fa-martini_glass
-  nf-fa-earth_africa
-  nf-fa-earth_americas
-  nf-fa-earth_asia
-  nf-fa-face_grimace
-  nf-fa-face_grin
-  nf-fa-face_grin_wide
-  nf-fa-face_grin_beam
-  nf-fa-face_grin_beam_sweat
-  nf-fa-face_grin_hearts
-  nf-fa-face_grin_squint
-  nf-fa-face_grin_squint_tears
-  nf-fa-face_grin_stars
-  nf-fa-face_grin_tears
-  nf-fa-face_grin_tongue
-  nf-fa-face_grin_tongue_squint
-  nf-fa-face_grin_tongue_wink
-  nf-fa-face_grin_wink
-  nf-fa-grip
-  nf-fa-grip_vertical
-  nf-fa-headphones_simple
-  nf-fa-headset
-  nf-fa-highlighter
-  nf-fa-hornbill
-  nf-fa-hot_tub_person
-  nf-fa-hotel_building
-  nf-fa-joint
-  nf-fa-face_kiss
-  nf-fa-face_kiss_beam
-  nf-fa-face_kiss_wink_heart
-  nf-fa-face_laugh
-  nf-fa-face_laugh_beam
-  nf-fa-face_laugh_squint
-  nf-fa-face_laugh_wink
-  nf-fa-cart_flatbed_suitcase
-  nf-fa-mailchimp
-  nf-fa-map_location
-  nf-fa-map_location_dot
-  nf-fa-marker
-  nf-fa-medal
-  nf-fa-megaport
-  nf-fa-face_meh_blank
-  nf-fa-face_rolling_eyes
-  nf-fa-monument
-  nf-fa-mortar_pestle
-  nf-fa-nimblr
-  nf-fa-paint_roller
-  nf-fa-passport
-  nf-fa-pen_fancy
-  nf-fa-pen_nib
-  nf-fa-pen_ruler
-  nf-fa-plane_arrival
-  nf-fa-plane_departure
-  nf-fa-prescription
-  nf-fa-rev
-  nf-fa-face_sad_cry
-  nf-fa-face_sad_tear
-  nf-fa-shopware
-  nf-fa-van_shuttle
-  nf-fa-signature
-  nf-fa-face_smile_beam
-  nf-fa-solar_panel
-  nf-fa-spa
-  nf-fa-splotch
-  nf-fa-spray_can
-  nf-fa-squarespace
-  nf-fa-stamp
-  nf-fa-star_half_stroke
-  nf-fa-suitcase_rolling
-  nf-fa-face_surprise
-  nf-fa-swatchbook
-  nf-fa-person_swimming
-  nf-fa-water_ladder
-  nf-fa-themeco
-  nf-fa-droplet_slash
-  nf-fa-face_tired
-  nf-fa-tooth
-  nf-fa-umbrella_beach
-  nf-fa-vector_square
-  nf-fa-weebly
-  nf-fa-weight_hanging
-  nf-fa-wine_glass_empty
-  nf-fa-wix
-  nf-fa-spray_can_sparkles
-  nf-fa-apple_whole
-  nf-fa-atom
-  nf-fa-bone
-  nf-fa-book_open_reader
-  nf-fa-brain
-  nf-fa-car_rear
-  nf-fa-car_battery
-  nf-fa-car_burst
-  nf-fa-car_side
-  nf-fa-charging_station
-  nf-fa-diamond_turn_right
-  nf-fa-draw_polygon
-  nf-fa-ello
-  nf-fa-hackerrank
-  nf-fa-kaggle
-  nf-fa-laptop_code
-  nf-fa-layer_group
-  nf-fa-location_crosshairs
-  nf-fa-lungs
-  nf-fa-markdown
-  nf-fa-microscope
-  nf-fa-neos
-  nf-fa-oil_can
-  nf-fa-poop
-  nf-fa-shapes
-  nf-fa-star_of_life
-  nf-fa-gauge
-  nf-fa-gauge_simple
-  nf-fa-teeth
-  nf-fa-teeth_open
-  nf-fa-masks_theater
-  nf-fa-traffic_light
-  nf-fa-truck_monster
-  nf-fa-truck_pickup
-  nf-fa-zhihu
-  nf-fa-rectangle_ad
-  nf-fa-alipay
-  nf-fa-ankh
-  nf-fa-book_bible
-  nf-fa-business_time
-  nf-fa-city
-  nf-fa-comment_dollar
-  nf-fa-comments_dollar
-  nf-fa-cross
-  nf-fa-dharmachakra
-  nf-fa-envelope_open_text
-  nf-fa-folder_minus
-  nf-fa-folder_plus
-  nf-fa-filter_circle_dollar
-  nf-fa-gopuram
-  nf-fa-hamsa
-  nf-fa-bahai
-  nf-fa-jedi
-  nf-fa-book_journal_whills
-  nf-fa-kaaba
-  nf-fa-khanda
-  nf-fa-landmark
-  nf-fa-envelopes_bulk
-  nf-fa-menorah
-  nf-fa-mosque
-  nf-fa-om
-  nf-fa-spaghetti_monster_flying
-  nf-fa-peace
-  nf-fa-place_of_worship
-  nf-fa-square_poll_vertical
-  nf-fa-square_poll_horizontal
-  nf-fa-person_praying
-  nf-fa-hands_praying
-  nf-fa-book_quran
-  nf-fa-magnifying_glass_dollar
-  nf-fa-magnifying_glass_location
-  nf-fa-socks
-  nf-fa-square_root_variable
-  nf-fa-star_and_crescent
-  nf-fa-star_of_david
-  nf-fa-synagogue
-  nf-fa-the_red_yeti
-  nf-fa-scroll_torah
-  nf-fa-torii_gate
-  nf-fa-vihara
-  nf-fa-volume_xmark
-  nf-fa-yin_yang
-  nf-fa-blender_phone
-  nf-fa-book_skull
-  nf-fa-campground
-  nf-fa-cat
-  nf-fa-chair
-  nf-fa-cloud_moon
-  nf-fa-cloud_sun
-  nf-fa-cow
-  nf-fa-critical_role
-  nf-fa-d_and_d_beyond
-  nf-fa-dev
-  nf-fa-dice_d20
-  nf-fa-dice_d6
-  nf-fa-dog
-  nf-fa-dragon
-  nf-fa-drumstick_bite
-  nf-fa-dungeon
-  nf-fa-fantasy_flight_games
-  nf-fa-file_csv
-  nf-fa-hand_fist
-  nf-fa-ghost
-  nf-fa-hammer
-  nf-fa-hanukiah
-  nf-fa-hat_wizard
-  nf-fa-person_hiking
-  nf-fa-hippo
-  nf-fa-horse
-  nf-fa-house_chimney_crack
-  nf-fa-hryvnia_sign
-  nf-fa-mask
-  nf-fa-mountain
-  nf-fa-network_wired
-  nf-fa-otter
-  nf-fa-ring
-  nf-fa-person_running
-  nf-fa-scroll
-  nf-fa-skull_crossbones
-  nf-fa-slash
-  nf-fa-spider
-  nf-fa-toilet_paper
-  nf-fa-tractor
-  nf-fa-user_injured
-  nf-fa-vr_cardboard
-  nf-fa-wand_sparkles
-  nf-fa-wind
-  nf-fa-wine_bottle
-  nf-fa-wizards_of_the_coast
-  nf-fa-think_peaks
-  nf-fa-cloud_meatball
-  nf-fa-cloud_moon_rain
-  nf-fa-cloud_rain
-  nf-fa-cloud_showers_heavy
-  nf-fa-cloud_sun_rain
-  nf-fa-democrat
-  nf-fa-flag_usa
-  nf-fa-hurricane
-  nf-fa-landmark_dome
-  nf-fa-meteor
-  nf-fa-person_booth
-  nf-fa-poo_storm
-  nf-fa-rainbow
-  nf-fa-reacteurope
-  nf-fa-republican
-  nf-fa-smog
-  nf-fa-temperature_high
-  nf-fa-temperature_low
-  nf-fa-cloud_bolt
-  nf-fa-tornado
-  nf-fa-volcano
-  nf-fa-check_to_slot
-  nf-fa-water
-  nf-fa-artstation
-  nf-fa-atlassian
-  nf-fa-baby
-  nf-fa-baby_carriage
-  nf-fa-biohazard
-  nf-fa-blog
-  nf-fa-calendar_day
-  nf-fa-calendar_week
-  nf-fa-canadian_maple_leaf
-  nf-fa-candy_cane
-  nf-fa-carrot
-  nf-fa-cash_register
-  nf-fa-centos
-  nf-fa-minimize
-  nf-fa-confluence
-  nf-fa-dhl
-  nf-fa-diaspora
-  nf-fa-dumpster
-  nf-fa-dumpster_fire
-  nf-fa-ethernet
-  nf-fa-fedex
-  nf-fa-fedora
-  nf-fa-figma
-  nf-fa-gifts
-  nf-fa-champagne_glasses
-  nf-fa-whiskey_glass
-  nf-fa-earth_europe
-  nf-fa-grip_lines
-  nf-fa-grip_lines_vertical
-  nf-fa-guitar
-  nf-fa-heart_crack
-  nf-fa-holly_berry
-  nf-fa-horse_head
-  nf-fa-icicles
-  nf-fa-igloo
-  nf-fa-intercom
-  nf-fa-invision
-  nf-fa-jira
-  nf-fa-mendeley
-  nf-fa-mitten
-  nf-fa-mug_hot
-  nf-fa-radiation
-  nf-fa-circle_radiation
-  nf-fa-raspberry_pi
-  nf-fa-redhat
-  nf-fa-restroom
-  nf-fa-satellite
-  nf-fa-satellite_dish
-  nf-fa-sd_card
-  nf-fa-sim_card
-  nf-fa-person_skating
-  nf-fa-sketch
-  nf-fa-person_skiing
-  nf-fa-person_skiing_nordic
-  nf-fa-sleigh
-  nf-fa-comment_sms
-  nf-fa-person_snowboarding
-  nf-fa-snowman
-  nf-fa-snowplow
-  nf-fa-sourcetree
-  nf-fa-suse
-  nf-fa-tenge_sign
-  nf-fa-toilet
-  nf-fa-screwdriver_wrench
-  nf-fa-cable_car
-  nf-fa-ubuntu
-  nf-fa-ups
-  nf-fa-usps
-  nf-fa-yarn
-  nf-fa-fire_flame_curved
-  nf-fa-bacon
-  nf-fa-book_medical
-  nf-fa-bread_slice
-  nf-fa-cheese
-  nf-fa-house_chimney_medical
-  nf-fa-clipboard_user
-  nf-fa-comment_medical
-  nf-fa-crutch
-  nf-fa-disease
-  nf-fa-egg
-  nf-fa-folder_tree
-  nf-fa-burger
-  nf-fa-hand_middle_finger
-  nf-fa-helmet_safety
-  nf-fa-house_chimney
-  nf-fa-hospital_user
-  nf-fa-hotdog
-  nf-fa-ice_cream
-  nf-fa-laptop_medical
-  nf-fa-pager
-  nf-fa-pepper_hot
-  nf-fa-pizza_slice
-  nf-fa-sack_dollar
-  nf-fa-book_tanakh
-  nf-fa-bars_progress
-  nf-fa-trash_arrow_up
-  nf-fa-trash_can_arrow_up
-  nf-fa-user_nurse
-  nf-fa-airbnb
-  nf-fa-battle_net
-  nf-fa-bootstrap
-  nf-fa-buffer
-  nf-fa-chromecast
-  nf-fa-evernote
-  nf-fa-itch_io
-  nf-fa-salesforce
-  nf-fa-speaker_deck
-  nf-fa-symfony
-  nf-fa-wave_square
-  nf-fa-waze
-  nf-fa-yammer
-  nf-fa-git_alt
-  nf-fa-stackpath
-  nf-fa-person_biking
-  nf-fa-border_all
-  nf-fa-border_none
-  nf-fa-border_top_left
-  nf-fa-person_digging
-  nf-fa-fan
-  nf-fa-icons
-  nf-fa-phone_flip
-  nf-fa-square_phone_flip
-  nf-fa-photo_film
-  nf-fa-text_slash
-  nf-fa-arrow_down_z_a
-  nf-fa-arrow_up_z_a
-  nf-fa-arrow_down_short_wide
-  nf-fa-arrow_up_short_wide
-  nf-fa-arrow_down_9_1
-  nf-fa-arrow_up_9_1
-  nf-fa-spell_check
-  nf-fa-voicemail
-  nf-fa-cotton_bureau
-  nf-fa-buy_n_large
-  nf-fa-hat_cowboy
-  nf-fa-hat_cowboy_side
-  nf-fa-mdb
-  nf-fa-computer_mouse
-  nf-fa-orcid
-  nf-fa-radio
-  nf-fa-record_vinyl
-  nf-fa-swift
-  nf-fa-umbraco
-  nf-fa-walkie_talkie
-  nf-fa-caravan
-  nf-fa-avianex
-  nf-fa-less_than
-  nf-fa-less_than_equal
-  nf-fa-memory
-  nf-fa-microphone_lines_slash
-  nf-fa-money_bill_wave
-  nf-fa-money_bill_1_wave
-  nf-fa-money_check
-  nf-fa-money_check_dollar
-  nf-fa-not_equal
-  nf-fa-palette
-  nf-fa-square_parking
-  nf-fa-diagram_project
-  nf-fa-martini_glass_empty nf-fa-glass
-  nf-fa-music
-  nf-fa-magnifying_glass nf-fa-search
-  nf-fa-envelope_o
-  nf-fa-heart
-  nf-fa-star
-  nf-fa-star_o
-  nf-fa-user
-  nf-fa-film
-  nf-fa-table_cells_large nf-fa-th_large
-  nf-fa-table_cells nf-fa-th
-  nf-fa-table_list nf-fa-th_list
-  nf-fa-check
-  nf-fa-xmark nf-fa-times nf-fa-close nf-fa-remove
-  nf-fa-magnifying_glass_plus nf-fa-search_plus
-  nf-fa-images
-  nf-fa-magnifying_glass_minus nf-fa-search_minus
-  nf-fa-power_off
-  nf-fa-signal
-  nf-fa-gear nf-fa-cog
-  nf-fa-trash_can nf-fa-trash_o
-  nf-fa-house nf-fa-home
-  nf-fa-file_o
-  nf-fa-clock nf-fa-clock_o
-  nf-fa-road
-  nf-fa-download
-  nf-fa-circle_down nf-fa-arrow_circle_o_down
-  nf-fa-circle_up nf-fa-arrow_circle_o_up
-  nf-fa-inbox
-  nf-fa-play_circle_o
-  nf-fa-arrow_rotate_right nf-fa-repeat
-  nf-fa-pen
-  nf-fa-pen_clip
-  nf-fa-arrows_rotate nf-fa-refresh
-  nf-fa-rectangle_list nf-fa-list_alt
-  nf-fa-lock
-  nf-fa-flag
-  nf-fa-headphones
-  nf-fa-volume_off
-  nf-fa-volume_low nf-fa-volume_down
-  nf-fa-volume_high nf-fa-volume_up
-  nf-fa-qrcode
-  nf-fa-barcode
-  nf-fa-tag
-  nf-fa-tags
-  nf-fa-book
-  nf-fa-bookmark
-  nf-fa-print
-  nf-fa-camera
-  nf-fa-font
-  nf-fa-bold
-  nf-fa-italic
-  nf-fa-text_height
-  nf-fa-text_width
-  nf-fa-align_left
-  nf-fa-align_center
-  nf-fa-align_right
-  nf-fa-align_justify
-  nf-fa-list
-  nf-fa-outdent nf-fa-dedent
-  nf-fa-indent
-  nf-fa-video nf-fa-video_camera
-  nf-fa-image nf-fa-picture_o nf-fa-photo
-  nf-fa-down_long
-  nf-fa-pencil
-  nf-fa-location_pin nf-fa-map_marker
-  nf-fa-circle_half_stroke nf-fa-adjust
-  nf-fa-droplet nf-fa-tint
-  nf-fa-pen_to_square nf-fa-pencil_square_o nf-fa-edit
-  nf-fa-share_square_o
-  nf-fa-check_square_o
-  nf-fa-arrows_up_down_left_right nf-fa-arrows
-  nf-fa-backward_step nf-fa-step_backward
-  nf-fa-backward_fast nf-fa-fast_backward
-  nf-fa-backward
-  nf-fa-play
-  nf-fa-pause
-  nf-fa-stop
-  nf-fa-forward
-  nf-fa-left_long
-  nf-fa-forward_fast nf-fa-fast_forward
-  nf-fa-forward_step nf-fa-step_forward
-  nf-fa-eject
-  nf-fa-chevron_left
-  nf-fa-chevron_right
-  nf-fa-circle_plus nf-fa-plus_circle
-  nf-fa-circle_minus nf-fa-minus_circle
-  nf-fa-remove_sign nf-fa-times_circle
-  nf-fa-ok_sign nf-fa-check_circle
-  nf-fa-circle_question nf-fa-question_circle
-  nf-fa-circle_info nf-fa-info_circle
-  nf-fa-crosshairs
-  nf-fa-circle_xmark nf-fa-times_circle_o
-  nf-fa-circle_check nf-fa-check_circle_o
-  nf-fa-ban
-  nf-fa-file_pen
-  nf-fa-arrow_left
-  nf-fa-arrow_right
-  nf-fa-arrow_up
-  nf-fa-arrow_down
-  nf-fa-share nf-fa-mail_forward
-  nf-fa-expand
-  nf-fa-compress
-  nf-fa-plus
-  nf-fa-minus
-  nf-fa-asterisk
-  nf-fa-circle_exclamation nf-fa-exclamation_circle
-  nf-fa-gift
-  nf-fa-leaf
-  nf-fa-fire
-  nf-fa-eye
-  nf-fa-maximize
-  nf-fa-eye_slash
-  nf-fa-triangle_exclamation nf-fa-exclamation_triangle nf-fa-warning
-  nf-fa-plane
-  nf-fa-calendar_days nf-fa-calendar
-  nf-fa-shuffle nf-fa-random
-  nf-fa-comment
-  nf-fa-magnet
-  nf-fa-chevron_up
-  nf-fa-chevron_down
-  nf-fa-retweet
-  nf-fa-cart_shopping nf-fa-shopping_cart
-  nf-fa-folder
-  nf-fa-folder_open
-  nf-fa-arrows_up_down nf-fa-arrows_v
-  nf-fa-arrows_left_right nf-fa-arrows_h
-  nf-fa-clipboard_alt
-  nf-fa-chart_bar nf-fa-bar_chart nf-fa-bar_chart_o
-  nf-fa-square_twitter nf-fa-twitter_square
-  nf-fa-square_facebook nf-fa-facebook_square
-  nf-fa-camera_retro
-  nf-fa-key
-  nf-fa-gears nf-fa-cogs
-  nf-fa-comments
-  nf-fa-thumbs_o_up
-  nf-fa-thumbs_o_down
-  nf-fa-star_half
-  nf-fa-heard_o nf-fa-heart_o
-  nf-fa-arrow_right_from_bracket nf-fa-sign_out
-  nf-fa-linkedin_square
-  nf-fa-thumbtack nf-fa-thumb_tack
-  nf-fa-arrow_up_right_from_square nf-fa-external_link
-  nf-fa-left_right
-  nf-fa-arrow_right_to_bracket nf-fa-sign_in
-  nf-fa-trophy
-  nf-fa-square_github nf-fa-github_square
-  nf-fa-upload
-  nf-fa-lemon nf-fa-lemon_o
-  nf-fa-phone
-  nf-fa-square_o
-  nf-fa-bookmark_o
-  nf-fa-square_phone nf-fa-phone_square
-  nf-fa-twitter
-  nf-fa-facebook
-  nf-fa-github
-  nf-fa-unlock
-  nf-fa-credit_card
-  nf-fa-rss nf-fa-feed
-  nf-fa-up_down
-  nf-fa-hard_drive nf-fa-hdd_o
-  nf-fa-bullhorn
-  nf-fa-bell_o
-  nf-fa-certificate
-  nf-fa-hand_point_right nf-fa-hand_o_right
-  nf-fa-hand_point_left nf-fa-hand_o_left
-  nf-fa-hand_point_up nf-fa-hand_o_up
-  nf-fa-hand_point_down nf-fa-hand_o_down
-  nf-fa-circle_arrow_left nf-fa-arrow_circle_left
-  nf-fa-circle_arrow_right nf-fa-arrow_circle_right
-  nf-fa-circle_arrow_up nf-fa-arrow_circle_up
-  nf-fa-circle_arrow_down nf-fa-arrow_circle_down
-  nf-fa-globe
-  nf-fa-wrench
-  nf-fa-list_check nf-fa-tasks
-  nf-fa-square_font_awesome_stroke
-  nf-fa-filter
-  nf-fa-briefcase
-  nf-fa-up_down_left_right nf-fa-arrows_alt
-  nf-fa-up_right_from_square
-  nf-fa-square_up_right
-  nf-fa-right_left
-  nf-fa-repeat_alt
-  nf-fa-accusoft
-  nf-fa-adversal
-  nf-fa-affiliatetheme
-  nf-fa-algolia
-  nf-fa-amilia
-  nf-fa-angrycreative
-  nf-fa-app_store
-  nf-fa-app_store_ios
-  nf-fa-apper
-  nf-fa-users nf-fa-group
-  nf-fa-link nf-fa-chain
-  nf-fa-cloud
-  nf-fa-flask
-  nf-fa-scissors nf-fa-cut
-  nf-fa-copy nf-fa-files_o
-  nf-fa-paperclip
-  nf-fa-floppy_disk nf-fa-floppy_o nf-fa-save
-  nf-fa-square
-  nf-fa-bars nf-fa-reorder nf-fa-navicon
-  nf-fa-list_ul
-  nf-fa-list_ol
-  nf-fa-strikethrough
-  nf-fa-underline
-  nf-fa-table
-  nf-fa-asymmetrik
-  nf-fa-wand_magic nf-fa-magic
-  nf-fa-truck
-  nf-fa-pinterest
-  nf-fa-square_pinterest nf-fa-pinterest_square
-  nf-fa-square_google_plus nf-fa-google_plus_square
-  nf-fa-google_plus
-  nf-fa-money_bill nf-fa-money
-  nf-fa-caret_down
-  nf-fa-caret_up
-  nf-fa-caret_left
-  nf-fa-caret_right
-  nf-fa-table_columns nf-fa-columns
-  nf-fa-sort nf-fa-unsorted
-  nf-fa-sort_down nf-fa-sort_desc
-  nf-fa-sort_up nf-fa-sort_asc
-  nf-fa-audible
-  nf-fa-envelope
-  nf-fa-linkedin_in nf-fa-linkedin
-  nf-fa-arrow_rotate_left nf-fa-undo
-  nf-fa-gavel nf-fa-legal
-  nf-fa-gauge_simple_high nf-fa-dashboard nf-fa-tachometer
-  nf-fa-comment_o
-  nf-fa-comments_o
-  nf-fa-bolt nf-fa-flash
-  nf-fa-sitemap
-  nf-fa-umbrella
-  nf-fa-paste nf-fa-clipboard
-  nf-fa-lightbulb nf-fa-lightbulb_o
-  nf-fa-arrow_right_arrow_left nf-fa-exchange
-  nf-fa-cloud_arrow_down nf-fa-cloud_download
-  nf-fa-cloud_arrow_up nf-fa-cloud_upload
-  nf-fa-aws
-  nf-fa-user_doctor nf-fa-user_md
-  nf-fa-stethoscope
-  nf-fa-suitcase
-  nf-fa-bell
-  nf-fa-mug_saucer nf-fa-coffee
-  nf-fa-utensils nf-fa-cutlery
-  nf-fa-file_text_o
-  nf-fa-building_o
-  nf-fa-hospital nf-fa-hospital_o
-  nf-fa-truck_medical nf-fa-ambulance
-  nf-fa-suitcase_medical nf-fa-medkit
-  nf-fa-jet_fighter nf-fa-fighter_jet
-  nf-fa-beer_mug_empty nf-fa-beer
-  nf-fa-square_h nf-fa-h_square
-  nf-fa-square_plus nf-fa-plus_square
-  nf-fa-bimobject
-  nf-fa-angles_left nf-fa-angle_double_left
-  nf-fa-angles_right nf-fa-angle_double_right
-  nf-fa-angles_up nf-fa-angle_double_up
-  nf-fa-angles_down nf-fa-angle_double_down
-  nf-fa-angle_left
-  nf-fa-angle_right
-  nf-fa-angle_up
-  nf-fa-angle_down
-  nf-fa-desktop
-  nf-fa-laptop
-  nf-fa-tablet_screen_button
-  nf-fa-mobile_screen_button nf-fa-mobile_phone
-  nf-fa-circle_o
-  nf-fa-quote_left
-  nf-fa-quote_right
-  nf-fa-bitcoin
-  nf-fa-spinner
-  nf-fa-circle
-  nf-fa-reply nf-fa-mail_reply
-  nf-fa-github_alt
-  nf-fa-folder_o
-  nf-fa-folder_open_o
-  nf-fa-bity
-  nf-fa-blackberry
-  nf-fa-face_smile nf-fa-smile_o
-  nf-fa-face_frown nf-fa-frown_o
-  nf-fa-face_meh nf-fa-meh_o
-  nf-fa-gamepad
-  nf-fa-keyboard nf-fa-keyboard_o
-  nf-fa-flag_o
-  nf-fa-flag_checkered
-  nf-fa-blogger
-  nf-fa-terminal
-  nf-fa-code
-  nf-fa-reply_all nf-fa-mail_reply_all
-  nf-fa-star_half_o nf-fa-star_half_full nf-fa-star_half_empty
-  nf-fa-location_arrow
-  nf-fa-crop
-  nf-fa-code_branch nf-fa-code_fork
-  nf-fa-link_slash nf-fa-unlink nf-fa-chain_broken
-  nf-fa-question
-  nf-fa-info
-  nf-fa-exclamation
-  nf-fa-superscript
-  nf-fa-subscript
-  nf-fa-eraser
-  nf-fa-puzzle_piece
-  nf-fa-blogger_b
-  nf-fa-microphone
-  nf-fa-microphone_slash
-  nf-fa-shield
-  nf-fa-calendar_o
-  nf-fa-fire_extinguisher
-  nf-fa-rocket
-  nf-fa-maxcdn
-  nf-fa-circle_chevron_left nf-fa-chevron_circle_left
-  nf-fa-circle_chevron_right nf-fa-chevron_circle_right
-  nf-fa-circle_chevron_up nf-fa-chevron_circle_up
-  nf-fa-circle_chevron_down nf-fa-chevron_circle_down
-  nf-fa-html5
-  nf-fa-css3
-  nf-fa-anchor
-  nf-fa-unlock_keyhole nf-fa-unlock_alt
-  nf-fa-buromobelexperte
-  nf-fa-bullseye
-  nf-fa-ellipsis nf-fa-ellipsis_h
-  nf-fa-ellipsis_vertical nf-fa-ellipsis_v
-  nf-fa-square_rss nf-fa-rss_square
-  nf-fa-circle_play nf-fa-play_circle
-  nf-fa-ticket
-  nf-fa-square_minus nf-fa-minus_square
-  nf-fa-minus_square_o
-  nf-fa-arrow_turn_up nf-fa-level_up
-  nf-fa-arrow_turn_down nf-fa-level_down
-  nf-fa-square_check nf-fa-check_square
-  nf-fa-square_pen nf-fa-pencil_square
-  nf-fa-square_arrow_up_right nf-fa-external_link_square
-  nf-fa-share_from_square nf-fa-share_square
-  nf-fa-compass
-  nf-fa-centercode
-  nf-fa-square_caret_down nf-fa-caret_square_o_down nf-fa-toggle_down
-  nf-fa-square_caret_up nf-fa-toggle_up nf-fa-caret_square_o_up
-  nf-fa-square_caret_right nf-fa-toggle_right nf-fa-caret_square_o_right
-  nf-fa-euro_sign nf-fa-euro nf-fa-eur
-  nf-fa-sterling_sign nf-fa-gbp
-  nf-fa-dollar_sign nf-fa-dollar nf-fa-usd
-  nf-fa-rupee_sign nf-fa-inr nf-fa-rupee
-  nf-fa-yen_sign nf-fa-jpy nf-fa-yen nf-fa-cny nf-fa-rmb
-  nf-fa-ruble_sign nf-fa-rouble nf-fa-ruble nf-fa-rub
-  nf-fa-won_sign nf-fa-krw nf-fa-won
-  nf-fa-btc
-  nf-fa-file
-  nf-fa-file_lines nf-fa-file_text
-  nf-fa-arrow_down_a_z nf-fa-sort_alpha_asc
-  nf-fa-arrow_up_a_z nf-fa-sort_alpha_desc
-  nf-fa-cloudscale
-  nf-fa-arrow_down_wide_short nf-fa-sort_amount_asc
-  nf-fa-arrow_up_wide_short nf-fa-sort_amount_desc
-  nf-fa-arrow_down_1_9 nf-fa-sort_numeric_asc
-  nf-fa-arrow_up_1_9 nf-fa-sort_numeric_desc
-  nf-fa-thumbs_up
-  nf-fa-thumbs_down
-  nf-fa-square_youtube nf-fa-youtube_square
-  nf-fa-cloudsmith
-  nf-fa-xing
-  nf-fa-square_xing nf-fa-xing_square
-  nf-fa-youtube nf-fa-youtube_play
-  nf-fa-dropbox
-  nf-fa-stack_overflow
-  nf-fa-instagram
-  nf-fa-flickr
-  nf-fa-cloudversify
-  nf-fa-adn
-  nf-fa-bitbucket
-  nf-fa-code_commit nf-fa-bitbucket_square
-  nf-fa-tumblr
-  nf-fa-square_tumblr nf-fa-tumblr_square
-  nf-fa-arrow_down_long nf-fa-long_arrow_down
-  nf-fa-arrow_up_long nf-fa-long_arrow_up
-  nf-fa-arrow_left_long nf-fa-long_arrow_left
-  nf-fa-arrow_right_long nf-fa-long_arrow_right
-  nf-fa-apple
-  nf-fa-windows
-  nf-fa-android
-  nf-fa-linux
-  nf-fa-dribbble
-  nf-fa-skype
-  nf-fa-code_merge
-  nf-fa-foursquare
-  nf-fa-trello
-  nf-fa-person_dress nf-fa-female
-  nf-fa-person nf-fa-male
-  nf-fa-gratipay nf-fa-gittip
-  nf-fa-sun nf-fa-sun_o
-  nf-fa-moon nf-fa-moon_o
-  nf-fa-box_archive nf-fa-archive
-  nf-fa-bug
-  nf-fa-vk
-  nf-fa-weibo
-  nf-fa-renren
-  nf-fa-pagelines
-  nf-fa-stack_exchange
-  nf-fa-circle_right nf-fa-arrow_circle_o_right
-  nf-fa-cpanel
-  nf-fa-circle_left nf-fa-arrow_circle_o_left
-  nf-fa-square_caret_left nf-fa-caret_square_o_left nf-fa-toggle_left
-  nf-fa-circle_dot nf-fa-dot_circle_o
-  nf-fa-wheelchair
-  nf-fa-square_vimeo nf-fa-vimeo_square
-  nf-fa-lira_sign nf-fa-turkish_lira nf-fa-try
-  nf-fa-plus_square_o
-  nf-fa-shuttle_space nf-fa-space_shuttle
-  nf-fa-slack
-  nf-fa-square_envelope nf-fa-envelope_square
-  nf-fa-wordpress
-  nf-fa-openid
-  nf-fa-building_columns nf-fa-bank nf-fa-institution nf-fa-university
-  nf-fa-graduation_cap nf-fa-mortar_board
-  nf-fa-yahoo
-  nf-fa-css3_alt
-  nf-fa-google
-  nf-fa-reddit
-  nf-fa-square_reddit nf-fa-reddit_square
-  nf-fa-stumbleupon_circle
-  nf-fa-stumbleupon
-  nf-fa-delicious
-  nf-fa-digg
-  nf-fa-pied_piper_pp
-  nf-fa-pied_piper_alt
-  nf-fa-drupal
-  nf-fa-joomla
-  nf-fa-language
-  nf-fa-fax
-  nf-fa-building
-  nf-fa-child
-  nf-fa-cuttlefish
-  nf-fa-paw
-  nf-fa-spoon
-  nf-fa-cube
-  nf-fa-cubes
-  nf-fa-behance
-  nf-fa-square_behance nf-fa-behance_square
-  nf-fa-steam
-  nf-fa-square_steam nf-fa-steam_square
-  nf-fa-recycle
-  nf-fa-car nf-fa-automobile
-  nf-fa-taxi nf-fa-cab
-  nf-fa-tree
-  nf-fa-spotify
-  nf-fa-deviantart
-  nf-fa-soundcloud
-  nf-fa-d_and_d
-  nf-fa-database
-  nf-fa-file_pdf nf-fa-file_pdf_o
-  nf-fa-file_word nf-fa-file_word_o
-  nf-fa-file_excel nf-fa-file_excel_o
-  nf-fa-file_powerpoint nf-fa-file_powerpoint_o
-  nf-fa-file_image nf-fa-file_picture_o nf-fa-file_image_o nf-fa-file_photo_o
-  nf-fa-file_zipper nf-fa-file_zip_o nf-fa-file_archive_o
-  nf-fa-file_audio nf-fa-file_audio_o nf-fa-file_sound_o
-  nf-fa-file_video nf-fa-file_movie_o nf-fa-file_video_o
-  nf-fa-file_code nf-fa-file_code_o
-  nf-fa-vine
-  nf-fa-codepen
-  nf-fa-jsfiddle
-  nf-fa-life_ring nf-fa-support nf-fa-life_bouy nf-fa-life_saver nf-fa-life_buoy
-  nf-fa-circle_notch nf-fa-circle_o_notch
-  nf-fa-deploydog
-  nf-fa-rebel nf-fa-ra nf-fa-resistance
-  nf-fa-empire nf-fa-ge
-  nf-fa-square_git nf-fa-git_square
-  nf-fa-git
-  nf-fa-hacker_news nf-fa-y_combinator_square nf-fa-yc_square
-  nf-fa-tencent_weibo
-  nf-fa-qq
-  nf-fa-weixin nf-fa-wechat
-  nf-fa-paper_plane nf-fa-send
-  nf-fa-paper_plane_o nf-fa-send_o
-  nf-fa-clock_rotate_left nf-fa-history
-  nf-fa-circle_thin
-  nf-fa-heading nf-fa-header
-  nf-fa-paragraph
-  nf-fa-sliders
-  nf-fa-deskpro
-  nf-fa-share_nodes nf-fa-share_alt
-  nf-fa-square_share_nodes nf-fa-share_alt_square
-  nf-fa-bomb
-  nf-fa-futbol nf-fa-soccer_ball_o nf-fa-futbol_o
-  nf-fa-tty
-  nf-fa-binoculars
-  nf-fa-plug
-  nf-fa-slideshare
-  nf-fa-twitch
-  nf-fa-yelp
-  nf-fa-newspaper nf-fa-newspaper_o
-  nf-fa-wifi
-  nf-fa-calculator
-  nf-fa-paypal
-  nf-fa-google_wallet
-  nf-fa-digital_ocean
-  nf-fa-cc_visa
-  nf-fa-cc_mastercard
-  nf-fa-cc_discover
-  nf-fa-cc_amex
-  nf-fa-cc_paypal
-  nf-fa-cc_stripe
-  nf-fa-bell_slash
-  nf-fa-bell_slash_o
-  nf-fa-trash
-  nf-fa-copyright
-  nf-fa-at
-  nf-fa-eye_dropper nf-fa-eyedropper
-  nf-fa-paintbrush nf-fa-paint_brush
-  nf-fa-cake_candles nf-fa-birthday_cake
-  nf-fa-chart_area nf-fa-area_chart
-  nf-fa-discord
-  nf-fa-chart_pie nf-fa-pie_chart
-  nf-fa-chart_line nf-fa-line_chart
-  nf-fa-lastfm
-  nf-fa-square_lastfm nf-fa-lastfm_square
-  nf-fa-toggle_off
-  nf-fa-toggle_on
-  nf-fa-bicycle
-  nf-fa-bus
-  nf-fa-ioxhost
-  nf-fa-angellist
-  nf-fa-closed_captioning nf-fa-cc
-  nf-fa-shekel_sign nf-fa-sheqel nf-fa-shekel nf-fa-ils
-  nf-fa-discourse nf-fa-meanpath
-  nf-fa-buysellads
-  nf-fa-connectdevelop
-  nf-fa-dochub
-  nf-fa-dashcube
-  nf-fa-forumbee
-  nf-fa-leanpub
-  nf-fa-sellsy
-  nf-fa-shirtsinbulk
-  nf-fa-simplybuilt
-  nf-fa-skyatlas
-  nf-fa-cart_plus
-  nf-fa-cart_arrow_down
-  nf-fa-gem
-  nf-fa-ship
-  nf-fa-user_secret
-  nf-fa-motorcycle
-  nf-fa-street_view
-  nf-fa-heart_pulse nf-fa-heartbeat
-  nf-fa-docker
-  nf-fa-draft2digital
-  nf-fa-venus
-  nf-fa-mars
-  nf-fa-mercury
-  nf-fa-transgender nf-fa-intersex
-  nf-fa-transgender_alt
-  nf-fa-venus_double
-  nf-fa-mars_double
-  nf-fa-venus_mars
-  nf-fa-mars_stroke
-  nf-fa-mars_stroke_up nf-fa-mars_stroke_v
-  nf-fa-mars_stroke_right nf-fa-mars_stroke_h
-  nf-fa-neuter
-  nf-fa-genderless
-  nf-fa-square_dribbble
-  nf-fa-dyalog
-  nf-fa-earlybirds nf-fa-facebook_official
-  nf-fa-pinterest_p
-  nf-fa-whatsapp
-  nf-fa-server
-  nf-fa-user_plus
-  nf-fa-user_xmark nf-fa-user_times
-  nf-fa-bed nf-fa-hotel
-  nf-fa-viacoin
-  nf-fa-train
-  nf-fa-train_subway nf-fa-subway
-  nf-fa-medium
-  nf-fa-y_combinator nf-fa-yc
-  nf-fa-optin_monster
-  nf-fa-opencart
-  nf-fa-expeditedssl
-  nf-fa-erlang
-  nf-fa-battery_full nf-fa-battery nf-fa-battery_4
-  nf-fa-battery_three_quarters nf-fa-battery_3
-  nf-fa-battery_half nf-fa-battery_2
-  nf-fa-battery_quarter nf-fa-battery_1
-  nf-fa-battery_empty nf-fa-battery_0
-  nf-fa-arrow_pointer nf-fa-mouse_pointer
-  nf-fa-i_cursor
-  nf-fa-object_group
-  nf-fa-object_ungroup
-  nf-fa-note_sticky nf-fa-sticky_note
-  nf-fa-sticky_note_o
-  nf-fa-cc_jcb
-  nf-fa-cc_diners_club
-  nf-fa-clone
-  nf-fa-scale_balanced nf-fa-balance_scale
-  nf-fa-facebook_f
-  nf-fa-hourglass_o
-  nf-fa-hourglass_start nf-fa-hourglass_1
-  nf-fa-hourglass_half nf-fa-hourglass_2
-  nf-fa-hourglass_end nf-fa-hourglass_3
-  nf-fa-hourglass
-  nf-fa-hand_back_fist nf-fa-hand_rock_o nf-fa-hand_grab_o
-  nf-fa-hand nf-fa-hand_paper_o nf-fa-hand_stop_o
-  nf-fa-hand_scissors nf-fa-hand_scissors_o
-  nf-fa-hand_lizard nf-fa-hand_lizard_o
-  nf-fa-hand_spock nf-fa-hand_spock_o
-  nf-fa-hand_pointer nf-fa-hand_pointer_o
-  nf-fa-hand_peace nf-fa-hand_peace_o
-  nf-fa-trademark
-  nf-fa-registered
-  nf-fa-creative_commons
-  nf-fa-facebook_messenger
-  nf-fa-gg
-  nf-fa-gg_circle
-  nf-fa-firstdraft nf-fa-tripadvisor
-  nf-fa-odnoklassniki
-  nf-fa-square_odnoklassniki nf-fa-odnoklassniki_square
-  nf-fa-get_pocket
-  nf-fa-wikipedia_w
-  nf-fa-safari
-  nf-fa-chrome
-  nf-fa-firefox
-  nf-fa-opera
-  nf-fa-internet_explorer
-  nf-fa-tv nf-fa-television
-  nf-fa-contao
-  nf-fa-500px
-  nf-fa-fonticons_fi
-  nf-fa-amazon
-  nf-fa-calendar_plus nf-fa-calendar_plus_o
-  nf-fa-calendar_minus nf-fa-calendar_minus_o
-  nf-fa-calendar_xmark nf-fa-calendar_times_o
-  nf-fa-calendar_check nf-fa-calendar_check_o
-  nf-fa-industry
-  nf-fa-map_pin
-  nf-fa-signs_post nf-fa-map_signs
-  nf-fa-map_o
-  nf-fa-map
-  nf-fa-message nf-fa-commenting
-  nf-fa-comment_dots nf-fa-commenting_o
-  nf-fa-houzz
-  nf-fa-vimeo_v
-  nf-fa-black_tie
-  nf-fa-fort_awesome_alt
-  nf-fa-fonticons
-  nf-fa-reddit_alien
-  nf-fa-edge
-  nf-fa-credit_card_alt
-  nf-fa-codiepie
-  nf-fa-modx
-  nf-fa-fort_awesome
-  nf-fa-usb
-  nf-fa-product_hunt
-  nf-fa-mixcloud
-  nf-fa-scribd
-  nf-fa-circle_pause nf-fa-pause_circle
-  nf-fa-pause_circle_o
-  nf-fa-circle_stop nf-fa-stop_circle
-  nf-fa-stop_circle_o
-  nf-fa-freebsd
-  nf-fa-bag_shopping nf-fa-shopping_bag
-  nf-fa-basket_shopping nf-fa-shopping_basket
-  nf-fa-hashtag
-  nf-fa-bluetooth
-  nf-fa-bluetooth_b
-  nf-fa-percent
-  nf-fa-gitlab
-  nf-fa-wpbeginner
-  nf-fa-wpforms
-  nf-fa-envira
-  nf-fa-universal_access
-  nf-fa-accessible_icon nf-fa-wheelchair_alt
-  nf-fa-question_circle_o
-  nf-fa-person_walking_with_cane nf-fa-blind
-  nf-fa-audio_description
-  nf-fa-diamond
-  nf-fa-phone_volume nf-fa-volume_control_phone
-  nf-fa-braille
-  nf-fa-ear_listen nf-fa-assistive_listening_systems
-  nf-fa-hands_asl_interpreting nf-fa-american_sign_language_interpreting nf-fa-asl_interpreting
-  nf-fa-ear_deaf nf-fa-deaf nf-fa-deafness nf-fa-hard_of_hearing
-  nf-fa-glide
-  nf-fa-glide_g
-  nf-fa-hands nf-fa-signing nf-fa-sign_language
-  nf-fa-eye_low_vision nf-fa-low_vision
-  nf-fa-viadeo
-  nf-fa-square_viadeo nf-fa-viadeo_square
-  nf-fa-snapchat
-  nf-fa-gitkraken nf-fa-snapchat_ghost
-  nf-fa-square_snapchat nf-fa-snapchat_square
-  nf-fa-pied_piper
-  nf-fa-gofore
-  nf-fa-first_order
-  nf-fa-yoast
-  nf-fa-themeisle
-  nf-fa-google_plus_circle nf-fa-google_plus_official
-  nf-fa-font_awesome nf-fa-fa
-  nf-fa-handshake nf-fa-handshake_o
-  nf-fa-envelope_open
-  nf-fa-envelope_open_o
-  nf-fa-linode
-  nf-fa-address_book
-  nf-fa-address_book_o
-  nf-fa-address_card nf-fa-vcard
-  nf-fa-address_card_o nf-fa-vcard_o
-  nf-fa-circle_user nf-fa-user_circle
-  nf-fa-user_circle_o
-  nf-fa-goodreads
-  nf-fa-user_o
-  nf-fa-id_badge
-  nf-fa-id_card nf-fa-drivers_license
-  nf-fa-id_card_o nf-fa-drivers_license_o
-  nf-fa-quora
-  nf-fa-free_code_camp
-  nf-fa-telegram
-  nf-fa-temperature_full nf-fa-thermometer_4 nf-fa-thermometer nf-fa-thermometer_full
-  nf-fa-temperature_three_quarters nf-fa-thermometer_3 nf-fa-thermometer_three_quarters
-  nf-fa-temperature_half nf-fa-thermometer_2 nf-fa-thermometer_half
-  nf-fa-temperature_quarter nf-fa-thermometer_1 nf-fa-thermometer_quarter
-  nf-fa-temperature_empty nf-fa-thermometer_empty nf-fa-thermometer_0
-  nf-fa-shower
-  nf-fa-bath nf-fa-bathtub nf-fa-s15
-  nf-fa-podcast
-  nf-fa-goodreads_g
-  nf-fa-window_maximize
-  nf-fa-window_minimize
-  nf-fa-window_restore
-  nf-fa-square_xmark nf-fa-times_rectangle nf-fa-window_close
-  nf-fa-rectangle_xmark nf-fa-window_close_o nf-fa-times_rectangle_o
-  nf-fa-bandcamp
-  nf-fa-grav
-  nf-fa-etsy
-  nf-fa-imdb
-  nf-fa-ravelry
-  nf-fa-sellcast nf-fa-eercast
-  nf-fa-microchip
-  nf-fa-snowflake nf-fa-snowflake_o
-  nf-fa-superpowers
-  nf-fa-wpexplorer
-  nf-fa-google_drive
-  nf-fa-meetup
-  nf-fa-google_play
-  nf-fa-gripfire
-  nf-fa-grunt
-  nf-fa-gulp
-  nf-fa-square_hacker_news
-  nf-fa-hire_a_helper
-  nf-fa-hotjar
-  nf-fa-hubspot
-  nf-fa-itunes
-  nf-fa-rotate_left
-  nf-fa-itunes_note
-  nf-fa-jenkins
-  nf-fa-joget
-  nf-fa-js
-  nf-fa-square_js
-  nf-fa-keycdn
-  nf-fa-rotate
-  nf-fa-stopwatch
-  nf-fa-kickstarter
-  nf-fa-kickstarter_k
-  nf-fa-right_from_bracket
-  nf-fa-right_to_bracket
-  nf-fa-laravel
-  nf-fa-turn_down
-  nf-fa-rotate_right
-  nf-fa-turn_up
-  nf-fa-line
-  nf-fa-lock_open
-  nf-fa-lyft
-  nf-fa-poo
-  nf-fa-magento
+  nf-fae-smaller
+  nf-fae-snowing
+  nf-fae-soda
+  nf-fae-sofa
+  nf-fae-soup
+  nf-fae-spermatozoon
+  nf-fae-spin_double
+  nf-fae-stomach
+  nf-fae-storm
+  nf-fae-telescope
+  nf-fae-thermometer
+  nf-fae-thermometer_high
+  nf-fae-thermometer_low
+  nf-fae-thin_close
+  nf-fae-toilet
+  nf-fae-tools
+  nf-fae-tooth
+  nf-fae-uterus
+  nf-fae-w3c
+  nf-fae-walking
+  nf-fae-virus
+  nf-fae-telegram_circle
+  nf-fae-slash
+  nf-fae-telegram
+  nf-fae-shirt
+  nf-fae-tacos
+  nf-fae-sushi
+  nf-fae-triangle_ruler
+  nf-fae-tree
+  nf-fae-sun_cloud
+  nf-fae-ruby_o
+  nf-fae-ruler
+  nf-fae-umbrella
+  nf-fae-medicine
+  nf-fae-microscope
+  nf-fae-milk_bottle
+  nf-fae-minimize
+  nf-fae-molecule
+  nf-fae-moon_cloud
+  nf-fae-mushroom
+  nf-fae-mustache
+  nf-fae-mysql
+  nf-fae-nintendo
+  nf-fae-palette_color
+  nf-fae-pi
+  nf-fae-pizza
+  nf-fae-planet
+  nf-fae-plant
+  nf-fae-playstation
+  nf-fae-poison
+  nf-fae-popcorn
+  nf-fae-popsicle
+  nf-fae-pulse
+  nf-fae-python
+  nf-fae-quora_circle
+  nf-fae-quora_square
+  nf-fae-radioactive
+  nf-fae-raining
+  nf-fae-real_heart
+  nf-fae-refrigerator
+  nf-fae-restore
+  nf-fae-ring
+  nf-fae-ruby
+  nf-fae-fingerprint
+  nf-fae-floppy
+  nf-fae-footprint
+  nf-fae-freecodecamp
+  nf-fae-galaxy
+  nf-fae-galery
+  nf-fae-glass
+  nf-fae-google_drive
+  nf-fae-google_play
+  nf-fae-gps
+  nf-fae-grav
+  nf-fae-guitar
+  nf-fae-gut
+  nf-fae-halter
+  nf-fae-hamburger
+  nf-fae-hat
+  nf-fae-hexagon
+  nf-fae-high_heel
+  nf-fae-hotdog
+  nf-fae-ice_cream
+  nf-fae-id_card
+  nf-fae-imdb
+  nf-fae-infinity
+  nf-fae-java
+  nf-fae-layers
+  nf-fae-lips
+  nf-fae-lipstick
+  nf-fae-liver
+  nf-fae-lung
+  nf-fae-makeup_brushes
+  nf-fae-maximize
+  nf-fae-wallet
+  nf-fae-chess_horse
+  nf-fae-chess_king
+  nf-fae-chess_pawn
+  nf-fae-chess_queen
+  nf-fae-chess_tower
+  nf-fae-cheese
+  nf-fae-chilli
+  nf-fae-chip
+  nf-fae-cicling
+  nf-fae-cloud
+  nf-fae-cockroach
+  nf-fae-coffe_beans
+  nf-fae-coins
+  nf-fae-comb
+  nf-fae-comet
+  nf-fae-crown
+  nf-fae-cup_coffe
+  nf-fae-dice
+  nf-fae-disco
+  nf-fae-dna
+  nf-fae-donut
+  nf-fae-dress
+  nf-fae-drop
+  nf-fae-ello
+  nf-fae-envelope_open
+  nf-fae-envelope_open_o
+  nf-fae-equal
+  nf-fae-equal_bigger
+  nf-fae-feedly
+  nf-fae-file_export
+  nf-fae-file_import
+  nf-fae-wind
+  nf-fae-atom
+  nf-fae-bacteria
+  nf-fae-banana
+  nf-fae-bath
+  nf-fae-bed
+  nf-fae-benzene
+  nf-fae-bigger
+  nf-fae-biohazard
+  nf-fae-blogger_circle
+  nf-fae-blogger_square
+  nf-fae-bones
+  nf-fae-book_open
+  nf-fae-book_open_o
+  nf-fae-brain
+  nf-fae-bread
+  nf-fae-butterfly
+  nf-fae-carot
+  nf-fae-cc_by
+  nf-fae-cc_cc
+  nf-fae-cc_nc
+  nf-fae-cc_nc_eu
+  nf-fae-cc_nc_jp
+  nf-fae-cc_nd
+  nf-fae-cc_remix
+  nf-fae-cc_sa
+  nf-fae-cc_share
+  nf-fae-cc_zero
+  nf-fae-checklist_o
+  nf-fae-cherry
+  nf-fae-chess_bishop
+  nf-fae-xbox
+  nf-fae-apple_fruit
+  nf-fae-chicken_thigh
+  nf-fae-gift_card
+  nf-fae-injection
+  nf-fae-isle
+  nf-fae-lollipop
+  nf-fae-loyalty_card
+  nf-fae-meat
+  nf-fae-mountains
+  nf-fae-orange
+  nf-fae-peach
+  nf-fae-pear
 ⏻  nf-iec-power
 ⏼  nf-iec-toggle_power
 ⏽  nf-iec-power_on
