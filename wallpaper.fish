@@ -50,12 +50,6 @@ else
             error "$chosen_wallpaper is not a valid image"
             exit 1
         end
-
-        # Set last wallpaper if not same as given
-        if test -f "$last_wallpaper_path"
-            set last_wallpaper (cat $last_wallpaper_path)
-            test -z "$last_wallpaper" -o "$last_wallpaper" = "$chosen_wallpaper" && set -e last_wallpaper
-        end
     else
         # The path to the directory containing the selection of wallpapers
         set -q _flag_d && set wallpapers_dir (realpath $_flag_d)

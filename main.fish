@@ -10,7 +10,6 @@ if test "$argv[1]" = shell
         $C_DATA/shell/run.fish
     else
         if contains -- 'caelestia' (astal -l)
-            log "Sent command '$argv[2..]' to shell"
             astal -i caelestia $argv[2..]
         else
             warn 'Shell unavailable'
