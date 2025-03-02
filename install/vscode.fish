@@ -3,7 +3,8 @@
 . (dirname (status filename))/util.fish
 
 function confirm-copy -a from to
-    test -L $to -a (realpath $to) = (realpath $from) && return
+    test -L $to -a "$(realpath $to 2> /dev/null)" = (realpath $from) && return  # Return if symlink
+    cmp $from $to 2> /dev/null && return  # Return if files are the same
     if test -e $to
         read -l -p "input '$(realpath $to) already exists. Overwrite? [y/N] ' -n" confirm
         test "$confirm" = 'y' -o "$confirm" = 'Y' && log 'Continuing.' || return
@@ -31,7 +32,10 @@ end
 for prog in code code-insiders codium
     if which $prog &> /dev/null
         log "Installing extensions for '$prog'"
-        $prog --install-extension catppuccin.catppuccin-vsc
+        if ! contains 'catppuccin.catppuccin-vsc-icons' ($prog --list-extensions)
+            read -l -p "input 'Install catppuccin icons (for light/dark integration)? [Y/n] ' -n" confirm
+            test "$confirm" = 'n' -o "$confirm" = 'N' || $prog --install-extension catppuccin.catppuccin-vsc-icons
+        end
         $prog --install-extension $dist/caelestia-vscode-integration/caelestia-vscode-integration-*.vsix
     end
 end
