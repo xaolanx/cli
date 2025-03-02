@@ -8,7 +8,7 @@ function nl-echo
 end
 
 function light-theme
-    set -g light_vals 40,10,16,22,34,46,59,69,78,85,97,94,90
+    set -g light_vals 50,10,16,22,34,46,59,69,78,85,97,94,90
     set -g colour_scheme light
 end
 

@@ -97,7 +97,7 @@ def mix_colours(colours: list[str], base: list[str], amount: float) -> list[str]
 if __name__ == "__main__":
     light = sys.argv[1] == "light"
 
-    added_sat = 0.25 if light else 0.1
+    added_sat = 0.5 if light else 0.1
     base = light_colours if light else dark_colours
 
     colours = []
