@@ -15,8 +15,8 @@ setup-systemd-monitor gtk $dist
 
 # Set theme
 gsettings set org.gnome.desktop.interface gtk-theme \'adw-gtk3-dark\'
-if pacman -Q papirus-icon-theme &> /dev/null
-    read -l -p "input 'Set icon theme to Papirus-Dark? [Y/n] ' -n" confirm
+if pacman -Q papirus-icon-theme &> /dev/null && test "$(gsettings get org.gnome.desktop.interface icon-theme | cut -d - -f 1 | string sub -s 2)" != Papirus
+    read -l -p "input 'Set icon theme to Papirus? [Y/n] ' -n" confirm
     test "$confirm" = 'n' -o "$confirm" = 'N' || gsettings set org.gnome.desktop.interface icon-theme \'Papirus-Dark\'
 end
 
