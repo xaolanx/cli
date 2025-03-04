@@ -7,6 +7,8 @@ set -l src (dirname (status filename))/..
 set -l valid_schemes (path change-extension '' $src/data/schemes/* | sed 's!.*/!!')
 set -l light_schemes latte
 
+test -z "$argv" && set -l argv[1] (random choice $valid_schemes)
+
 if contains -- "$argv[1]" $valid_schemes
     mkdir -p $C_STATE/scheme
 
