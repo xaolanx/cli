@@ -21,7 +21,13 @@ end
 # Install zen css
 if test -d $HOME/.zen
     for profile in $HOME/.zen/*/chrome
-        cp $dist/zen.css $profile/userChrome.css
+        for file in userChrome userContent
+            if test -f $profile/$file.css
+                echo -e "@import url('$dist/zen/$file.css');\n$(cat $profile/$file.css)" > $profile/$file.css
+            else
+                echo "@import url('$dist/zen/$file.css');" > $profile/$file.css
+            end
+        end
     end
 end
 
