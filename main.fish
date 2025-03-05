@@ -43,6 +43,7 @@ if test "$argv[1]" = install
     else
         contains -- "$argv[2]" $valid_modules && $src/install/$argv[2].fish $argv[3..] || error "Invalid module: $argv[2]"
     end
+    test -f $C_STATE/scheme/current.txt || $src/scheme/main.fish onedark  # Init scheme after install or update
     exit
 end
 
