@@ -51,8 +51,23 @@ set -l commands workspace workspacegroup movetoworkspace movetoworkspacegroup
 complete -c caelestia -n "$seen workspace-action && not $seen $commands" -a "$commands"
 
 # Scheme
-set -l commands dynamic mocha macchiato frappe latte
+set -q XDG_DATA_HOME && set -l data_dir $XDG_DATA_HOME || set -l data_dir $HOME/.local/share
+set -l scheme_dir $data_dir/caelestia/scripts/data/schemes
+set -l commands (basename -a (find $scheme_dir/ -mindepth 1 -maxdepth 1 -type d))
 complete -c caelestia -n "$seen scheme && not $seen $commands" -a "$commands"
+for scheme in $commands
+    set -l flavours (basename -a (find $scheme_dir/$scheme/ -mindepth 1 -maxdepth 1 -type d) 2> /dev/null)
+    set -l modes (basename -s .txt (find $scheme_dir/$scheme/ -mindepth 1 -maxdepth 1 -type f) 2> /dev/null)
+    if test -n "$modes"
+        complete -c caelestia -n "$seen scheme && $seen $scheme && not $seen $modes" -a "$modes"
+    else
+        complete -c caelestia -n "$seen scheme && $seen $scheme && not $seen $flavours" -a "$flavours"
+        for flavour in $flavours
+            set -l modes (basename -s .txt (find $scheme_dir/$scheme/$flavour/ -mindepth 1 -maxdepth 1 -type f))
+            complete -c caelestia -n "$seen scheme && $seen $scheme && $seen $flavour && not $seen $modes" -a "$modes"
+        end
+    end
+end
 
 # Record
 set -l not_seen "$seen record && not $has_opt -s h help"

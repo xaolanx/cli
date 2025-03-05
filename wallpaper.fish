@@ -108,10 +108,11 @@ else
 
     # Generate colour scheme for wallpaper
     set -l src (dirname (status filename))
-    set -q _flag_T && set -l theme --theme $_flag_T
-    $src/scheme/gen-scheme.fish $theme $chosen_wallpaper > $src/data/schemes/dynamic.txt
-    if test -f $C_STATE/scheme/current-name.txt -a "$(cat $C_STATE/scheme/current-name.txt)" = 'dynamic'
-        caelestia scheme dynamic > /dev/null
+    mkdir -p $src/data/schemes/dynamic
+    $src/scheme/gen-scheme.fish --theme dark $chosen_wallpaper > $src/data/schemes/dynamic/dark.txt
+    $src/scheme/gen-scheme.fish --theme light $chosen_wallpaper > $src/data/schemes/dynamic/light.txt
+    if test "$(cat $C_STATE/scheme/current-name.txt 2> /dev/null)" = 'dynamic'
+        caelestia scheme dynamic $_flag_T > /dev/null
     end
 
     # Store the wallpaper chosen
