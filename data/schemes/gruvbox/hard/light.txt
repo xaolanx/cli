@@ -26,4 +26,6 @@ mantle eae6c7
 crust e0ddc7
 success 79740e
 error 9d0006
-accent 79740e
+primary 79740e
+secondary 8f3f71
+tertiary b57614

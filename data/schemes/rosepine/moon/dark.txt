@@ -1,5 +1,5 @@
 rosewater f0d4d3
-flamingo ebbcba
+flamingo ea9a97
 pink d97cbf
 mauve c4a7e7
 red eb6f92
@@ -9,7 +9,7 @@ yellow f6c177
 green 8fdbab
 teal 90d5c2
 sky 9ccfd8
-sapphire 31748f
+sapphire 3e8fb0
 blue 6f81d5
 lavender a9a7e7
 text e0def4
@@ -26,4 +26,6 @@ mantle 201e30
 crust 1d1b2c
 success 8fdbab
 error eb6f92
-accent ebbcba
+primary ea9a97
+secondary 3e8fb0
+tertiary 9ccfd8

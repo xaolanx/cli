@@ -26,4 +26,6 @@ mantle 1e2030
 crust 181926
 success a6da95
 error ed8796
-accent b7bdf8
+primary b7bdf8
+secondary f4dbd6
+tertiary ed8796

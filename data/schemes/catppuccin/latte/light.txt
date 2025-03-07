@@ -26,4 +26,6 @@ mantle e6e9ef
 crust dce0e8
 success 40a02b
 error d20f39
-accent 1e66f5
+primary 1e66f5
+secondary dd7878
+tertiary 40a02b

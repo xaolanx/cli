@@ -26,4 +26,6 @@ mantle 1f2122
 crust 181a1b
 success b8bb26
 error cc241d
-accent b8bb26
+primary b8bb26
+secondary c59e9d
+tertiary fabd2f

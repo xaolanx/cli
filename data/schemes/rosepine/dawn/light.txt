@@ -26,4 +26,6 @@ mantle f2ebe4
 crust e4e2de
 success 569f60
 error b4637a
-accent d7827e
+primary d7827e
+secondary 286983
+tertiary 56949f

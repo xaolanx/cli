@@ -26,4 +26,6 @@ mantle 16141e
 crust 121116
 success 8fdbab
 error eb6f92
-accent ebbcba
+primary ebbcba
+secondary 31748f
+tertiary 9ccfd8

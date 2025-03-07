@@ -11,7 +11,7 @@ teal 85b5ba
 sky 69b6e0
 sapphire 5b9fba
 blue 92a2d5
-lavender 999ced
+lavender aca1cf
 text c9c7cd
 subtext1 9998a8
 subtext0 757581
@@ -26,4 +26,6 @@ mantle 131314
 crust 101011
 success 90b99f
 error ea83a5
-accent ea83a5
+primary ea83a5
+secondary e6b99d
+tertiary aca1cf

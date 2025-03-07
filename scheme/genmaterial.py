@@ -102,7 +102,6 @@ colours = {
     "base": colours["surface"],
     "mantle": darken(colours["surface"], 0.03),
     "crust": darken(colours["surface"], 0.05),
-    "accent": colours["primary"],  # FIXME: for compatibility
 }
 
 for name, colour in colours.items():
