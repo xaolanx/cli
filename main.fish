@@ -34,6 +34,12 @@ if test "$argv[1]" = scheme
     exit
 end
 
+if test "$argv[1]" = dynamic-scheme
+    echo -n "$argv[2]" > $C_STATE/scheme/dynamic-scheme.txt
+    $src/wallpaper.fish -f $C_STATE/wallpaper/current
+    exit
+end
+
 if test "$argv[1]" = install
     set -l valid_modules scripts discord firefox fish foot fuzzel hypr safeeyes shell gtk vscode
     if test "$argv[2]" = all
@@ -66,6 +72,7 @@ echo '  shell: start the shell or message it'
 echo '  toggle: toggle a special workspace'
 echo '  workspace-action: execute a Hyprland workspace dispatcher in the current group'
 echo '  scheme: change the current colour scheme'
+echo '  dynamic-scheme: change the current dynamic material colour scheme'
 echo '  screenshot: take a screenshot'
 echo '  record: take a screen recording'
 echo '  clipboard: open clipboard history'

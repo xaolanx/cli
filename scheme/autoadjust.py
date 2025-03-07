@@ -53,6 +53,8 @@ colour_names = [
     "sapphire",
     "blue",
     "lavender",
+    "success",
+    "error"
 ]
 
 
@@ -69,12 +71,18 @@ def rgb_to_hex(rgb: tuple[float, float, float]) -> str:
 def hex_to_hls(hex: str) -> tuple[float, float, float]:
     return rgb_to_hls(*hex_to_rgb(hex))
 
+def hls_to_hex(h: str, l: str, s: str) -> str:
+    return rgb_to_hex(hls_to_rgb(h, l, s))
+
 
 def adjust(hex: str, light: float = 0, sat: float = 0) -> str:
     h, l, s = hex_to_hls(hex)
-    l = max(0, min(1, l + light))
-    s = max(0, min(1, s + sat))
-    return rgb_to_hex(hls_to_rgb(h, l, s))
+    return hls_to_hex(h, max(0, min(1, l + light)), max(0, min(1, s + sat)))
+
+
+def grayscale(hex: str, light: bool) -> str:
+    h, l, s = hex_to_hls(hex)
+    return hls_to_hex(h, min(0.5, l) if light else max(0.5, l), 0)
 
 
 def distance(colour: str, base: str) -> float:
@@ -124,21 +132,28 @@ def mix_colours(colours: list[str], base: list[str], amount: float) -> list[str]
 
 if __name__ == "__main__":
     light = sys.argv[1] == "light"
+    scheme = sys.argv[2]
+    colours_in = sys.argv[3] if scheme == "monochrome" else sys.argv[4]
 
     added_sat = 0.5 if light else 0.1
     base = light_colours if light else dark_colours
 
     colours = []
-    for colour in sys.argv[3].split(" "):
+    for colour in colours_in.split(" "):
         colours.append(adjust(colour, sat=added_sat))  # TODO: optional adjust
 
     colours = smart_sort(colours, base)  # TODO: optional smart sort
 
     mix_colours(colours, base, 0)  # TODO: customize mixing from config
 
+    # Success and error colours # TODO: customize mixing
+    colours.append(mix(colours[8], base[8], 0.9))  # Success (green)
+    colours.append(mix(colours[4], base[4], 0.9))  # Error (red)
+
+    if scheme == "monochrome":
+        for i, colour in enumerate(colours):
+            colours[i] = grayscale(colour, light)
+
     for i, colour in enumerate(colours):
         print(f"{colour_names[i]} {colour}")
 
-    # Success and error colours # TODO: customize mixing
-    print(f"success {mix(colours[8], base[8], 0.9)}")  # Success (green)
-    print(f"error {mix(colours[4], base[4], 0.9)}")  # Error (red)
