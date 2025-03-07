@@ -42,7 +42,7 @@ if contains -- "$scheme" $valid_schemes
         set -l mode $flavour
         if test -z "$mode"
             # Try to use current mode if not provided and current mode exists for flavour, otherwise random mode
-            set $mode (cat $C_STATE/scheme/current-mode.txt 2> /dev/null)
+            set mode (cat $C_STATE/scheme/current-mode.txt 2> /dev/null)
             contains -- "$mode" $modes || set mode (random choice $modes)
         end
 
