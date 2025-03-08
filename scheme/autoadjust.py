@@ -54,7 +54,7 @@ colour_names = [
     "blue",
     "lavender",
     "success",
-    "error"
+    "error",
 ]
 
 
@@ -70,6 +70,7 @@ def rgb_to_hex(rgb: tuple[float, float, float]) -> str:
 
 def hex_to_hls(hex: str) -> tuple[float, float, float]:
     return rgb_to_hls(*hex_to_rgb(hex))
+
 
 def hls_to_hex(h: str, l: str, s: str) -> str:
     return rgb_to_hex(hls_to_rgb(h, l, s))
@@ -156,4 +157,3 @@ if __name__ == "__main__":
 
     for i, colour in enumerate(colours):
         print(f"{colour_names[i]} {colour}")
-
