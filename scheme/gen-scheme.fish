@@ -4,18 +4,27 @@ set -l src (dirname (status filename))
 
 . $src/../util.fish
 
-test -f "$argv[1]" && set -l img "$argv[1]" || set -l img $C_STATE/wallpaper/current
-set -l img (realpath $img)
+test -f "$argv[1]" && set -l img (realpath "$argv[1]") || set -l img $C_STATE/wallpaper/thumbnail.jpg
 contains -- "$argv[2]" light dark && set -l theme $argv[2] || set -l theme dark
-test -n "$argv[3]" && set -l scheme $argv[3] || set -l scheme (cat $C_STATE/scheme/dynamic-scheme.txt 2> /dev/null || echo 'vibrant')
+
+set -l variants vibrant tonalspot expressive fidelity fruitsalad rainbow neutral content
 
 # Generate colours
-if test $scheme = 'monochrome'
-    $src/autoadjust.py $theme $scheme (okolors $img -k 14)
-else
-    test $theme = light && set -l lightness 50 || set -l lightness 70
-    $src/autoadjust.py $theme $scheme (okolors $img -k 14 -w 0 -l $lightness)
+test $theme = light && set -l lightness 50 || set -l lightness 70
+set -l colours (okolors $img -k 14 -w 0 -l $lightness)
+for variant in $variants
+    mkdir -p $src/../data/schemes/dynamic/$variant
+    $src/autoadjust.py $theme $variant $colours > $src/../data/schemes/dynamic/$variant/$theme.txt
 end
+mkdir -p $src/../data/schemes/dynamic/monochrome
+$src/autoadjust.py $theme monochrome (okolors $img -k 14) > $src/../data/schemes/dynamic/monochrome/$theme.txt
+
+set -la variants monochrome
 
 # Generate layers and accents
-$src/genmaterial.py $img $theme $scheme | head -c -1  # Trim trailing newline
+set -l tmp (mktemp)
+$src/genmaterial.py $img $theme > $tmp
+for variant in $variants
+    grep -FA 15 $variant $tmp | tail -15 | head -c -1 >> $src/../data/schemes/dynamic/$variant/$theme.txt
+end
+rm $tmp

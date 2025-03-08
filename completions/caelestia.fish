@@ -1,6 +1,6 @@
 set -l seen '__fish_seen_subcommand_from'
 set -l has_opt '__fish_contains_opt'
-set -l commands help install shell toggle workspace-action scheme dynamic-scheme screenshot record clipboard clipboard-delete emoji-picker wallpaper pip
+set -l commands help install shell toggle workspace-action scheme screenshot record clipboard clipboard-delete emoji-picker wallpaper pip
 set -l not_seen "not $seen $commands"
 
 # Disable file completions
@@ -13,7 +13,6 @@ complete -c caelestia -n $not_seen -a 'shell' -d 'Start the shell or message it'
 complete -c caelestia -n $not_seen -a 'toggle' -d 'Toggle a special workspace'
 complete -c caelestia -n $not_seen -a 'workspace-action' -d 'Exec a dispatcher in the current group'
 complete -c caelestia -n $not_seen -a 'scheme' -d 'Switch the current colour scheme'
-complete -c caelestia -n $not_seen -a 'dynamic-scheme' -d 'Change the dynamic colour scheme'
 complete -c caelestia -n $not_seen -a 'screenshot' -d 'Take a screenshot'
 complete -c caelestia -n $not_seen -a 'record' -d 'Take a screen recording'
 complete -c caelestia -n $not_seen -a 'clipboard' -d 'Open clipboard history'

@@ -106,13 +106,25 @@ else
     # Unload unused wallpapers to preserve memory
     hyprctl hyprpaper unload unused > /dev/null
 
+    # Thumbnail wallpaper for colour gen
+    set -l thumb_path $C_CACHE/thumbnails/(string replace -a '/' '-' (dirname $chosen_wallpaper | string sub -s 2))-(path change-extension '.jpg' (basename $chosen_wallpaper))
+    if test -f $thumb_path
+        # Use thumbnail from shell
+        cp $thumb_path $state_dir/thumbnail.jpg
+    else
+        magick -define jpeg:size=256x256 $chosen_wallpaper -thumbnail 128x128 $state_dir/thumbnail.jpg
+    end
+
     # Generate colour scheme for wallpaper
     set -l src (dirname (status filename))
-    mkdir -p $src/data/schemes/dynamic
-    $src/scheme/gen-scheme.fish $chosen_wallpaper dark > $src/data/schemes/dynamic/dark.txt
-    $src/scheme/gen-scheme.fish $chosen_wallpaper light > $src/data/schemes/dynamic/light.txt
-    if test "$(cat $C_STATE/scheme/current-name.txt 2> /dev/null)" = 'dynamic'
-        caelestia scheme dynamic $_flag_T > /dev/null
+    $src/scheme/gen-scheme.fish $state_dir/thumbnail.jpg dark &
+    $src/scheme/gen-scheme.fish $state_dir/thumbnail.jpg light &
+    if test -f $C_STATE/scheme/current-name.txt
+        set -l variant (string match -gr 'dynamic-(.*)' (cat $C_STATE/scheme/current-name.txt))
+        if test -n "$variant"
+            wait
+            caelestia scheme dynamic $variant $_flag_T > /dev/null
+        end
     end
 
     # Store the wallpaper chosen
