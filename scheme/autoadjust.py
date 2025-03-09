@@ -87,9 +87,9 @@ def grayscale(hex: str, light: bool) -> str:
 
 
 def distance(colour: str, base: str) -> float:
-    r1, g1, b1 = hex_to_rgb(colour)
-    r2, g2, b2 = hex_to_rgb(base)
-    return sqrt((r2 - r1) ** 2 + (g2 - g1) ** 2 + (b2 - b1) ** 2)
+    h1, l1, s1 = hex_to_hls(colour)
+    h2, l2, s2 = hex_to_hls(base)
+    return abs(h1 - h2) * 0.4 + abs(l1 - l2) * 0.3 + abs(s1 - s2) * 0.3
 
 
 def smart_sort(colours: list[str], base: list[str]) -> list[str]:
