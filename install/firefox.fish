@@ -23,7 +23,8 @@ if test -d $HOME/.zen
     for profile in $HOME/.zen/*/chrome
         for file in userChrome userContent
             if test -f $profile/$file.css
-                echo -e "@import url('$dist/zen/$file.css');\n$(cat $profile/$file.css)" > $profile/$file.css
+                set -l imp "@import url('$dist/zen/$file.css');"
+                grep -qFx $imp $profile/$file.css || printf '%s\n%s' $imp "$(cat $profile/$file.css)" > $profile/$file.css
             else
                 echo "@import url('$dist/zen/$file.css');" > $profile/$file.css
             end
