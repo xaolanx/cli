@@ -2,7 +2,22 @@
 
 import sys
 from colorsys import hls_to_rgb, rgb_to_hls
-from math import sqrt
+
+from materialyoucolor.dynamiccolor.material_dynamic_colors import (
+    DynamicScheme,
+    MaterialDynamicColors,
+)
+from materialyoucolor.hct import Hct
+from materialyoucolor.scheme.scheme_content import SchemeContent
+from materialyoucolor.scheme.scheme_expressive import SchemeExpressive
+from materialyoucolor.scheme.scheme_fidelity import SchemeFidelity
+from materialyoucolor.scheme.scheme_fruit_salad import SchemeFruitSalad
+from materialyoucolor.scheme.scheme_monochrome import SchemeMonochrome
+from materialyoucolor.scheme.scheme_neutral import SchemeNeutral
+from materialyoucolor.scheme.scheme_rainbow import SchemeRainbow
+from materialyoucolor.scheme.scheme_tonal_spot import SchemeTonalSpot
+from materialyoucolor.scheme.scheme_vibrant import SchemeVibrant
+from materialyoucolor.utils.color_utils import argb_from_rgb
 
 light_colours = [
     "dc8a78",
@@ -131,17 +146,43 @@ def mix_colours(colours: list[str], base: list[str], amount: float) -> list[str]
         colours[i] = mix(colours[i], b, amount)
 
 
+def get_scheme(scheme: str) -> DynamicScheme:
+    if scheme == "content":
+        return SchemeContent
+    if scheme == "expressive":
+        return SchemeExpressive
+    if scheme == "fidelity":
+        return SchemeFidelity
+    if scheme == "fruitSalad":
+        return SchemeFruitSalad
+    if scheme == "monochrome":
+        return SchemeMonochrome
+    if scheme == "neutral":
+        return SchemeNeutral
+    if scheme == "rainbow":
+        return SchemeRainbow
+    if scheme == "tonalspot":
+        return SchemeTonalSpot
+    return SchemeVibrant
+
+
 if __name__ == "__main__":
     light = sys.argv[1] == "light"
     scheme = sys.argv[2]
-    colours_in = sys.argv[3] if scheme == "monochrome" else sys.argv[4]
+    colours_in = sys.argv[3]
 
-    added_sat = 0.5 if light else 0.1
     base = light_colours if light else dark_colours
+    MatScheme = get_scheme(scheme)
 
     colours = []
-    for colour in colours_in.split(" "):
-        colours.append(adjust(colour, sat=added_sat))  # TODO: optional adjust
+    for hex in colours_in.split(" "):
+        if scheme == "monochrome":
+            colours.append(grayscale(hex, light))
+        else:
+            argb = argb_from_rgb(int(hex[:2], 16), int(hex[2:4], 16), int(hex[4:], 16))
+            mat_scheme = MatScheme(Hct.from_int(argb), not light, 0)
+            primary = MaterialDynamicColors.primary.get_hct(mat_scheme)
+            colours.append("{:02X}{:02X}{:02X}".format(*primary.to_rgba()[:3]))
 
     colours = smart_sort(colours, base)  # TODO: optional smart sort
 
@@ -150,10 +191,6 @@ if __name__ == "__main__":
     # Success and error colours # TODO: customize mixing
     colours.append(mix(colours[8], base[8], 0.9))  # Success (green)
     colours.append(mix(colours[4], base[4], 0.9))  # Error (red)
-
-    if scheme == "monochrome":
-        for i, colour in enumerate(colours):
-            colours[i] = grayscale(colour, light)
 
     for i, colour in enumerate(colours):
         print(f"{colour_names[i]} {colour}")
