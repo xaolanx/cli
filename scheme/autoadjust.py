@@ -98,7 +98,7 @@ def adjust(hex: str, light: float = 0, sat: float = 0) -> str:
 
 def grayscale(hex: str, light: bool) -> str:
     h, l, s = hex_to_hls(hex)
-    return hls_to_hex(h, min(0.5, l) if light else max(0.5, l), 0)
+    return hls_to_hex(h, 0.5 - l / 2 if light else l / 2 + 0.5, 0)
 
 
 def distance(colour: str, base: str) -> float:
