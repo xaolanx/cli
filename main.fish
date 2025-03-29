@@ -35,7 +35,7 @@ if test "$argv[1]" = scheme
 end
 
 if test "$argv[1]" = install
-    set -l valid_modules scripts btop discord firefox fish foot fuzzel hypr safeeyes shell slurp gtk vscode
+    set -l valid_modules scripts btop discord firefox fish foot fuzzel hypr safeeyes shell slurp gtk qt vscode
     if test "$argv[2]" = all
         for module in $valid_modules
             $src/install/$module.fish $argv[3..]

@@ -22,7 +22,7 @@ complete -c caelestia -n $not_seen -a 'wallpaper' -d 'Change the wallpaper'
 complete -c caelestia -n $not_seen -a 'pip' -d 'Picture in picture utilities'
 
 # Install
-set -l commands all btop discord firefox fish foot fuzzel hypr safeeyes scripts shell slurp gtk vscode
+set -l commands all btop discord firefox fish foot fuzzel hypr safeeyes scripts shell slurp gtk qt vscode
 complete -c caelestia -n "$seen install && not $seen $commands" -a "$commands"
 
 # Shell

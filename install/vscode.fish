@@ -2,16 +2,6 @@
 
 . (dirname (status filename))/util.fish
 
-function confirm-copy -a from to
-    test -L $to -a "$(realpath $to 2> /dev/null)" = (realpath $from) && return  # Return if symlink
-    cmp $from $to 2> /dev/null && return  # Return if files are the same
-    if test -e $to
-        read -l -p "input '$(realpath $to) already exists. Overwrite? [y/N] ' -n" confirm
-        test "$confirm" = 'y' -o "$confirm" = 'Y' && log 'Continuing.' || return
-    end
-    cp $from $to
-end
-
 install-deps git
 
 set -l dist $C_DATA/vscode
