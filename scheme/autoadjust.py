@@ -148,7 +148,7 @@ def get_scheme(scheme: str) -> DynamicScheme:
         return SchemeExpressive
     if scheme == "fidelity":
         return SchemeFidelity
-    if scheme == "fruitSalad":
+    if scheme == "fruitsalad":
         return SchemeFruitSalad
     if scheme == "monochrome":
         return SchemeMonochrome
