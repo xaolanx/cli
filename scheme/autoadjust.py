@@ -141,11 +141,6 @@ def mix(a: str, b: str, w: float) -> str:
     )
 
 
-def mix_colours(colours: list[str], base: list[str], amount: float) -> list[str]:
-    for i, b in enumerate(base):
-        colours[i] = mix(colours[i], b, amount)
-
-
 def get_scheme(scheme: str) -> DynamicScheme:
     if scheme == "content":
         return SchemeContent
@@ -174,23 +169,19 @@ if __name__ == "__main__":
     base = light_colours if light else dark_colours
     MatScheme = get_scheme(scheme)
 
-    colours = []
-    for hex in colours_in.split(" "):
+    colours = smart_sort(colours_in.split(" "), base)
+    for i, hex in enumerate(colours):
         if scheme == "monochrome":
-            colours.append(grayscale(hex, light))
+            colours[i] = grayscale(hex, light)
         else:
             argb = argb_from_rgb(int(hex[:2], 16), int(hex[2:4], 16), int(hex[4:], 16))
             mat_scheme = MatScheme(Hct.from_int(argb), not light, 0)
             primary = MaterialDynamicColors.primary.get_hct(mat_scheme)
-            colours.append("{:02X}{:02X}{:02X}".format(*primary.to_rgba()[:3]))
+            colours[i] = "{:02X}{:02X}{:02X}".format(*primary.to_rgba()[:3])
 
-    colours = smart_sort(colours, base)  # TODO: optional smart sort
-
-    mix_colours(colours, base, 0)  # TODO: customize mixing from config
-
-    # Success and error colours # TODO: customize mixing
-    colours.append(mix(colours[8], base[8], 0.9))  # Success (green)
-    colours.append(mix(colours[4], base[4], 0.9))  # Error (red)
+    # Success and error colours
+    colours.append(mix(colours[8], base[8], 0.8))  # Success (green)
+    colours.append(mix(colours[4], base[4], 0.8))  # Error (red)
 
     for i, colour in enumerate(colours):
         print(f"{colour_names[i]} {colour}")
