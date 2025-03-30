@@ -28,7 +28,6 @@ complete -c caelestia -n "$seen install && not $seen $commands" -a "$commands"
 # Shell
 set -l commands quit reload-css reload-config show brightness media
 set -l not_seen "$seen shell && not $seen $commands"
-complete -c caelestia -n $not_seen -a 'quit' -d 'Quit the shell'
 complete -c caelestia -n $not_seen -a 'reload-css' -d 'Reload shell styles'
 complete -c caelestia -n $not_seen -a 'reload-config' -d 'Reload shell config'
 complete -c caelestia -n $not_seen -a 'show' -d 'Show a window'
