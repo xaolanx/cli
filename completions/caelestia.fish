@@ -31,6 +31,7 @@ set -l not_seen "$seen shell && not $seen $commands"
 complete -c caelestia -n $not_seen -a 'reload-css' -d 'Reload shell styles'
 complete -c caelestia -n $not_seen -a 'reload-config' -d 'Reload shell config'
 complete -c caelestia -n $not_seen -a 'show' -d 'Show a window'
+complete -c caelestia -n $not_seen -a 'toggle' -d 'Toggle a window on the focused monitor'
 complete -c caelestia -n $not_seen -a 'media' -d 'Media commands'
 complete -c caelestia -n $not_seen -a 'brightness' -d 'Change brightness'
 
