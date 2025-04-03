@@ -69,11 +69,31 @@ function update-repo -a module dir
     set -l remote https://github.com/caelestia-dots/$module.git
     if test -d $dir
         cd $dir || exit
+
+        # Delete and clone if it's a different git repo
         if test "$(git config --get remote.origin.url)" != $remote
             cd .. || exit
             confirm-overwrite $dir
             git clone $remote $dir
         else
+            # Check for uncommitted changes
+            if test -n "$(git status --porcelain)"
+                read -l -p "input 'You have uncommitted changes in $dir. Stash, reset or exit? [S/r/e] ' -n" confirm
+
+                if test "$confirm" = 'e' -o "$confirm" = 'E'
+                    log 'Exiting...'
+                    exit
+                end
+
+                if test "$confirm" = 'r' -o "$confirm" = 'R'
+                    log 'Resetting to HEAD...'
+                    git reset --hard
+                else
+                    log 'Stashing changes...'
+                    git stash
+                end
+            end
+
             git pull
         end
     else
