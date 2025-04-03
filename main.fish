@@ -21,7 +21,7 @@ end
 if test "$argv[1]" = toggle
     set -l valid_toggles communication music sysmon specialws todo
     if contains -- "$argv[2]" $valid_toggles
-        if $argv[2] = specialws
+        if test $argv[2] = specialws
             $src/toggles/specialws.fish
         else
             . $src/toggles/util.fish
