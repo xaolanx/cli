@@ -83,7 +83,7 @@ if pgrep wf-recorder > /dev/null
         	dbus-send --session --dest=org.freedesktop.FileManager1 --type=method_call /org/freedesktop/FileManager1 org.freedesktop.FileManager1.ShowItems array:string:"file://$new_recording_path" string:'' \
                 || xdg-open (dirname $new_recording_path)
         case 'save'
-        	set -l save_file (uwsm app -- zenity --file-selection --save --title='Save As')
+        	set -l save_file (app2unit -- zenity --file-selection --save --title='Save As')
         	test -n "$save_file" && mv $new_recording_path $save_file || warn 'No file selected'
     end
 else

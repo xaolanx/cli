@@ -13,7 +13,7 @@ function spawn-client -a selector spawn
     hyprctl -j clients | jq -e "first(.[] | select($selector))" > /dev/null
     set -l stat $status
     if test $stat != 0
-        eval "uwsm app -- $spawn & disown"
+        eval "app2unit -- $spawn & disown"
     end
     test $stat != 0  # Exit 1 if already exists
 end
