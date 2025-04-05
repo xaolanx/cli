@@ -72,6 +72,8 @@ colour_names = [
     "error",
 ]
 
+HLS = tuple[float, float, float]
+
 
 def hex_to_rgb(hex: str) -> tuple[float, float, float]:
     """Convert a hex string to an RGB tuple in the range [0, 1]."""
@@ -91,23 +93,29 @@ def hls_to_hex(h: str, l: str, s: str) -> str:
     return rgb_to_hex(hls_to_rgb(h, l, s))
 
 
-def adjust(hex: str, light: float = 0, sat: float = 0) -> str:
-    h, l, s = hex_to_hls(hex)
-    return hls_to_hex(h, max(0, min(1, l + light)), max(0, min(1, s + sat)))
+def grayscale(hls: HLS, light: bool) -> HLS:
+    h, l, s = hls
+    return h, 0.5 - l / 2 if light else l / 2 + 0.5, 0
 
 
-def grayscale(hex: str, light: bool) -> str:
-    h, l, s = hex_to_hls(hex)
-    return hls_to_hex(h, 0.5 - l / 2 if light else l / 2 + 0.5, 0)
+def mix(a: HLS, b: HLS, w: float) -> HLS:
+    h1, l1, s1 = a
+    h2, l2, s2 = b
+    return h1 * (1 - w) + h2 * w, l1 * (1 - w) + l2 * w, s1 * (1 - w) + s2 * w
 
 
-def distance(colour: str, base: str) -> float:
-    h1, l1, s1 = hex_to_hls(colour)
+def darken(colour: HLS, amount: float) -> HLS:
+    h, l, s = colour
+    return h, max(0, l - amount), s
+
+
+def distance(colour: HLS, base: str) -> float:
+    h1, l1, s1 = colour
     h2, l2, s2 = hex_to_hls(base)
     return abs(h1 - h2) * 0.4 + abs(l1 - l2) * 0.3 + abs(s1 - s2) * 0.3
 
 
-def smart_sort(colours: list[str], base: list[str]) -> list[str]:
+def smart_sort(colours: list[HLS], base: list[str]) -> dict[str, HLS]:
     sorted_colours = [None] * len(colours)
     distances = {}
 
@@ -130,15 +138,7 @@ def smart_sort(colours: list[str], base: list[str]) -> list[str]:
 
             distances[colour].pop(0)
 
-    return [i[0] for i in sorted_colours]
-
-
-def mix(a: str, b: str, w: float) -> str:
-    r1, g1, b1 = hex_to_rgb(a)
-    r2, g2, b2 = hex_to_rgb(b)
-    return rgb_to_hex(
-        (r1 * (1 - w) + r2 * w, g1 * (1 - w) + g2 * w, b1 * (1 - w) + b2 * w)
-    )
+    return {colour_names[i]: c[0] for i, c in enumerate(sorted_colours)}
 
 
 def get_scheme(scheme: str) -> DynamicScheme:
@@ -167,21 +167,61 @@ if __name__ == "__main__":
     colours_in = sys.argv[3]
 
     base = light_colours if light else dark_colours
-    MatScheme = get_scheme(scheme)
+    chroma_mult = 1.5 if light else 1.2
 
-    colours = smart_sort(colours_in.split(" "), base)
-    for i, hex in enumerate(colours):
+    # Convert to HLS
+    colours = [hex_to_hls(c) for c in colours_in.split(" ")]
+
+    # Sort colours and turn into dict
+    colours = smart_sort(colours, base)
+
+    # Adjust colours
+    MatScheme = get_scheme(scheme)
+    for name, hls in colours.items():
         if scheme == "monochrome":
-            colours[i] = grayscale(hex, light)
+            colours[name] = grayscale(hls, light)
         else:
-            argb = argb_from_rgb(int(hex[:2], 16), int(hex[2:4], 16), int(hex[4:], 16))
+            argb = int(f"0xFF{hls_to_hex(*hls)}", 16)
             mat_scheme = MatScheme(Hct.from_int(argb), not light, 0)
-            primary = MaterialDynamicColors.primary.get_hct(mat_scheme)
-            colours[i] = "{:02X}{:02X}{:02X}".format(*primary.to_rgba()[:3])
+
+            colour = MaterialDynamicColors.primary.get_hct(mat_scheme)
+
+            # Boost neutral scheme colours
+            if scheme == "neutral":
+                colour.chroma += 10
+
+            colour.chroma *= chroma_mult
+
+            colours[name] = hex_to_hls("{:02X}{:02X}{:02X}".format(*colour.to_rgba()[:3]))
 
     # Success and error colours
-    colours.append(mix(colours[8], base[8], 0.8))  # Success (green)
-    colours.append(mix(colours[4], base[4], 0.8))  # Error (red)
+    colours["success"] = mix(colours["green"], hex_to_hls(base[8]), 0.8)
+    colours["error"] = mix(colours["red"], hex_to_hls(base[4]), 0.8)
 
-    for i, colour in enumerate(colours):
-        print(f"{colour_names[i]} {colour}")
+    # Layers and accents
+    material = {}
+    primary_scheme = MatScheme(Hct.from_int(int(f"0xFF{colours_in.split(" ")[0]}", 16)), not light, 0)
+    for colour in vars(MaterialDynamicColors).keys():
+        colour_name = getattr(MaterialDynamicColors, colour)
+        if hasattr(colour_name, "get_hct"):
+            rgb = colour_name.get_hct(primary_scheme).to_rgba()[:3]
+            material[colour] = hex_to_hls("{:02X}{:02X}{:02X}".format(*rgb))
+
+    colours["primary"] = material["primary"]
+    colours["secondary"] = material["secondary"]
+    colours["tertiary"] = material["tertiary"]
+    colours["text"] = material["onBackground"]
+    colours["subtext1"] = material["onSurfaceVariant"]
+    colours["subtext0"] = material["outline"]
+    colours["overlay2"] = mix(material["surface"], material["outline"], 0.86)
+    colours["overlay1"] = mix(material["surface"], material["outline"], 0.71)
+    colours["overlay0"] = mix(material["surface"], material["outline"], 0.57)
+    colours["surface2"] = mix(material["surface"], material["outline"], 0.43)
+    colours["surface1"] = mix(material["surface"], material["outline"], 0.29)
+    colours["surface0"] = mix(material["surface"], material["outline"], 0.14)
+    colours["base"] = material["surface"]
+    colours["mantle"] = darken(material["surface"], 0.03)
+    colours["crust"] = darken(material["surface"], 0.05)
+
+    for name, colour in colours.items():
+        print(f"{name} {hls_to_hex(*colour)}")
