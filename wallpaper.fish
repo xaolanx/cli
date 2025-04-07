@@ -107,13 +107,11 @@ else
     hyprctl hyprpaper unload unused > /dev/null
 
     # Thumbnail wallpaper for colour gen
-    set -l thumb_path $C_CACHE/thumbnails/(string replace -a '/' '-' (dirname $chosen_wallpaper | string sub -s 2))-(path change-extension '.jpg' (basename $chosen_wallpaper))
-    if test -f $thumb_path
-        # Use thumbnail from shell
-        cp $thumb_path $state_dir/thumbnail.jpg
-    else
-        magick -define jpeg:size=256x256 $chosen_wallpaper -thumbnail 128x128 $state_dir/thumbnail.jpg
+    set -l thumb_path $C_CACHE/thumbnails/(sha1sum $chosen_wallpaper | cut -d ' ' -f 1).jpg
+    if ! test -f $thumb_path
+        magick -define jpeg:size=256x256 $chosen_wallpaper -thumbnail 128x128 $thumb_path
     end
+    cp $thumb_path $state_dir/thumbnail.jpg
 
     # Generate colour scheme for wallpaper
     set -l src (dirname (status filename))

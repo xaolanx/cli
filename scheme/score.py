@@ -22,7 +22,7 @@ class Score:
     @staticmethod
     def score(colors_to_population: dict) -> list[int]:
         desired = 14
-        filter_enabled = True
+        filter_enabled = False
         dislike_filter = True
 
         colors_hct = []

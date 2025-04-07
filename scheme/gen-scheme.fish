@@ -12,13 +12,19 @@ set -l hash (sha1sum $img | cut -d ' ' -f 1)
 
 # Cache schemes
 mkdir -p $C_CACHE/schemes
-if ! test -d $C_CACHE/schemes/$hash
-    # Generate colours
-    set -l colours ($src/score.py $img)
+set -l dirty_variants
+if test -d $C_CACHE/schemes/$hash
     for variant in $variants
-        mkdir -p $C_CACHE/schemes/$hash/$variant
-        $src/autoadjust.py $theme $variant $colours | head -c -1 > $C_CACHE/schemes/$hash/$variant/$theme.txt
+        test -f $C_CACHE/schemes/$hash/$variant/$theme.txt || set -a dirty_variants $variant
     end
+else
+    set dirty_variants $variants
+end
+
+if test -n "$dirty_variants"
+    # Generate schemes for variants that need it
+    set -l colours ($src/score.py $img)
+    parallel "mkdir -p $C_CACHE/schemes/$hash/{} && $src/autoadjust.py $theme {} '$colours' | head -c -1 > $C_CACHE/schemes/$hash/{}/$theme.txt" ::: $dirty_variants
 end
 
 # Copy schemes from cache
