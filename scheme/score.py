@@ -44,6 +44,7 @@ class Score:
                 neighbor_hue = int(sanitize_degrees_int(i))
                 hue_excited_proportions[neighbor_hue] += proportion
 
+        # Score colours
         scored_hct = []
         for hct in colors_hct:
             hue = int(sanitize_degrees_int(round(hct.hue)))
@@ -67,6 +68,7 @@ class Score:
 
         scored_hct.sort(key=lambda x: x["score"], reverse=True)
 
+        # Choose distinct colours
         chosen_colors = []
         for difference_degrees_ in range(90, 0, -1):
             chosen_colors.clear()
@@ -82,23 +84,32 @@ class Score:
             if len(chosen_colors) >= desired:
                 break
 
-        colors = []
+        # Get primary colour
+        got_primary = False
+        for cutoff in range(20, 0, -1):
+            for item in scored_hct:
+                if item["hct"].chroma > cutoff and item["hct"].tone > cutoff * 3:
+                    chosen_colors.insert(0, item["hct"])
+                    got_primary = True
+                    break
+            if got_primary:
+                break
 
+        # Fix disliked colours
         if dislike_filter:
             for chosen_hct in chosen_colors:
                 chosen_colors[chosen_colors.index(chosen_hct)] = (
                     DislikeAnalyzer.fix_if_disliked(chosen_hct)
                 )
-        for chosen_hct in chosen_colors:
-            colors.append(chosen_hct.to_int())
-        return colors
+
+        return chosen_colors
 
 
 if __name__ == "__main__":
     img = sys.argv[1]
 
     colours = ImageQuantizeCelebi(img, 1, 128)
-    colours = [Hct.from_int(c).to_rgba()[:3] for c in Score.score(colours)]
+    colours = [c.to_rgba()[:3] for c in Score.score(colours)]
 
     # print("".join(["\x1b[48;2;{};{};{}m   \x1b[0m".format(*colour) for colour in colours]))
     print(" ".join(["{:02X}{:02X}{:02X}".format(*colour) for colour in colours]))

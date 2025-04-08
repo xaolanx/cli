@@ -164,13 +164,13 @@ def get_scheme(scheme: str) -> DynamicScheme:
 if __name__ == "__main__":
     light = sys.argv[1] == "light"
     scheme = sys.argv[2]
-    colours_in = sys.argv[3]
+    colours_in = sys.argv[3].split(" ")
 
     base = light_colours if light else dark_colours
     chroma_mult = 1.5 if light else 1.2
 
     # Convert to HLS
-    colours = [hex_to_hls(c) for c in colours_in.split(" ")]
+    colours = [hex_to_hls(c) for c in colours_in[1:]]
 
     # Sort colours and turn into dict
     colours = smart_sort(colours, base)
@@ -200,7 +200,7 @@ if __name__ == "__main__":
 
     # Layers and accents
     material = {}
-    primary_scheme = MatScheme(Hct.from_int(int(f"0xFF{colours_in.split(" ")[0]}", 16)), not light, 0)
+    primary_scheme = MatScheme(Hct.from_int(int(f"0xFF{colours_in[0]}", 16)), not light, 0)
     for colour in vars(MaterialDynamicColors).keys():
         colour_name = getattr(MaterialDynamicColors, colour)
         if hasattr(colour_name, "get_hct"):
