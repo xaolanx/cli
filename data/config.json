@@ -19,7 +19,7 @@
             "apps": [
                 {
                     "selector": ".class == \"Spotify\" or .initialTitle == \"Spotify\" or .initialTitle == \"Spotify Free\"",
-                    "spawn": "spotify-adblock.desktop",
+                    "spawn": "spicetify watch -s",
                     "action": "spawn move"
                 },
                 {
