@@ -107,6 +107,7 @@ else
     hyprctl hyprpaper unload unused > /dev/null
 
     # Thumbnail wallpaper for colour gen
+    mkdir -p $C_CACHE/thumbnails
     set -l thumb_path $C_CACHE/thumbnails/(sha1sum $chosen_wallpaper | cut -d ' ' -f 1).jpg
     if ! test -f $thumb_path
         magick -define jpeg:size=256x256 $chosen_wallpaper -thumbnail 128x128 $thumb_path
@@ -136,5 +137,4 @@ else
     mkdir -p $state_dir
     echo $chosen_wallpaper > $last_wallpaper_path
     ln -sf $chosen_wallpaper "$state_dir/current"
-    magick $chosen_wallpaper -fill black -colorize 10% -blur 0x10 "$state_dir/blur" &
 end
