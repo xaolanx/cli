@@ -99,9 +99,9 @@ def grayscale(hls: HLS, light: bool) -> HLS:
 
 
 def mix(a: HLS, b: HLS, w: float) -> HLS:
-    h1, l1, s1 = a
-    h2, l2, s2 = b
-    return h1 * (1 - w) + h2 * w, l1 * (1 - w) + l2 * w, s1 * (1 - w) + s2 * w
+    r1, g1, b1 = hls_to_rgb(*a)
+    r2, g2, b2 = hls_to_rgb(*b)
+    return rgb_to_hls(r1 * (1 - w) + r2 * w, g1 * (1 - w) + g2 * w, b1 * (1 - w) + b2 * w)
 
 
 def darken(colour: HLS, amount: float) -> HLS:
