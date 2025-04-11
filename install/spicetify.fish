@@ -2,7 +2,7 @@
 
 . (dirname (status filename))/util.fish
 
-install-deps git spicetify-cli
+install-deps git spicetify-cli spicetify-marketplace-bin
 
 set -l dist $C_DATA/spicetify
 
@@ -19,3 +19,6 @@ cp $dist/user.css $CONFIG/spicetify/Themes/caelestia/user.css
 
 # Set spicetify theme
 spicetify config current_theme caelestia color_scheme caelestia
+
+# Setup marketplace
+spicetify config custom_apps marketplace
