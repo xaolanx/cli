@@ -114,24 +114,15 @@ else
     end
     cp $thumb_path $state_dir/thumbnail.jpg
 
+    # Light/dark mode detection if not specified
+    if ! set -q _flag_T
+        set -l lightness (magick $state_dir/thumbnail.jpg -format '%[fx:int(mean*100)]' info:)
+        test $lightness -ge 60 && set _flag_T light || set _flag_T dark
+    end
+
     # Generate colour scheme for wallpaper
     set -l src (dirname (status filename))
-    $src/scheme/gen-scheme.fish $state_dir/thumbnail.jpg dark &
-    $src/scheme/gen-scheme.fish $state_dir/thumbnail.jpg light &
-    if test -f $C_STATE/scheme/current-name.txt
-        set -l variant (string match -gr 'dynamic-(.*)' (cat $C_STATE/scheme/current-name.txt))
-        if test -n "$variant"
-            # Light/dark mode detection if not specified
-            if ! set -q _flag_T
-                set -l lightness (magick $state_dir/thumbnail.jpg -format '%[fx:int(mean*100)]' info:)
-                test $lightness -ge 60 && set _flag_T light || set _flag_T dark
-            end
-            # Wait for async scheme gen to finish
-            wait
-            # Apply scheme
-            caelestia scheme dynamic $variant $_flag_T > /dev/null
-        end
-    end
+    MODE=$_flag_T $src/scheme/gen-scheme.fish &
 
     # Store the wallpaper chosen
     mkdir -p $state_dir

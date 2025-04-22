@@ -44,6 +44,18 @@ if test "$argv[1]" = scheme
     exit
 end
 
+if test "$argv[1]" = variant
+    set -l variants vibrant tonalspot expressive fidelity fruitsalad rainbow neutral content monochrome
+    if contains -- "$argv[2]" $variants
+        echo -n $argv[2] > $C_STATE/scheme/current-variant.txt
+        $src/scheme/gen-scheme.fish
+    else
+        error "Invalid variant: $argv[2]"
+    end
+
+    exit
+end
+
 if test "$argv[1]" = install
     set -l valid_modules scripts btop discord firefox fish foot fuzzel hypr safeeyes shell slurp spicetify gtk qt vscode
     if test "$argv[2]" = all
@@ -76,6 +88,7 @@ echo '  shell: start the shell or message it'
 echo '  toggle: toggle a special workspace'
 echo '  workspace-action: execute a Hyprland workspace dispatcher in the current group'
 echo '  scheme: change the current colour scheme'
+echo '  variant: change the current scheme variant'
 echo '  screenshot: take a screenshot'
 echo '  record: take a screen recording'
 echo '  clipboard: open clipboard history'

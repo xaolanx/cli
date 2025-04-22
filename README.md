@@ -23,6 +23,7 @@ COMMAND := help | install | shell | toggle | workspace-action | scheme | screens
   toggle: toggle a special workspace
   workspace-action: execute a Hyprland workspace dispatcher in the current group
   scheme: change the current colour scheme
+  variant: change the current scheme variant
   screenshot: take a screenshot
   record: take a screen recording
   clipboard: open clipboard history

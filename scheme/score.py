@@ -2,10 +2,10 @@
 
 import sys
 
-from materialyoucolor.quantize import ImageQuantizeCelebi
-from materialyoucolor.hct import Hct
-from materialyoucolor.utils.math_utils import sanitize_degrees_int, difference_degrees
 from materialyoucolor.dislike.dislike_analyzer import DislikeAnalyzer
+from materialyoucolor.hct import Hct
+from materialyoucolor.quantize import ImageQuantizeCelebi
+from materialyoucolor.utils.math_utils import difference_degrees, sanitize_degrees_int
 
 
 class Score:
@@ -20,7 +20,7 @@ class Score:
         pass
 
     @staticmethod
-    def score(colors_to_population: dict) -> list[int]:
+    def score(colors_to_population: dict) -> tuple[list[Hct], list[Hct]]:
         desired = 14
         filter_enabled = False
         dislike_filter = True
@@ -72,7 +72,8 @@ class Score:
         chosen_colors = []
         for difference_degrees_ in range(90, 0, -1):
             chosen_colors.clear()
-            for hct in [item["hct"] for item in scored_hct]:
+            for item in scored_hct:
+                hct = item["hct"]
                 duplicate_hue = any(
                     difference_degrees(hct.hue, chosen_hct.hue) < difference_degrees_
                     for chosen_hct in chosen_colors
@@ -85,31 +86,49 @@ class Score:
                 break
 
         # Get primary colour
-        got_primary = False
+        primary = None
         for cutoff in range(20, 0, -1):
             for item in scored_hct:
                 if item["hct"].chroma > cutoff and item["hct"].tone > cutoff * 3:
-                    chosen_colors.insert(0, item["hct"])
-                    got_primary = True
+                    primary = item["hct"]
                     break
-            if got_primary:
+            if primary:
+                break
+
+        # Choose distinct primaries
+        chosen_primaries = [primary]
+        for difference_degrees_ in range(90, 14, -1):
+            chosen_primaries = [primary]
+            for item in scored_hct:
+                hct = item["hct"]
+                duplicate_hue = any(
+                    difference_degrees(hct.hue, chosen_hct.hue) < difference_degrees_
+                    for chosen_hct in chosen_primaries
+                )
+                if not duplicate_hue:
+                    chosen_primaries.append(hct)
+                if len(chosen_primaries) >= 3:
+                    break
+            if len(chosen_primaries) >= 3:
                 break
 
         # Fix disliked colours
         if dislike_filter:
-            for chosen_hct in chosen_colors:
-                chosen_colors[chosen_colors.index(chosen_hct)] = (
-                    DislikeAnalyzer.fix_if_disliked(chosen_hct)
-                )
+            for i, chosen_hct in enumerate(chosen_primaries):
+                chosen_primaries[i] = DislikeAnalyzer.fix_if_disliked(chosen_hct)
+            for i, chosen_hct in enumerate(chosen_colors):
+                chosen_colors[i] = DislikeAnalyzer.fix_if_disliked(chosen_hct)
 
-        return chosen_colors
+        return chosen_primaries, chosen_colors
 
 
 if __name__ == "__main__":
     img = sys.argv[1]
+    mode = sys.argv[2] if len(sys.argv) > 2 else "hex"
 
-    colours = ImageQuantizeCelebi(img, 1, 128)
-    colours = [c.to_rgba()[:3] for c in Score.score(colours)]
-
-    # print("".join(["\x1b[48;2;{};{};{}m   \x1b[0m".format(*colour) for colour in colours]))
-    print(" ".join(["{:02X}{:02X}{:02X}".format(*colour) for colour in colours]))
+    colours = Score.score(ImageQuantizeCelebi(img, 1, 128))
+    for l in colours:
+        if mode != "hex":
+            print("".join(["\x1b[48;2;{};{};{}m   \x1b[0m".format(*c.to_rgba()[:3]) for c in l]))
+        if mode != "swatch":
+            print(" ".join(["{:02X}{:02X}{:02X}".format(*c.to_rgba()[:3]) for c in l]))

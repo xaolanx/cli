@@ -5,30 +5,29 @@ set -l src (dirname (status filename))
 . $src/../util.fish
 
 test -f "$argv[1]" && set -l img (realpath "$argv[1]") || set -l img $C_STATE/wallpaper/thumbnail.jpg
-contains -- "$argv[2]" light dark && set -l theme $argv[2] || set -l theme dark
 
 set -l variants vibrant tonalspot expressive fidelity fruitsalad rainbow neutral content monochrome
+contains -- "$argv[2]" $variants && set -l variant $argv[2] || set -l variant (cat $C_STATE/scheme/current-variant.txt 2> /dev/null)
+contains -- "$variant" $variants || set -l variant tonalspot
+
 set -l hash (sha1sum $img | cut -d ' ' -f 1)
 
-# Cache schemes
-mkdir -p $C_CACHE/schemes
-set -l dirty_variants
-if test -d $C_CACHE/schemes/$hash
-    for variant in $variants
-        test -f $C_CACHE/schemes/$hash/$variant/$theme.txt || set -a dirty_variants $variant
-    end
-else
-    set dirty_variants $variants
-end
-
-if test -n "$dirty_variants"
-    # Generate schemes for variants that need it
+# Cache scheme
+if ! test -d $C_CACHE/schemes/$hash/$variant
     set -l colours ($src/score.py $img)
-    parallel "mkdir -p $C_CACHE/schemes/$hash/{} && $src/autoadjust.py $theme {} '$colours' | head -c -1 > $C_CACHE/schemes/$hash/{}/$theme.txt" ::: $dirty_variants
+    $src/autoadjust.py dark $variant $colours $C_CACHE/schemes/$hash
+    $src/autoadjust.py light $variant $colours $C_CACHE/schemes/$hash
 end
 
-# Copy schemes from cache
-for variant in $variants
-    mkdir -p $src/../data/schemes/dynamic/$variant
-    cp $C_CACHE/schemes/$hash/$variant/$theme.txt $src/../data/schemes/dynamic/$variant/$theme.txt
+# Copy scheme from cache
+rm -rf $src/../data/schemes/dynamic
+cp -r $C_CACHE/schemes/$hash/$variant $src/../data/schemes/dynamic
+
+# Update if current
+set -l variant (string match -gr 'dynamic-(.*)' (cat $C_STATE/scheme/current-name.txt 2> /dev/null))
+if test -n "$variant"
+    # If variant doesn't exist, use default
+    test -d $src/../data/schemes/dynamic/$variant || set -l variant default
+    # Apply scheme
+    $src/main.fish dynamic $variant $MODE > /dev/null
 end
