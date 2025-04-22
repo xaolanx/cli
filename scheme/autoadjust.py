@@ -4,6 +4,7 @@ import sys
 from colorsys import hls_to_rgb, rgb_to_hls
 from pathlib import Path
 
+from materialyoucolor.blend import Blend
 from materialyoucolor.dynamiccolor.material_dynamic_colors import (
     DynamicScheme,
     MaterialDynamicColors,
@@ -93,6 +94,14 @@ def hls_to_hex(h: str, l: str, s: str) -> str:
     return rgb_to_hex(hls_to_rgb(h, l, s))
 
 
+def hex_to_argb(hex: str) -> int:
+    return int(f"0xFF{hex}", 16)
+
+
+def argb_to_hls(argb: int) -> HLS:
+    return hex_to_hls(f"{argb:08X}"[2:])
+
+
 def grayscale(hls: HLS, light: bool) -> HLS:
     h, l, s = hls
     return h, 0.5 - l / 2 if light else l / 2 + 0.5, 0
@@ -104,6 +113,10 @@ def mix(a: HLS, b: HLS, w: float) -> HLS:
     return rgb_to_hls(
         r1 * (1 - w) + r2 * w, g1 * (1 - w) + g2 * w, b1 * (1 - w) + b2 * w
     )
+
+
+def harmonize(a: str, b: int) -> HLS:
+    return argb_to_hls(Blend.harmonize(hex_to_argb(a), b))
 
 
 def darken(colour: HLS, amount: float) -> HLS:
@@ -176,21 +189,20 @@ if __name__ == "__main__":
     out_path = sys.argv[5]
 
     base = light_colours if light else dark_colours
-    chroma_mult = 1.5 if light else 1.2
 
     # Convert to HLS
-    colours = [hex_to_hls(c) for c in colours_in]
+    base_colours = [hex_to_hls(c) for c in colours_in]
 
     # Sort colours and turn into dict
-    colours = smart_sort(colours, base)
+    base_colours = smart_sort(base_colours, base)
 
     # Adjust colours
     MatScheme = get_scheme(scheme)
-    for name, hls in colours.items():
+    for name, hls in base_colours.items():
         if scheme == "monochrome":
-            colours[name] = grayscale(hls, light)
+            base_colours[name] = grayscale(hls, light)
         else:
-            argb = int(f"0xFF{hls_to_hex(*hls)}", 16)
+            argb = hex_to_argb(hls_to_hex(*hls))
             mat_scheme = MatScheme(Hct.from_int(argb), not light, 0)
 
             colour = MaterialDynamicColors.primary.get_hct(mat_scheme)
@@ -199,43 +211,44 @@ if __name__ == "__main__":
             if scheme == "neutral":
                 colour.chroma += 10
 
-            colour.chroma *= chroma_mult
-
-            colours[name] = hex_to_hls(
+            base_colours[name] = hex_to_hls(
                 "{:02X}{:02X}{:02X}".format(*colour.to_rgba()[:3])
             )
-
-    # Success and error colours
-    colours["success"] = mix(colours["green"], hex_to_hls(base[8]), 0.8)
-    colours["error"] = mix(colours["red"], hex_to_hls(base[4]), 0.8)
 
     # Layers and accents
     for i, primary in enumerate(primaries):
         material = {}
-        primary_scheme = MatScheme(
-            Hct.from_int(int(f"0xFF{primary}", 16)), not light, 0
-        )
+
+        primary_argb = hex_to_argb(primary)
+        primary_scheme = MatScheme(Hct.from_int(primary_argb), not light, 0)
         for colour in vars(MaterialDynamicColors).keys():
             colour_name = getattr(MaterialDynamicColors, colour)
             if hasattr(colour_name, "get_hct"):
                 rgb = colour_name.get_hct(primary_scheme).to_rgba()[:3]
                 material[colour] = hex_to_hls("{:02X}{:02X}{:02X}".format(*rgb))
 
-        colours["primary"] = material["primary"]
-        colours["secondary"] = material["secondary"]
-        colours["tertiary"] = material["tertiary"]
-        colours["text"] = material["onBackground"]
-        colours["subtext1"] = material["onSurfaceVariant"]
-        colours["subtext0"] = material["outline"]
-        colours["overlay2"] = mix(material["surface"], material["outline"], 0.86)
-        colours["overlay1"] = mix(material["surface"], material["outline"], 0.71)
-        colours["overlay0"] = mix(material["surface"], material["outline"], 0.57)
-        colours["surface2"] = mix(material["surface"], material["outline"], 0.43)
-        colours["surface1"] = mix(material["surface"], material["outline"], 0.29)
-        colours["surface0"] = mix(material["surface"], material["outline"], 0.14)
-        colours["base"] = material["surface"]
-        colours["mantle"] = darken(material["surface"], 0.03)
-        colours["crust"] = darken(material["surface"], 0.05)
+        colours = {
+            "primary": material["primary"],
+            "secondary": material["secondary"],
+            "tertiary": material["tertiary"],
+            "text": material["onBackground"],
+            "subtext1": material["onSurfaceVariant"],
+            "subtext0": material["outline"],
+            "overlay2": mix(material["surface"], material["outline"], 0.86),
+            "overlay1": mix(material["surface"], material["outline"], 0.71),
+            "overlay0": mix(material["surface"], material["outline"], 0.57),
+            "surface2": mix(material["surface"], material["outline"], 0.43),
+            "surface1": mix(material["surface"], material["outline"], 0.29),
+            "surface0": mix(material["surface"], material["outline"], 0.14),
+            "base": material["surface"],
+            "mantle": darken(material["surface"], 0.03),
+            "crust": darken(material["surface"], 0.05),
+            "success": harmonize(base[8], primary_argb),
+            "error": harmonize(base[4], primary_argb),
+        }
+
+        for name, hls in base_colours.items():
+            colours[name] = harmonize(hls_to_hex(*hls), primary_argb)
 
         out_file = Path(f"{out_path}/{scheme}/{get_alt(i)}/{sys.argv[1]}.txt")
         out_file.parent.mkdir(parents=True, exist_ok=True)
