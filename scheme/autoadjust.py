@@ -227,10 +227,9 @@ if __name__ == "__main__":
                 rgb = colour_name.get_hct(primary_scheme).to_rgba()[:3]
                 material[colour] = hex_to_hls("{:02X}{:02X}{:02X}".format(*rgb))
 
+        # TODO: eventually migrate to material for layers
         colours = {
-            "primary": material["primary"],
-            "secondary": material["secondary"],
-            "tertiary": material["tertiary"],
+            **material,
             "text": material["onBackground"],
             "subtext1": material["onSurfaceVariant"],
             "subtext0": material["outline"],
@@ -244,7 +243,6 @@ if __name__ == "__main__":
             "mantle": darken(material["surface"], 0.03),
             "crust": darken(material["surface"], 0.05),
             "success": harmonize(base[8], primary_argb),
-            "error": harmonize(base[4], primary_argb),
         }
 
         for name, hls in base_colours.items():
