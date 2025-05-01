@@ -3,7 +3,7 @@
 . (dirname (status filename))/util.fish
 
 install-deps git hyprland-git hyprpaper-git imagemagick wl-clipboard fuzzel-git socat foot jq python xdg-user-dirs python-materialyoucolor-git app2unit-git
-install-optional-deps 'equibop-bin (discord client)' 'btop (system monitor)' 'wf-recorder (screen recorder)' 'grim (screenshot tool)' 'zen-browser (web browser)' 'spotify-adblock (music player)'
+install-optional-deps 'equibop-bin (discord client)' 'btop (system monitor)' 'wl-screenrec (screen recorder)' 'grim (screenshot tool)' 'zen-browser (web browser)'
 
 set -l dist $C_DATA/scripts
 
