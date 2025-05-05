@@ -91,7 +91,7 @@ else
     # No hardware accel
     set -q _flag_n && set -l hwaccel --no-hw
 
-    wl-screenrec $region $audio $hwaccel -f $recording_path & disown
+    wl-screenrec $region $audio $hwaccel --codec hevc -f $recording_path & disown
 
     notify-send 'Recording started' 'Recording...' -i 'video-x-generic' -a 'caelestia-record' -p > $notif_id_path
 end

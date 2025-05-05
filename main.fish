@@ -40,7 +40,11 @@ if test "$argv[1]" = workspace-action
 end
 
 if test "$argv[1]" = scheme
-    $src/scheme/main.fish $argv[2..]
+    if test "$argv[2]" = print
+        $src/scheme/gen-print-scheme.fish $argv[3..]
+    else
+        $src/scheme/main.fish $argv[2..]
+    end
     exit
 end
 

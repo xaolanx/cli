@@ -45,34 +45,36 @@ complete -c caelestia -n $not_seen -a 'stop' -d 'Stop media'
 
 # Toggles
 set -l commands communication music specialws sysmon todo
-complete -c caelestia -n "$seen toggle && not $seen $commands" -a "$commands"
+complete -c caelestia -n "$seen toggle && not $seen $commands" -a "$commands" -d 'toggle'
 
 # Workspace action
 set -l commands workspace workspacegroup movetoworkspace movetoworkspacegroup
-complete -c caelestia -n "$seen workspace-action && not $seen $commands" -a "$commands"
+complete -c caelestia -n "$seen workspace-action && not $seen $commands" -a "$commands" -d 'action'
 
 # Scheme
 set -q XDG_DATA_HOME && set -l data_dir $XDG_DATA_HOME || set -l data_dir $HOME/.local/share
 set -l scheme_dir $data_dir/caelestia/scripts/data/schemes
-set -l commands (basename -a (find $scheme_dir/ -mindepth 1 -maxdepth 1 -type d))
-complete -c caelestia -n "$seen scheme && not $seen $commands" -a "$commands"
-for scheme in $commands
+set -l schemes (basename -a (find $scheme_dir/ -mindepth 1 -maxdepth 1 -type d))
+set -l commands 'print' $schemes
+complete -c caelestia -n "$seen scheme && not $seen $commands" -a 'print' -d 'Generate and print a colour scheme for an image'
+complete -c caelestia -n "$seen scheme && not $seen $commands" -a "$schemes" -d 'scheme'
+for scheme in $schemes
     set -l flavours (basename -a (find $scheme_dir/$scheme/ -mindepth 1 -maxdepth 1 -type d) 2> /dev/null)
     set -l modes (basename -s .txt (find $scheme_dir/$scheme/ -mindepth 1 -maxdepth 1 -type f) 2> /dev/null)
     if test -n "$modes"
-        complete -c caelestia -n "$seen scheme && $seen $scheme && not $seen $modes" -a "$modes"
+        complete -c caelestia -n "$seen scheme && $seen $scheme && not $seen $modes" -a "$modes" -d 'mode'
     else
-        complete -c caelestia -n "$seen scheme && $seen $scheme && not $seen $flavours" -a "$flavours"
+        complete -c caelestia -n "$seen scheme && $seen $scheme && not $seen $flavours" -a "$flavours" -d 'flavour'
         for flavour in $flavours
             set -l modes (basename -s .txt (find $scheme_dir/$scheme/$flavour/ -mindepth 1 -maxdepth 1 -type f))
-            complete -c caelestia -n "$seen scheme && $seen $scheme && $seen $flavour && not $seen $modes" -a "$modes"
+            complete -c caelestia -n "$seen scheme && $seen $scheme && $seen $flavour && not $seen $modes" -a "$modes" -d 'mode'
         end
     end
 end
 
 # Variant
 set -l commands vibrant tonalspot expressive fidelity fruitsalad rainbow neutral content monochrome
-complete -c caelestia -n "$seen variant && not $seen $commands" -a "$commands"
+complete -c caelestia -n "$seen variant && not $seen $commands" -a "$commands" -d 'variant'
 
 # Record
 set -l not_seen "$seen record && not $has_opt -s h help"
