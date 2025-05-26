@@ -3,8 +3,8 @@
         "communication": {
             "apps": [
                 {
-                    "selector": ".class == \"equibop\"",
-                    "spawn": "equibop",
+                    "selector": ".class == \"discord\"",
+                    "spawn": "discord",
                     "action": "spawn move"
                 },
                 {

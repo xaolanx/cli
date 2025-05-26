@@ -2,8 +2,8 @@
 
 . (dirname (status filename))/util.fish
 
-install-deps git
-install-optional-deps 'arrpc (rich presence)'
+install-deps git discord equicord-installer-bin
+sudo Equilotl -install -install-openasar -location /opt/discord
 
 set -l dist $C_DATA/discord
 
@@ -14,7 +14,7 @@ update-repo discord $dist
 setup-systemd-monitor discord $dist
 
 # Link themes to client configs
-set -l clients discord vesktop equibop legcord $argv
+set -l clients Vencord Equicord discord vesktop equibop legcord $argv
 for client in $clients
     if test -d $CONFIG/$client
         log "Linking themes for $client"
