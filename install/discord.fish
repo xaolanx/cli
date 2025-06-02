@@ -3,7 +3,8 @@
 . (dirname (status filename))/util.fish
 
 install-deps git discord equicord-installer-bin
-sudo Equilotl -install -install-openasar -location /opt/discord
+sudo Equilotl -install -location /opt/discord
+sudo Equilotl -install-openasar -location /opt/discord
 
 set -l dist $C_DATA/discord
 
