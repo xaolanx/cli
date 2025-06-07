@@ -2,16 +2,13 @@
 
 . (dirname (status filename))/util.fish
 
-install-deps git dart-sass libastal-gjs-git libastal-meta npm curl libnotify ttf-material-symbols-variable-git ttf-jetbrains-mono-nerd ttf-rubik-vf pacman-contrib app2unit-git
-install-optional-deps 'uwsm (for systems using uwsm)' 'yay (AUR package management)' 'fd (launcher file search)' 'tod-bin (launcher todo action)' 'wl-clipboard (clipboard support)' 'foot (opening stuff in terminal)'
+install-deps git quickshell curl jq ttf-material-symbols-variable-git ttf-jetbrains-mono-nerd ttf-ibm-plex app2unit-git fd fish python-aubio python-pyaudio python-numpy cava networkmanager bluez-utils ddcutil brightnessctl
+install-optional-deps 'uwsm (for systems using uwsm)'
 
 set -l shell $C_DATA/shell
 
 # Update/Clone repo
 update-repo shell $shell
-
-cd $shell || exit
-npm install
 
 if which systemctl &> /dev/null
     log 'Installing systemd service...'
@@ -20,7 +17,7 @@ if which systemctl &> /dev/null
     mkdir -p $systemd
     echo -n "
 [Unit]
-Description=A visually stunning and feature-rich desktop shell made for the Caelestia project.
+Description=A very segsy desktop shell.
 After=graphical-session.target
 
 [Service]
