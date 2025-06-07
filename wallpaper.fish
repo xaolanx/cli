@@ -97,15 +97,6 @@ else
         set chosen_wallpaper (random choice $wallpapers)
     end
 
-    # Change the wallpaper and output change if success
-    hyprctl hyprpaper preload $chosen_wallpaper > /dev/null
-    for monitor in (hyprctl -j monitors | jq -r '.[].name')
-        hyprctl hyprpaper wallpaper "$monitor,$chosen_wallpaper" > /dev/null && log "Changed wallpaper on $monitor to $chosen_wallpaper"
-    end
-
-    # Unload unused wallpapers to preserve memory
-    hyprctl hyprpaper unload unused > /dev/null
-
     # Thumbnail wallpaper for colour gen
     mkdir -p $C_CACHE/thumbnails
     set -l thumb_path $C_CACHE/thumbnails/(sha1sum $chosen_wallpaper | cut -d ' ' -f 1).jpg
