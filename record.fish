@@ -64,7 +64,7 @@ if pgrep wl-screenrec > /dev/null
 
     # Notification with actions
     set -l action (notify-send 'Recording stopped' "Stopped recording $new_recording_path" -i 'video-x-generic' -a 'caelestia-record' \
-        --action='watch=Watch' --action='open=Open' --action='save=Save As')
+        --action='watch=Watch' --action='open=Open' --action='save=Save As' --action='delete=Delete')
 
     switch $action
         case 'watch'
@@ -75,6 +75,8 @@ if pgrep wl-screenrec > /dev/null
         case 'save'
         	set -l save_file (app2unit -- zenity --file-selection --save --title='Save As')
         	test -n "$save_file" && mv $new_recording_path $save_file || warn 'No file selected'
+        case 'delete'
+            rm $new_recording_path
     end
 else
     # Set region if flag given otherwise active monitor
