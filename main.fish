@@ -9,6 +9,11 @@ if test "$argv[1]" = shell
     if test -z "$argv[2..]"
         $C_DATA/shell/run.fish
     else
+        if test "$argv[2]" = help
+            qs -p $C_DATA/shell ipc show
+            exit
+        end
+
         if qs list --all | grep "Config path: $C_DATA/shell/shell.qml" &> /dev/null
             qs -p $C_DATA/shell ipc call $argv[2..]
         else

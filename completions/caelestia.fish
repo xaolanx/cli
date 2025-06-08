@@ -27,23 +27,54 @@ set -l commands all btop discord firefox fish foot fuzzel hypr safeeyes scripts 
 complete -c caelestia -n "$seen install && not $seen $commands" -a "$commands"
 
 # Shell
-set -l commands mpris
+set -l commands help mpris drawers wallpaper notifs
 set -l not_seen "$seen shell && not $seen $commands"
+complete -c caelestia -n $not_seen -a 'help' -d 'Show IPC commands'
 complete -c caelestia -n $not_seen -a 'mpris' -d 'Mpris control'
+complete -c caelestia -n $not_seen -a 'drawers' -d 'Toggle drawers'
+complete -c caelestia -n $not_seen -a 'wallpaper' -d 'Wallpaper control'
+complete -c caelestia -n $not_seen -a 'notifs' -d 'Notification control'
 
-set -l commands getActive
-complete -c caelestia -n "$seen shell && $seen mpris && not $seen $commands" -a 'getActive' -d 'Get a property from the active mpris player'
-
-set -l commands play-pause next previous stop
-set -l not_seen "$seen shell && $seen media && not $seen $commands"
-complete -c caelestia -n $not_seen -a 'play-pause' -d 'Play/pause media'
+set -l commands getActive play pause playPause stop next previous list
+set -l not_seen "$seen shell && $seen mpris && not $seen $commands"
+complete -c caelestia -n $not_seen -a 'play' -d 'Play media'
+complete -c caelestia -n $not_seen -a 'pause' -d 'Pause media'
+complete -c caelestia -n $not_seen -a 'playPause' -d 'Play/pause media'
 complete -c caelestia -n $not_seen -a 'next' -d 'Skip to next song'
 complete -c caelestia -n $not_seen -a 'previous' -d 'Go to previous song'
 complete -c caelestia -n $not_seen -a 'stop' -d 'Stop media'
+complete -c caelestia -n $not_seen -a 'list' -d 'List media players'
+complete -c caelestia -n $not_seen -a 'getActive' -d 'Get a property from the active MPRIS player'
+
+set -l commands trackTitle trackArtist trackAlbum position length identity
+set -l not_seen "$seen shell && $seen mpris && $seen getActive && not $seen $commands"
+complete -c caelestia -n $not_seen -a 'trackTitle' -d 'Track title'
+complete -c caelestia -n $not_seen -a 'trackArtist' -d 'Track artist'
+complete -c caelestia -n $not_seen -a 'trackAlbum' -d 'Track album'
+complete -c caelestia -n $not_seen -a 'position' -d 'Track position'
+complete -c caelestia -n $not_seen -a 'length' -d 'Track length'
+complete -c caelestia -n $not_seen -a 'identity' -d 'Player identity'
+
+set -l commands list toggle
+set -l not_seen "$seen shell && $seen drawers && not $seen $commands"
+complete -c caelestia -n $not_seen -a 'list' -d 'List togglable drawers'
+complete -c caelestia -n $not_seen -a 'toggle' -d 'Toggle a drawer'
+
+set -l commands (caelestia shell drawers list)
+complete -c caelestia -n "$seen shell && $seen drawers && $seen toggle && not $seen $commands" -a "$commands" -d 'drawer'
+
+set -l commands list get set
+set -l not_seen "$seen shell && $seen wallpaper && not $seen $commands"
+complete -c caelestia -n $not_seen -a 'list' -d 'List wallpapers'
+complete -c caelestia -n $not_seen -a 'get' -d 'Get current wallpaper path'
+complete -c caelestia -n $not_seen -a 'set' -d 'Change wallpaper'
+complete -c caelestia -n "$seen shell && $seen wallpaper && $seen set" -F
+
+complete -c caelestia -n "$seen shell && $seen notifs && not $seen clear" -a 'clear' -d 'Clear popup notifications'
 
 # Toggles
 set -l commands communication music specialws sysmon todo
-complete -c caelestia -n "$seen toggle && not $seen $commands" -a "$commands" -d 'toggle'
+complete -c caelestia -n "$seen toggle && not $seen drawers && not $seen $commands" -a "$commands" -d 'toggle'
 
 # Workspace action
 set -l commands workspace workspacegroup movetoworkspace movetoworkspacegroup
