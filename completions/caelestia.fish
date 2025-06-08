@@ -27,14 +27,12 @@ set -l commands all btop discord firefox fish foot fuzzel hypr safeeyes scripts 
 complete -c caelestia -n "$seen install && not $seen $commands" -a "$commands"
 
 # Shell
-set -l commands quit reload-css reload-config show brightness media
+set -l commands mpris
 set -l not_seen "$seen shell && not $seen $commands"
-complete -c caelestia -n $not_seen -a 'reload-css' -d 'Reload shell styles'
-complete -c caelestia -n $not_seen -a 'reload-config' -d 'Reload shell config'
-complete -c caelestia -n $not_seen -a 'show' -d 'Show a window'
-complete -c caelestia -n $not_seen -a 'toggle' -d 'Toggle a window on the focused monitor'
-complete -c caelestia -n $not_seen -a 'media' -d 'Media commands'
-complete -c caelestia -n $not_seen -a 'brightness' -d 'Change brightness'
+complete -c caelestia -n $not_seen -a 'mpris' -d 'Mpris control'
+
+set -l commands getActive
+complete -c caelestia -n "$seen shell && $seen mpris && not $seen $commands" -a 'getActive' -d 'Get a property from the active mpris player'
 
 set -l commands play-pause next previous stop
 set -l not_seen "$seen shell && $seen media && not $seen $commands"

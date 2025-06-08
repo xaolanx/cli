@@ -9,8 +9,8 @@ if test "$argv[1]" = shell
     if test -z "$argv[2..]"
         $C_DATA/shell/run.fish
     else
-        if contains -- 'caelestia' (astal -l)
-            astal -i caelestia $argv[2..]
+        if qs list --all | grep "Config path: $C_DATA/shell/shell.qml" &> /dev/null
+            qs -p $C_DATA/shell ipc call $argv[2..]
         else
             warn 'Shell unavailable'
         end
