@@ -111,6 +111,7 @@ def apply_terms(sequences: str) -> None:
 
 def apply_hypr(conf: str) -> None:
     write_file(config_dir / "hypr/scheme/current.conf", conf)
+    subprocess.run(["hyprctl", "reload"])
 
 
 def apply_discord(scss: str) -> None:
