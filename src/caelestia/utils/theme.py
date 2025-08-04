@@ -149,7 +149,11 @@ def apply_gtk(colours: dict[str, str], mode: str) -> None:
     subprocess.run(["dconf", "write", "/org/gnome/desktop/interface/color-scheme", f"'prefer-{mode}'"])
     subprocess.run(["dconf", "write", "/org/gnome/desktop/interface/icon-theme", f"'Papirus-{mode.capitalize()}'"])
 
-
+def apply_foot(colours: dict[str, str]) -> None:
+    template = gen_replace(colours, templates_dir / "caelestifoot.ini", hash=True)
+    write_file(config_dir / "foot/caelestifoot.ini", template)
+    subprocess.run(["foot", "--server", "reload"], check=False)
+    
 def apply_qt(colours: dict[str, str], mode: str) -> None:
     template = gen_replace(colours, templates_dir / "qtcolors.conf", hash=True)
     write_file(config_dir / "qt5ct/colors/caelestia.conf", template)
@@ -181,5 +185,6 @@ def apply_colours(colours: dict[str, str], mode: str) -> None:
     apply_fuzzel(colours)
     apply_btop(colours)
     apply_gtk(colours, mode)
+    apply_foot(colours)
     apply_qt(colours, mode)
     apply_user_templates(colours)
