@@ -150,7 +150,7 @@ def apply_gtk(colours: dict[str, str], mode: str) -> None:
     subprocess.run(["dconf", "write", "/org/gnome/desktop/interface/icon-theme", f"'Papirus-{mode.capitalize()}'"])
 
 def apply_foot(colours: dict[str, str]) -> None:
-    template = gen_replace(colours, templates_dir / "caelestifoot.ini", hash=True)
+    template = gen_replace(colours, templates_dir / "caelestifoot.ini", hash=False)
     write_file(config_dir / "foot/caelestifoot.ini", template)
     subprocess.run(["foot", "--server", "reload"], check=False)
     
