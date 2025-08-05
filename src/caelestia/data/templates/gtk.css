@@ -1,17 +1,56 @@
 @define-color accent_color {{ $primary }};
-@define-color accent_fg_color {{ $onPrimary }};
-@define-color accent_bg_color {{ $primary }};
-@define-color window_bg_color {{ $background }};
-@define-color window_fg_color {{ $onBackground }};
-@define-color headerbar_bg_color {{ $surfaceDim }};
-@define-color headerbar_fg_color {{ $onSurface }};
-@define-color popover_bg_color {{ $surfaceDim }};
-@define-color popover_fg_color {{ $onSurface }};
+@define-color accent_fg_color {{ $onPrimaryContainer }};
+@define-color accent_bg_color {{ $primaryContainer }};
+@define-color destructive_color {{ $error }};
+@define-color destructive_bg_color {{ $errorContainer }};
+@define-color destructive_fg_color {{ $onErrorContainer }};
+@define-color success_color {{ $secondary }};
+@define-color success_bg_color {{ $secondaryContainer }};
+@define-color success_fg_color {{ $onSecondaryContainer }};
+@define-color warning_color {{ $tertiary }};
+@define-color warning_bg_color {{ $tertiaryContainer }};
+@define-color warning_fg_color {{ $onTertiaryContainer }};
+@define-color error_color {{ $error }};
+@define-color error_bg_color {{ $errorContainer }};
+@define-color error_fg_color {{ $onErrorContainer }};
+@define-color window_bg_color {{ $surface }};
+@define-color window_fg_color {{ $onSurface }};
 @define-color view_bg_color {{ $surface }};
 @define-color view_fg_color {{ $onSurface }};
-@define-color card_bg_color {{ $surface }};
+@define-color headerbar_bg_color @window_bg_color;
+@define-color headerbar_fg_color @window_fg_color;
+@define-color headerbar_border_color @window_bg_color;
+@define-color headerbar_backdrop_color @window_bg_color;
+@define-color headerbar_shade_color @window_bg_color;
+@define-color card_bg_color {{ $surfaceContainerHigh }};
 @define-color card_fg_color {{ $onSurface }};
-@define-color sidebar_bg_color @window_bg_color;
+@define-color card_shade_color rgba(0, 0, 0, 0.07);
+@define-color dialog_bg_color @card_bg_color;
+@define-color dialog_fg_color @card_fg_color;
+@define-color popover_bg_color @card_bg_color;
+@define-color popover_fg_color @card_fg_color;
+@define-color shade_color rgba(0, 0, 0, 0.36);
+@define-color scrollbar_outline_color rgba(139, 145, 152, 0.5);
+@define-color sidebar_bg_color {{ $surfaceContainerLow }};
 @define-color sidebar_fg_color @window_fg_color;
 @define-color sidebar_border_color @window_bg_color;
-@define-color sidebar_backdrop_color @window_bg_color;
+@define-color sidebar_backdrop_color @sidebar_bg_color;
+@define-color secondary_sidebar_bg_color @sidebar_bg_color;
+@define-color secondary_sidebar_backdrop_color @sidebar_bg_color;
+
+.navigation-sidebar {
+  background-color: @sidebar_bg_color;
+  color: @window_fg_color;
+}
+
+headerbar.default-decoration {
+  /* You may need to tweak these values depending on your GTK theme */
+  margin-bottom: 50px;
+  margin-top: -100px;
+}
+
+/* rm -rf window shadows */
+window.csd,             /* gtk4? */
+window.csd decoration { /* gtk3 */
+  box-shadow: none;
+}
